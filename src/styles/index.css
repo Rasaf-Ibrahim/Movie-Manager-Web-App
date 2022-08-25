@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Atma:wght@300;400;500;600;700&family=Indie+Flower&family=Kaushan+Script&family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&family=Noto+Serif+Bengali:wght@100;200;300;400;500;600;700;800;900&family=Source+Code+Pro:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&family=Train+One&family=Yatra+One&display=swap');
+
+
+
+/* In the above import, 0,200 means font weight is 200 and the style is regular. 1:200 means font weight is 200 and the style is italic.
+
+font-family: 'Source Sans Pro', sans-serif;
+(It has 200, 300, 400, 600, 700, 800 & 900 font weight's regular and italic style.)
+
+font-family: 'Source Code Pro', monospace;
+(It has 200, 300, 400,500, 600, 700, 800 & 900 font weight's regular and italic style.)
+
+
+font-family: 'Atma', cursive;
+font-family: 'Indie Flower', cursive;
+font-family: 'Kaushan Script', cursive;
+font-family: 'Lobster Two', cursive;
+font-family: 'Noto Serif Bengali', serif;
+font-family: 'Source Code Pro', monospace;
+font-family: 'Source Sans Pro', sans-serif;
+font-family: 'Train One', cursive;
+font-family: 'Yatra One', cursive;
+
+*/
+
+body {
+
+  /* It's needed so that the side overflow scroll bar doesn't get hidden and visible time to time. */
+  overflow-y: scroll;
+  
+}
