@@ -1,4 +1,9 @@
 &nbsp;
+**`Version`** : **`1.0`**
+&nbsp;
+
+
+&nbsp;
 ### Problem: Responsive spacing is not possible from the root
 
 &nbsp;
@@ -29,7 +34,19 @@ spacing: factor => `${0.5 * factor}rem`,
 
 ### Solution: `responsiveSpacing()`
 
-In this `mui-theme` folder, I have created the `responsiveSpacing.js` file. In that file, I have created `responsiveSpacing()` function. If we use this function, we will not need to manually pass spacing for all the breakpoint manually.
+In this `mui-theme` folder, I have created the `responsiveSpacing.js` file. In that file, I have created `responsiveSpacing()` function. If we use this function, we will not need to pass spacing for all the breakpoint manually.
+
+&nbsp;
+> The function accept one argument:
+
+You must pass one numerical value. Suppose, you want to have `1rem` for the mobile screen. So, you will pass `1`. Automatically, other larger screen's value will be calculated based on the the screen size and your passed value.
+
+1 = 1rem = 16px
+0.5 = 0.5rem = 8px
+0.25 = 0.25rem = 4px
+0.125 = 0.125rem = 2px
+
+
 
 &nbsp;
 > Way to use:

@@ -6,7 +6,7 @@ export default function Landing() {
 
     return (
 
-        <Box sx={{ textAlign: 'center', marginTop:responsiveSpacing(4) }}>
+        <Box sx={{ textAlign: 'center', marginTop:responsiveSpacing(2) }}>
 
             <Typography variant='h4' component='h1'>Landing Page</Typography>
 

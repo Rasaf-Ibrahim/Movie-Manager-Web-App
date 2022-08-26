@@ -1,8 +1,8 @@
 export default function responsiveSpacing (space) {
    
 
-    const halfPixel= 0.0625
-    const fourPixel = 0.5
+    const halfPixel= 0.03125
+    const fourPixel = 0.25
 
     const multiplierOfFourPixel = Math.floor(space/fourPixel)
 
@@ -10,7 +10,7 @@ export default function responsiveSpacing (space) {
    
 
     return (
-        {xs:space, sm:space+(increase*1), md:space+(increase*2), lg:space+(increase*3), xl:space+(increase*3)}
+        {xs:`${space}rem`, sm:`${space+(increase*1)}rem`, md:`${space+(increase*2)}rem`, lg:`${space+(increase*3)}rem`, xl:`${space+(increase*3)}rem`}
        )
 } 
 

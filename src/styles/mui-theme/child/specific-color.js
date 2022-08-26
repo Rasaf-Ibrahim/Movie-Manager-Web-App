@@ -20,6 +20,14 @@ export function specificColor (darkModeVariable) {
         v3: darkModeVariable?  grey[200] : grey[700],
         v4: darkModeVariable?  grey[300] : grey[600],
         v5: darkModeVariable?  grey[400] : grey[500],
+
+        opp: {
+          v1: darkModeVariable?  grey[900] : grey[50],
+          v2: darkModeVariable?  grey[800] : grey[100],
+          v3: darkModeVariable?  grey[700] : grey[200],
+          v4: darkModeVariable?  grey[600] : grey[300],
+          v5: darkModeVariable?  grey[500] : grey[400],
+        }
       },
 
 
@@ -49,6 +57,14 @@ export function specificColor (darkModeVariable) {
         v3: darkModeVariable?  blueGrey[200] : blueGrey[700],
         v4: darkModeVariable?  blueGrey[300] : blueGrey[600],
         v5: darkModeVariable?  blueGrey[400] : blueGrey[500],
+
+        opp: {
+          v1: darkModeVariable?  blueGrey[900] : blueGrey[50],
+          v2: darkModeVariable?  blueGrey[800] : blueGrey[100],
+          v3: darkModeVariable?  blueGrey[700] : blueGrey[200],
+          v4: darkModeVariable?  blueGrey[600] : blueGrey[300],
+          v5: darkModeVariable?  blueGrey[500] : blueGrey[400],
+        }
       },
 
 
@@ -77,6 +93,14 @@ export function specificColor (darkModeVariable) {
         v3: darkModeVariable?  red[200] : red[700],
         v4: darkModeVariable?  red[300] : red[600],
         v5: darkModeVariable?  red[400] : red[500],
+
+        opp: {
+          v1: darkModeVariable?  red[900] : red[50],
+          v2: darkModeVariable?  red[800] : red[100],
+          v3: darkModeVariable?  red[700] : red[200],
+          v4: darkModeVariable?  red[600] : red[300],
+          v5: darkModeVariable?  red[500] : red[400],
+        }
       },
 
 
@@ -105,6 +129,14 @@ export function specificColor (darkModeVariable) {
         v3: darkModeVariable?  pink[200] : pink[700],
         v4: darkModeVariable?  pink[300] : pink[600],
         v5: darkModeVariable?  pink[400] : pink[500],
+
+        opp: {
+          v1: darkModeVariable?  pink[900] : pink[50],
+          v2: darkModeVariable?  pink[800] : pink[100],
+          v3: darkModeVariable?  pink[700] : pink[200],
+          v4: darkModeVariable?  pink[600] : pink[300],
+          v5: darkModeVariable?  pink[500] : pink[400],
+        }
       },
 
 
@@ -133,6 +165,14 @@ export function specificColor (darkModeVariable) {
         v3: darkModeVariable?  orange[200] : orange[700],
         v4: darkModeVariable?  orange[300] : orange[600],
         v5: darkModeVariable?  orange[400] : orange[500],
+
+        opp: {
+          v1: darkModeVariable?  pink[900] : pink[50],
+          v2: darkModeVariable?  pink[800] : pink[100],
+          v3: darkModeVariable?  pink[700] : pink[200],
+          v4: darkModeVariable?  pink[600] : pink[300],
+          v5: darkModeVariable?  pink[500] : pink[400],
+        }
       },
 
 
@@ -161,6 +201,14 @@ export function specificColor (darkModeVariable) {
         v3: darkModeVariable?  deepOrange[200] : deepOrange[700],
         v4: darkModeVariable?  deepOrange[300] : deepOrange[600],
         v5: darkModeVariable?  deepOrange[400] : deepOrange[500],
+
+        opp: {
+          v1: darkModeVariable?  deepOrange[900] : deepOrange[50],
+          v2: darkModeVariable?  deepOrange[800] : deepOrange[100],
+          v3: darkModeVariable?  deepOrange[700] : deepOrange[200],
+          v4: darkModeVariable?  deepOrange[600] : deepOrange[300],
+          v5: darkModeVariable?  deepOrange[500] : deepOrange[400],
+        }
       },
 
 
@@ -190,6 +238,14 @@ export function specificColor (darkModeVariable) {
         v3: darkModeVariable?  brown[200] : brown[700],
         v4: darkModeVariable?  brown[300] : brown[600],
         v5: darkModeVariable?  brown[400] : brown[500],
+
+        opp: {
+          v1: darkModeVariable?  brown[900] : brown[50],
+          v2: darkModeVariable?  brown[800] : brown[100],
+          v3: darkModeVariable?  brown[700] : brown[200],
+          v4: darkModeVariable?  brown[600] : brown[300],
+          v5: darkModeVariable?  brown[500] : brown[400],
+        }
       },
 
 
@@ -218,6 +274,14 @@ export function specificColor (darkModeVariable) {
         v3: darkModeVariable?  blue[200] : blue[700],
         v4: darkModeVariable?  blue[300] : blue[600],
         v5: darkModeVariable?  blue[400] : blue[500],
+
+        opp: {
+          v1: darkModeVariable?  blue[900] : blue[50],
+          v2: darkModeVariable?  blue[800] : blue[100],
+          v3: darkModeVariable?  blue[700] : blue[200],
+          v4: darkModeVariable?  blue[600] : blue[300],
+          v5: darkModeVariable?  blue[500] : blue[400],
+        }
       },
 
 
@@ -246,6 +310,14 @@ export function specificColor (darkModeVariable) {
       v3: darkModeVariable?  lightBlue[200] : lightBlue[700],
       v4: darkModeVariable?  lightBlue[300] : lightBlue[600],
       v5: darkModeVariable?  lightBlue[400] : lightBlue[500],
+
+      opp: {
+        v1: darkModeVariable?  lightBlue[900] : lightBlue[50],
+        v2: darkModeVariable?  lightBlue[800] : lightBlue[100],
+        v3: darkModeVariable?  lightBlue[700] : lightBlue[200],
+        v4: darkModeVariable?  lightBlue[600] : lightBlue[300],
+        v5: darkModeVariable?  lightBlue[500] : lightBlue[400],
+      }
     },
 
 
@@ -275,6 +347,14 @@ export function specificColor (darkModeVariable) {
         v3: darkModeVariable?  purple[200] : purple[700],
         v4: darkModeVariable?  purple[300] : purple[600],
         v5: darkModeVariable?  purple[400] : purple[500],
+
+        opp: {
+          v1: darkModeVariable?  purple[900] : purple[50],
+          v2: darkModeVariable?  purple[800] : purple[100],
+          v3: darkModeVariable?  purple[700] : purple[200],
+          v4: darkModeVariable?  purple[600] : purple[300],
+          v5: darkModeVariable?  purple[500] : purple[400],
+        }
       },
 
 
@@ -303,6 +383,14 @@ export function specificColor (darkModeVariable) {
         v3: darkModeVariable?  indigo[200] : indigo[700],
         v4: darkModeVariable?  indigo[300] : indigo[600],
         v5: darkModeVariable?  indigo[400] : indigo[500],
+
+        opp: {
+          v1: darkModeVariable?  indigo[900] : indigo[50],
+          v2: darkModeVariable?  indigo[800] : indigo[100],
+          v3: darkModeVariable?  indigo[700] : indigo[200],
+          v4: darkModeVariable?  indigo[600] : indigo[300],
+          v5: darkModeVariable?  indigo[500] : indigo[400],
+        }
       },
 
 
@@ -333,6 +421,14 @@ export function specificColor (darkModeVariable) {
       v3: darkModeVariable?  cyan[200] : cyan[700],
       v4: darkModeVariable?  cyan[300] : cyan[600],
       v5: darkModeVariable?  cyan[400] : cyan[500],
+
+      opp: {
+        v1: darkModeVariable?  cyan[900] : cyan[50],
+        v2: darkModeVariable?  cyan[800] : cyan[100],
+        v3: darkModeVariable?  cyan[700] : cyan[200],
+        v4: darkModeVariable?  cyan[600] : cyan[300],
+        v5: darkModeVariable?  cyan[500] : cyan[400],
+      }
     },
 
 
@@ -361,6 +457,14 @@ export function specificColor (darkModeVariable) {
       v3: darkModeVariable?  green[200] : green[700],
       v4: darkModeVariable?  green[300] : green[600],
       v5: darkModeVariable?  green[400] : green[500],
+
+      opp: {
+        v1: darkModeVariable?  green[900] : green[50],
+        v2: darkModeVariable?  green[800] : green[100],
+        v3: darkModeVariable?  green[700] : green[200],
+        v4: darkModeVariable?  green[600] : green[300],
+        v5: darkModeVariable?  green[500] : green[400],
+      }
     },
 
 
@@ -389,6 +493,14 @@ export function specificColor (darkModeVariable) {
       v3: darkModeVariable?  lightGreen[200] : lightGreen[700],
       v4: darkModeVariable?  lightGreen[300] : lightGreen[600],
       v5: darkModeVariable?  lightGreen[400] : lightGreen[500],
+
+      opp: {
+        v1: darkModeVariable?  lightGreen[900] : lightGreen[50],
+        v2: darkModeVariable?  lightGreen[800] : lightGreen[100],
+        v3: darkModeVariable?  lightGreen[700] : lightGreen[200],
+        v4: darkModeVariable?  lightGreen[600] : lightGreen[300],
+        v5: darkModeVariable?  lightGreen[500] : lightGreen[400],
+      }
     },
 
 
@@ -417,6 +529,14 @@ export function specificColor (darkModeVariable) {
       v3: darkModeVariable?  teal[200] : teal[700],
       v4: darkModeVariable?  teal[300] : teal[600],
       v5: darkModeVariable?  teal[400] : teal[500],
+
+      opp: {
+        v1: darkModeVariable?  teal[900] : teal[50],
+        v2: darkModeVariable?  teal[800] : teal[100],
+        v3: darkModeVariable?  teal[700] : teal[200],
+        v4: darkModeVariable?  teal[600] : teal[300],
+        v5: darkModeVariable?  teal[500] : teal[400],
+      }
     },
 
 
@@ -445,6 +565,14 @@ export function specificColor (darkModeVariable) {
       v3: darkModeVariable?  yellow[200] : yellow[700],
       v4: darkModeVariable?  yellow[300] : yellow[600],
       v5: darkModeVariable?  yellow[400] : yellow[500],
+
+      opp: {
+        v1: darkModeVariable?  yellow[900] : yellow[50],
+        v2: darkModeVariable?  yellow[800] : yellow[100],
+        v3: darkModeVariable?  yellow[700] : yellow[200],
+        v4: darkModeVariable?  yellow[600] : yellow[300],
+        v5: darkModeVariable?  yellow[500] : yellow[400],
+      }
     },
 
 
@@ -473,6 +601,14 @@ export function specificColor (darkModeVariable) {
       v3: darkModeVariable?  amber[200] : amber[700],
       v4: darkModeVariable?  amber[300] : amber[600],
       v5: darkModeVariable?  amber[400] : amber[500],
+
+      opp: {
+        v1: darkModeVariable?  amber[900] : amber[50],
+        v2: darkModeVariable?  amber[800] : amber[100],
+        v3: darkModeVariable?  amber[700] : amber[200],
+        v4: darkModeVariable?  amber[600] : amber[300],
+        v5: darkModeVariable?  amber[500] : amber[400],
+      }
     },
 
 
@@ -502,6 +638,14 @@ export function specificColor (darkModeVariable) {
       v3: darkModeVariable?  lime[200] : lime[700],
       v4: darkModeVariable?  lime[300] : lime[600],
       v5: darkModeVariable?  lime[400] : lime[500],
+
+      opp: {
+        v1: darkModeVariable?  lime[900] : lime[50],
+        v2: darkModeVariable?  lime[800] : lime[100],
+        v3: darkModeVariable?  lime[700] : lime[200],
+        v4: darkModeVariable?  lime[600] : lime[300],
+        v5: darkModeVariable?  lime[500] : lime[400],
+      }
     },
 
 

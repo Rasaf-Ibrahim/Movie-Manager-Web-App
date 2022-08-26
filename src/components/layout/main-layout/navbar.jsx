@@ -31,7 +31,7 @@ function Navbar() {
   return (
 
 
-    <Paper sx={{ bgcolor: 'brand.t1.v2', padding: responsiveSpacing(1), display: 'grid', gridTemplateColumns: '11fr 1fr', alignItems: 'center' }} elevation={1}>
+    <Paper sx={{ bgcolor: 'brand.t1.v2', padding: responsiveSpacing(0.5), display: 'grid', gridTemplateColumns: '11fr 1fr', alignItems: 'center' }} elevation={1}>
 
       {/* Logo & Title */}
       <Box>

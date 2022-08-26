@@ -10,17 +10,17 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 
 /* Importing only the color that I need */
-import { blueGrey, cyan, teal } from '@mui/material/colors';
+import { blueGrey, cyan, deepOrange, teal } from '@mui/material/colors';
 
 
 /* mui's default theme is an object. I am customizing that default theme object here in this file. I have modified some properties of the default theme object and added a lot of new properties too. Almost all the new property's value is an object too. Storing all these new properties in this file was making this file messy and huge. So, I have created the 'mui-theme/part' folder. In that folder, I have some files, each file is created based on a topic and each file is containing some part of the new customized theme object that I am creating here in this file. Now, let's talk about the process of this file's theme object's connection making with 'mui-theme/part' folder's files. In 'mui-theme/part' folder, each file is exporting a function and the function returns an object. We are importing those functions here and and invoking them and storing the returned object in a variable. Then we are merging the object with the theme object with the help of spread operator. */
 
 /* Importing parts of the theme object*/
-import { brandColor } from './parts/brand-color';
-import { textColor } from './parts/text-color'
-import { specificColor } from './parts/specific-color';
+import { brandColor } from './child/brand-color';
+import { textColor } from './child/text-color'
+import { specificColor } from './child/specific-color';
 
-import { responsiveTypography } from './parts/responsive-typography';
+import { responsiveTypography } from './child/responsive-typography';
 
 
 
@@ -34,7 +34,7 @@ function MuiTheme({ children }) {
   const [darkMode, setDarkMode] = useState('')
 
 
-  // On first load, we will check the localstorage. If the user visited the website previously, theme will be set based on the previous preference. Otherwise (if it's the first visit of the user) theme will be set to light mode. */
+  // On first load, we will check the localStorage. If the user visited the website previously, theme will be set based on the previous preference. Otherwise (if it's the first visit of the user) theme will be set to light mode. */
 
   useEffect(() => {
 
@@ -63,7 +63,7 @@ function MuiTheme({ children }) {
     let themeState = localStorage.getItem('themeState');
 
 
-    // When the localstorage's 'themeState' is 'dark', onClick we will  change the 'themeState' to 'light', also we will to change the 'darkMode' state as setDarkMode(false) so that the theme of the website becomes light as well.
+    // When the localStorage's 'themeState' is 'dark', onClick we will  change the 'themeState' to 'light', also we will to change the 'darkMode' state as setDarkMode(false) so that the theme of the website becomes light as well.
 
     if (themeState === 'dark') {
 
@@ -73,7 +73,7 @@ function MuiTheme({ children }) {
 
     }
 
-    // Otherwise (When the localstorage's 'themeState' is  'light') ,onClick we will  change the 'themeState' to 'dark', also we will to change the 'darkMode' state as setDarkMode(true) so that the theme of the website becomes dark as well.
+    // Otherwise (When the localStorage's 'themeState' is  'light') ,onClick we will  change the 'themeState' to 'dark', also we will to change the 'darkMode' state as setDarkMode(true) so that the theme of the website becomes dark as well.
 
     else {
       localStorage.setItem('themeState', 'dark')
@@ -137,17 +137,16 @@ function MuiTheme({ children }) {
 
 
       primary: {
-        main: darkMode ? cyan[300] : cyan[800],
-        light: darkMode ? cyan[100] : cyan[500],
-        dark: darkMode ? cyan[500] : cyan[900],
-        contrastText: darkMode ? 'rgba(0, 0, 0, 0.87)' : '#fff'
-      },
-
-
-      secondary: {
         main: darkMode ? teal[300] : teal[800],
         light: darkMode ? teal[100] : teal[500],
         dark: darkMode ? teal[500] : teal[900],
+        contrastText: darkMode ? 'rgba(0, 0, 0, 0.87)' : '#fff'
+      },
+
+      secondary: {
+        main: darkMode ? deepOrange[300] : deepOrange[800],
+        light: darkMode ? deepOrange[100] : deepOrange[500],
+        dark: darkMode ? deepOrange[500] : deepOrange[900],
         contrastText: darkMode ? 'rgba(0, 0, 0, 0.87)' : '#fff'
       },
 

@@ -26,7 +26,7 @@ export default function NotFound() {
   return (
     <>
 
-      <Box sx={{ display: 'flex', flexDirection: 'column', gap: responsiveSpacing(3), alignItems: 'center', justifyContent: 'center', minHeight: '100vh' }}>
+      <Box sx={{ display: 'flex', flexDirection: 'column', gap: responsiveSpacing(1.5), alignItems: 'center', justifyContent: 'center', minHeight: '100vh' }}>
 
 
         {darkMode ?
