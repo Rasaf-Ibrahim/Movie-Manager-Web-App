@@ -5,7 +5,7 @@ export const MovieSearchApi = createApi({
 
     reducerPath: "MovieSearchApi",
 
-    baseQuery: fetchBaseQuery({ baseUrl: "http://www.omdbapi.com/" }),
+    baseQuery: fetchBaseQuery({ baseUrl: "https://www.omdbapi.com/" }),
 
     endpoints: (builder) => ({
 
