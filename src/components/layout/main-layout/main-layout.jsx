@@ -1,12 +1,12 @@
 import { Box } from '@mui/material'
 
-import Navbar from './navbar';
-import Footer from './footer';
+import NAVBAR from './navbar/navbar';
+import FOOTER from './footer/footer';
 
 
 
 
-export default function MainLayout({ children }) {
+export default function MAIN_LAYOUT({ children }) {
 
 
   return (
@@ -17,16 +17,16 @@ export default function MainLayout({ children }) {
 
       <Box style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
 
-        <Box> {/* Wrapper (Without footer) */}
+        <Box> {/* wrapper_without_footer */}
 
-          <Navbar />
+          <NAVBAR />
 
           <Box>{children}</Box>
 
-        </Box>  {/* End: Wrapper (Without footer) */}
+        </Box>  {/* End: wrapper_without_footer */}
 
 
-        <Footer />
+        <FOOTER />
 
       </Box>
 

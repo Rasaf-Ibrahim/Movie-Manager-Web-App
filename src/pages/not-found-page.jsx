@@ -1,14 +1,14 @@
-import { NotFound } from "components/page-specific";
+import NOT_FOUND from "components/page-specific/not-found/not-found";
 
-export default function NotFoundPage() {
+export default function NOT_FOUND_PAGE() {
 
 
   return (
     <>
 
-      <NotFound/>
+      <NOT_FOUND />
 
     </>
-  );
+  )
 }
 

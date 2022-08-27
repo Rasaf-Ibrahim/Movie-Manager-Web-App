@@ -34,7 +34,11 @@ import responsiveSpacing from "utils/responsive-spacing/responsive-spacing"
 
 
     const card_title_css = {
-        marginTop:responsiveSpacing(1),marginBottom:responsiveSpacing(2),textAlign:'center', fontWeight:'600' 
+        marginTop:responsiveSpacing(0.8),
+        marginBottom:responsiveSpacing(2),
+        padding:responsiveSpacing(0.2),
+        textAlign:'center',
+        fontWeight:'600' 
     }
 
     const card_more_info_button_css = {

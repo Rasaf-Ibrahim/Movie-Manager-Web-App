@@ -1,3 +1,5 @@
+
+
 import { useState, useEffect, createContext } from 'react';
 
 
@@ -9,32 +11,33 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 // import { grey, blueGrey, red, pink, orange, deepOrange, brown, blue, lightBlue, purple, indigo, cyan,  green, lightGreen, teal, yellow, amber, lime } from '@mui/material/colors';
 
 
-/* Importing only the color that I need */
-import { blueGrey, cyan, deepOrange, teal } from '@mui/material/colors';
-
-
-/* mui's default theme is an object. I am customizing that default theme object here in this file. I have modified some properties of the default theme object and added a lot of new properties too. Almost all the new property's value is an object too. Storing all these new properties in this file was making this file messy and huge. So, I have created the 'mui-theme/part' folder. In that folder, I have some files, each file is created based on a topic and each file is containing some part of the new customized theme object that I am creating here in this file. Now, let's talk about the process of this file's theme object's connection making with 'mui-theme/part' folder's files. In 'mui-theme/part' folder, each file is exporting a function and the function returns an object. We are importing those functions here and and invoking them and storing the returned object in a variable. Then we are merging the object with the theme object with the help of spread operator. */
-
-/* Importing parts of the theme object*/
-import { brandColor } from './child/brand-color';
-import { textColor } from './child/text-color'
-import { specificColor } from './child/specific-color';
-
-import { responsiveTypography } from './child/responsive-typography';
+/* Importing only the color that I need in this file */
+import { blueGrey, deepOrange, teal } from '@mui/material/colors';
 
 
 
+/* Importing all the children of the theme object*/
+import { brandColor } from './children/brand-color';
+import { textColor } from './children/text-color'
+import { specificColor } from './children/specific-color';
+import { responsiveTypography } from './children/responsive-typography';
 
-// creating context for passing state and function which switches theme 
+
+
+// creating context for passing state and function which switches the theme mode
 export const themeSwitchContext = createContext('')
 
 
-function MuiTheme({ children }) {
+// functional component
+export default function MuiTheme({ children }) {
 
+
+  // dark mode state 
   const [darkMode, setDarkMode] = useState('')
 
 
-  // On first load, we will check the localStorage. If the user visited the website previously, theme will be set based on the previous preference. Otherwise (if it's the first visit of the user) theme will be set to light mode. */
+  // On first load, we will check the localStorage. If the user visited the website previously, theme will be set based on the previous preference. Otherwise, (if it's the first visit of the user)the  theme will be set to the light mode. */
+
 
   useEffect(() => {
 
@@ -63,7 +66,7 @@ function MuiTheme({ children }) {
     let themeState = localStorage.getItem('themeState');
 
 
-    // When the localStorage's 'themeState' is 'dark', onClick we will  change the 'themeState' to 'light', also we will to change the 'darkMode' state as setDarkMode(false) so that the theme of the website becomes light as well.
+    // When the localStorage's 'themeState' is 'dark', onClick we will  change the 'themeState' to 'light', also we will  change the 'darkMode' state, we will make it false, setDarkMode(false),  so that the theme of the website becomes light as well.
 
     if (themeState === 'dark') {
 
@@ -73,7 +76,7 @@ function MuiTheme({ children }) {
 
     }
 
-    // Otherwise (When the localStorage's 'themeState' is  'light') ,onClick we will  change the 'themeState' to 'dark', also we will to change the 'darkMode' state as setDarkMode(true) so that the theme of the website becomes dark as well.
+    // Otherwise (When the localStorage's 'themeState' is  'light') ,onClick we will  change the 'themeState' to 'dark', also we will to change the 'darkMode' state, we will make it true, setDarkMode(true), so  that the theme of the website becomes dark as well.
 
     else {
       localStorage.setItem('themeState', 'dark')
@@ -90,37 +93,33 @@ function MuiTheme({ children }) {
   const brand_obj = brandColor(darkMode)
 
 
-
   // imported textColor function accepts an argument and returns 3 objects (text, text_light, text_dark), we are passing the 'darkMode' as the argument and storing the returned objects on the 'text_obj' variable 
   const text_obj = textColor(darkMode)
 
 
-  // specific color
+  // imported specificColor function accepts an argument and returns many objects, we are passing the 'darkMode' as the argument and storing the returned objects on the 'specificColor_obj' variable 
   const specificColor_obj = specificColor(darkMode)
 
 
-  //  responsiveTypography
 
+  // imported responsiveTypography returns many objects, we are storing the returned objects on the 'responsiveTypography_obj' variable 
   const responsiveTypography_obj = responsiveTypography()
 
 
 
-  //  In the following section, we are changing the default styles of MUI theme. https://mui.com/material-ui/customization/default-theme/ 
+  //  In the following section, we are changing some default styles of MUI theme. https://mui.com/material-ui/customization/default-theme/ 
 
   const muiUpdatedStyle = createTheme({
 
-
-    /* The default theme has some  properties. We are changing some of those default theme properties' value in this file */
 
     //spacing, here factor = 1 = 0.5rem = 8px
     spacing: factor => `${0.5 * factor}rem`,
 
     palette: {
+
       mode: darkMode ? 'dark' : 'light',
 
-
-
-      // this background object defines the background color of our application
+      // this background object controls the background color of our application
       background: {
         default: darkMode ? blueGrey[900] : blueGrey[50],
 
@@ -129,13 +128,13 @@ function MuiTheme({ children }) {
       },
 
 
+      // in the typography object, I am changing the fontFamily. But I had to make sure that I import the fontFamily that I use here. I have imported fontFamily in the 'styles/index.css' file.
       typography: {
-
         fontFamily: 'Source Sans Pro, sans-serif',
-
       },
 
 
+      /* There is a related file in the 'mui-theme/children' folder to these primary and secondary objects. The file name is 'brand-color.js' and how is that file related to these primary and secondary objects is described in detail in that file. */
       primary: {
         main: darkMode ? teal[300] : teal[800],
         light: darkMode ? teal[100] : teal[500],
@@ -152,12 +151,13 @@ function MuiTheme({ children }) {
 
 
 
-      /* Other than modifying existing properties' of default theme, we are also adding some new properties. But we are not defining the new properties in this file, we are doing that to some siblings file of this file and then exporting them from those file and importing here. */
+      /* Other than modifying existing properties' of default theme, we are also adding some new properties. But we are not defining the new properties in this file, we have defined them in some files inside the 'mui-theme/children' folder. */
 
       /* All the new properties that is being added here are objects too. And those objects have properties. In those properties, you will see t1, t2, v1, v2, etc. t1 means type 1, v1 means variant 1, opp means opposite  */
 
 
 
+      /* Files inside the 'mui-theme/children' folder export function. We have imported those function in this file. We have invoked the functions in the above. All those function returns object. We have stored those object in the above in variables. Now in the below, we are destructuring those object. */
 
       ...brand_obj,
 
@@ -165,13 +165,12 @@ function MuiTheme({ children }) {
 
       ...specificColor_obj
 
-
-
     },
 
 
     typography: {
 
+      //  destructuring
       ...responsiveTypography_obj
 
     }
@@ -188,7 +187,7 @@ function MuiTheme({ children }) {
 
     <>
 
-      {/* We have made a variable (muiUpdatedStyle) where we have changed MUI defalut styles and added new styles. ThemeProvider is a MUI component which helps to change the default style of MUI.  */}
+      {/* ThemeProvider is a MUI component which helps to change the default style of MUI. We made a variable (muiUpdatedStyle) where we have changed MUI default styles and added new styles. Now, we will pass the variable (muiUpdatedStyle) in the ThemeProvider component as prop.     */}
 
 
       <ThemeProvider theme={muiUpdatedStyle}>
@@ -196,7 +195,7 @@ function MuiTheme({ children }) {
         {/* CssBaseline is needed for dark and light theme to work perfectly*/}
         <CssBaseline>
 
-          {/* We have created 'themeSwitchContext' context. The values are 'switchTheme' & 'darkMode' which will help to switch theme from light to dark and opposite. */}
+          {/* We have created a context('themeSwitchContext') to switch the theme. The values are 'switchTheme' & 'darkMode' which will help to switch theme from light to dark and opposite. */}
 
           <themeSwitchContext.Provider value={{ switchTheme, darkMode }}>
 
@@ -206,6 +205,7 @@ function MuiTheme({ children }) {
 
 
         </CssBaseline>
+
       </ThemeProvider>
 
 
@@ -216,5 +216,5 @@ function MuiTheme({ children }) {
 
 }
 
-export default MuiTheme
+
 

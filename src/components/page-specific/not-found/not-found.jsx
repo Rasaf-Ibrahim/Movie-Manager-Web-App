@@ -6,8 +6,9 @@ import { Box, Button } from '@mui/material'
 
 import { themeSwitchContext } from 'styles/mui-theme/mui-theme'
 
-// responsive-spacing
-import responsiveSpacing from 'utils/responsive-spacing/responsive-spacing';
+
+// CSS
+import {wrapper_css, svg_css} from './style'
 
 
 // SVG Component
@@ -16,26 +17,28 @@ import SvgLight404 from 'styles/svg-component/404/svg-light-404';
 
 
 
-  
 
-export default function NotFound() {
+
+export default function NOT_FOUND() {
 
   const { darkMode } = useContext(themeSwitchContext)
 
 
   return (
-    <>
+ 
+      /* wrapper */
 
-      <Box sx={{ display: 'flex', flexDirection: 'column', gap: responsiveSpacing(1.5), alignItems: 'center', justifyContent: 'center', minHeight: '100vh' }}>
+      <Box sx={{ ...wrapper_css }}>
 
 
+        {/* svg < wrapper */}
         {darkMode ?
-          <SvgLight404 sx={{ m: '1rem', width: { xs: '75%', sm: '60%', md: '55%', lg: '40%', xl: '25%' }, height: { xs: '75%', sm: '60%', md: '55%', lg: '40%', xl: '25%' } }}
+          <SvgLight404 sx={{ ...svg_css }}
           />
 
           :
 
-          <SvgDark404 sx={{ m: '1rem', width: { xs: '75%', sm: '60%', md: '55%', lg: '40%', xl: '25%' }, height: { xs: '75%', sm: '60%', md: '55%', lg: '40%', xl: '25%' } }}
+          <SvgDark404 sx={{ ...svg_css}}
           />
 
         }
@@ -44,9 +47,9 @@ export default function NotFound() {
           <Button>Back to Home</Button>
         </Link>
 
-      </Box>
+      </Box> /* End: wrapper */
 
-    </>
-  );
+ 
+  )
 }
 

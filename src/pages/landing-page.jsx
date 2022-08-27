@@ -1,17 +1,17 @@
 
-import { MainLayout } from "components/layout"
+import { MAIN_LAYOUT } from "components/layout"
 
-import { Landing } from "components/page-specific"
+import LANDING from "components/page-specific/landing/landing"
 
-export default function LandingPage() {
+export default function LANDING_PAGE() {
 
     return (
 
-        <MainLayout>
+        <MAIN_LAYOUT>
 
-            <Landing/>
+            <LANDING />
 
-        </MainLayout>
+        </MAIN_LAYOUT>
 
     )
 }
