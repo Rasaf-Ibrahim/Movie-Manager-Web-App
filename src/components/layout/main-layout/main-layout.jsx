@@ -1,7 +1,7 @@
 import { Box } from '@mui/material'
 
-import NAVBAR from './navbar/navbar';
-import FOOTER from './footer/footer';
+import NAVBAR from './child-1/navbar';
+import FOOTER from './child-2/footer';
 
 
 

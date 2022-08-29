@@ -4,12 +4,15 @@ import { Box, TextField, InputAdornment } from "@mui/material"
 import SearchIcon from '@mui/icons-material/Search';
 
 
-import MovieResult from "./movie-result/movie-result"
+import MovieResult from "./child-1/movie-result"
 
 // CSS
 import {from_wrapper_css, search_icon_css} from './style'
 
 
+
+
+// functional component
 export default function MovieSearch() {
 
 

@@ -2,7 +2,7 @@ import { configureStore } from '@reduxjs/toolkit'
 
 
 // MovieSearch
-import { MovieSearchApi } from 'redux-toolkit/api/movie-search-api'
+import { MovieSearchApi } from 'redux-toolkit/api/movie-api'
 
 
 

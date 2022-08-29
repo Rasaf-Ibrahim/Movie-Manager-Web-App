@@ -18,6 +18,7 @@ import { blueGrey, deepOrange, teal } from '@mui/material/colors';
 
 /* Importing all the children of the theme object*/
 import { brandColor } from './children/brand-color';
+import { backgroundVariationColor } from './children/background-variation-color';
 import { textColor } from './children/text-color'
 import { specificColor } from './children/specific-color';
 import { responsiveTypography } from './children/responsive-typography';
@@ -93,6 +94,12 @@ export default function MuiTheme({ children }) {
   const brand_obj = brandColor(darkMode)
 
 
+
+  // imported backgroundColor function accepts an argument and returns the 'background' object, we are passing the 'darkMode' as the argument and storing the returned object on the 'background_obj' variable 
+
+  const background_variation_obj = backgroundVariationColor(darkMode)
+
+
   // imported textColor function accepts an argument and returns 3 objects (text, text_light, text_dark), we are passing the 'darkMode' as the argument and storing the returned objects on the 'text_obj' variable 
   const text_obj = textColor(darkMode)
 
@@ -117,15 +124,27 @@ export default function MuiTheme({ children }) {
 
     palette: {
 
+
+      
       mode: darkMode ? 'dark' : 'light',
+
+
+
 
       // this background object controls the background color of our application
       background: {
-        default: darkMode ? blueGrey[900] : blueGrey[50],
+
+        /* There is a related file in the 'mui-theme/children' folder to this 'palette.background.default'. The file name is 'background-color.js' and how is that file related to this 'palette.background.default'  is described in detail in that file. */
+
+        default: darkMode ? 'hsl(200, 20%, 18%)' : 'hsl(200, 20%, 85%)',
+
 
         // when the paper's elevation is 0
         paper: darkMode ? blueGrey[900] : blueGrey[50],
       },
+
+
+
 
 
       // in the typography object, I am changing the fontFamily. But I had to make sure that I import the fontFamily that I use here. I have imported fontFamily in the 'styles/index.css' file.
@@ -161,9 +180,11 @@ export default function MuiTheme({ children }) {
 
       ...brand_obj,
 
+      ...background_variation_obj,
+
       ...text_obj,
 
-      ...specificColor_obj
+      ...specificColor_obj,
 
     },
 
@@ -175,6 +196,8 @@ export default function MuiTheme({ children }) {
 
     }
 
+
+  
 
   })
 

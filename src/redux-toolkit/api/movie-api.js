@@ -13,10 +13,15 @@ export const MovieSearchApi = createApi({
             query: (movieName) => `/?s=${movieName}&apikey=1350c188`
 
         }),
+
+        movieInfo:  builder.query({
+            query:(imdbID)=> `/?i=${imdbID}&apikey=1350c188`
+        
+        }),
     })
 
 })
 
 
-export const { useMovieSearchQuery } = MovieSearchApi
+export const { useMovieSearchQuery, useMovieInfoQuery } = MovieSearchApi
 
