@@ -23,9 +23,26 @@ font-family: 'Yatra One', cursive;
 
 */
 
+
+* {
+
+  /* 'margin:0' is needed so that when I use html tag in the MUI's Box component, <Box component='p'> </Box>, then extra margin from the html tag wouldn't get added on the ui. */
+  margin: 0;
+
+  padding: 0;
+
+}
+
+
 body {
+
+  
+  overflow-x: hidden;
 
   /* It's needed so that the side overflow scroll bar doesn't get hidden and visible time to time. */
   overflow-y: scroll;
   
 }
+
+
+

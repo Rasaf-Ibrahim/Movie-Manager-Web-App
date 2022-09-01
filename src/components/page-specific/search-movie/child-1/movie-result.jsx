@@ -1,12 +1,12 @@
-import { Box} from "@mui/material"
+import { Box } from "@mui/material"
 
 import { useMovieSearchQuery } from "redux-toolkit/api/movie-api"
 
 
-import MovieResultSuccessful from "./child-1.1/movie-result-successful"
+import DISPLAYING_MOVIE_RESULT from "./child-1.1/displaying-movie-result"
 
 
-import {ERROR_TEXT, LOADING_SPINNER} from "components/ui"
+import { ERROR_TEXT, LOADING_SPINNER } from "components/ui"
 
 
 // functional component
@@ -31,17 +31,17 @@ export default function MovieResult({ searchedKeyword }) {
 
                     if (isLoading) {
                         return (
-                            <LOADING_SPINNER/>
+                            <LOADING_SPINNER />
                         )
                     }
 
                     else if (error) {
                         return (
 
-                      
-                                <ERROR_TEXT text='Something is wrong.' />
 
-                  
+                            <ERROR_TEXT text='Something is wrong.' />
+
+
                         )
                     }
 
@@ -53,7 +53,7 @@ export default function MovieResult({ searchedKeyword }) {
                             return (
 
 
-                                <MovieResultSuccessful data={data} />
+                                <DISPLAYING_MOVIE_RESULT data={data} />
                             )
 
 
@@ -66,10 +66,10 @@ export default function MovieResult({ searchedKeyword }) {
 
                                 return (
 
-                                  
-                                        <ERROR_TEXT text='No matching results. Maybe give it another shot with different keywords.' />
 
-                    
+                                    <ERROR_TEXT text='No matching results. Maybe give it another shot with different keywords.' />
+
+
                                 )
 
                             }
@@ -78,10 +78,10 @@ export default function MovieResult({ searchedKeyword }) {
 
                                 return (
 
-                
-                                        <ERROR_TEXT text='Search with a longer word.' />
 
-                                    
+                                    <ERROR_TEXT text='Search with a longer word.' />
+
+
                                 )
                             }
 
@@ -96,7 +96,7 @@ export default function MovieResult({ searchedKeyword }) {
                 })()  /* End: Immediately invoked immediately invoke */
 
 
-            } 
+            }
 
 
         </Box>

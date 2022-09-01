@@ -1,62 +1,123 @@
 import responsiveSpacing from "utils/responsive-spacing/responsive-spacing"
 
-    
-
-    
-    // CSS
-    const all_cards_wrapper_css = {
-       margin: responsiveSpacing(1),
-       display: 'flex',
-       justifyContent: 'center', 
-       flexWrap: 'wrap', 
-       gap: responsiveSpacing(1)
-    }
-
-    const card_wrapper_css = {
-        width: '16rem', position: 'relative'
-    }
-
-    const card_image_css= {
-        objectFit: 'cover', height: '18rem', width: '100%'
-    }
-
-    const movie_type_css = {
-        position: 'absolute',
-        top: '0rem',
-        right: '0rem',
-        backgroundColor: 'brand.t1.v1',
-        color: 'text.opp.v1',
-        fontWeight: '600',
-        borderRadius: '0 0 0 1rem',
-        padding:responsiveSpacing(0.4)
-
-    }
 
 
-    const card_title_css = {
-        marginTop:responsiveSpacing(0.8),
-        marginBottom:responsiveSpacing(2),
-        padding:responsiveSpacing(0.2),
-        textAlign:'center',
-        fontWeight:'600' 
-    }
+const whole_component_css = {
+    // margin top is bigger than usual because card image is positioned absolute and it has minus value for 'top' property.
+    marginTop: responsiveSpacing(5),
 
-    const card_more_info_button_css = {
-        position: 'absolute', bottom:'0', 
-        right: '0',
-        left:'0', 
-        margin: '0 auto', display:'flex', justifyContent:'center'
-    }
+    // centering all the content of the component
+    display: 'grid',
+    justifyItems: 'center'
+}
 
 
 
-    export {
 
-        all_cards_wrapper_css,
-        card_image_css,
-        movie_type_css,
-        card_wrapper_css,
-        card_title_css,
-        card_more_info_button_css
+const all_cards_wrapper_css = {
 
-    }
+    /* structuring all the cards with grid*/
+    display: 'grid',
+
+    /* mobile will have one card in a row, tablet will have 2, laptop will have 3, desktop will have 4. */
+    gridTemplateColumns: { xs: '1fr', sm: '1fr 1fr', md: '1fr 1fr 1fr', lg: '1fr 1fr 1fr 1fr' },
+
+    /* By default, value of alignItems is 'stretch' and that makes all the cards' size to be same. But there is a problem with making all the cards's size to be same. There are some cards which have less content but they get stretched to have the same size as another more contented card. In this way, we get empty space on that less contented stretched card and it doesn't look good. To avoid this situation, changing alignItems to 'start' */
+    alignItems: 'start',
+
+    /* rowGap is bigger than usual because card image is positioned absolute and it has minus value for 'top' property. */
+    rowGap: responsiveSpacing(5),
+    columnGap: responsiveSpacing(2)
+}
+
+
+
+const a_card_wrapper_css = {
+
+    /* providing width to the card. width must not be larger than 18rem because I have created all the breakpoints by multiplying 20rem(320px) */
+    width: '17rem',
+
+
+    backgroundColor: 'backgroundVariation.v1',
+    boxShadow: 1,
+
+    borderRadius: '1rem',
+
+
+    /* here, position is relative because we want the 'card_image_wrapper_css' position to be absolute */
+    position: 'relative'
+}
+
+
+
+const card_image_wrapper_css = {
+    position: 'absolute',
+    width: '80%',
+    top: '-3rem',
+
+    //positioning this section to the horizontal center of its parent 
+    left: '50%',
+    transform: 'translateX(-50%)'
+}
+
+
+const card_image_css = {
+    objectFit: 'cover',
+    height: '18rem',
+    width: '100%'  /* 100% of the parent */
+}
+
+
+const card_all_content_except_image_css = {
+
+    // margin top is way larger than usual because card image is positioned absolute and the rest of content must be placed after the image.
+    marginTop: '15rem',
+
+    padding: responsiveSpacing(1),
+
+    // centering all the child component and providing gap between them 
+    display: 'grid',
+    justifyItems: 'center',
+    gap: responsiveSpacing(1.5),
+
+    textAlign: 'center',
+
+
+}
+
+
+const movie_title_css = {
+    typography: 'h5',
+    fontWeight: '600'
+}
+
+
+const movie_type_year_wrapper_css = {
+
+    // centering all the child component and providing gap between them 
+    display: 'grid',
+    justifyItems: 'center',
+
+    // typography style for the child components
+    typography: 'subtitle2'
+}
+
+
+
+
+
+
+
+
+
+
+export {
+    whole_component_css,
+    all_cards_wrapper_css,
+    a_card_wrapper_css,
+    card_image_wrapper_css,
+    card_image_css,
+    card_all_content_except_image_css,
+    movie_type_year_wrapper_css,
+    movie_title_css,
+}

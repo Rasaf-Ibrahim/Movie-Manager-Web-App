@@ -17,11 +17,12 @@ import { blueGrey, deepOrange, teal } from '@mui/material/colors';
 
 
 /* Importing all the children of the theme object*/
-import { brandColor } from './children/brand-color';
-import { backgroundVariationColor } from './children/background-variation-color';
-import { textColor } from './children/text-color'
-import { specificColor } from './children/specific-color';
+import { brandColor } from './children/color/brand-color';
+import { backgroundVariationColor } from './children/color/background-variation-color';
+import { textColor } from './children/color/text-color'
+import { specificColor } from './children/color/specific-color';
 import { responsiveTypography } from './children/responsive-typography';
+import { breakpointsValues } from './children/breakpoints';
 
 
 
@@ -108,6 +109,9 @@ export default function MuiTheme({ children }) {
   const specificColor_obj = specificColor(darkMode)
 
 
+    // imported breakpointsValues returns a object, we are storing the returned object on the 'breakpointsValues_obj' variable 
+    const breakpointsValues_obj = breakpointsValues()
+
 
   // imported responsiveTypography returns many objects, we are storing the returned objects on the 'responsiveTypography_obj' variable 
   const responsiveTypography_obj = responsiveTypography()
@@ -121,6 +125,13 @@ export default function MuiTheme({ children }) {
 
     //spacing, here factor = 1 = 0.5rem = 8px
     spacing: factor => `${0.5 * factor}rem`,
+
+    breakpoints: {
+
+      ...breakpointsValues_obj
+    
+    },
+    
 
     palette: {
 
