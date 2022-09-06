@@ -45,7 +45,7 @@ const a_card_wrapper_css = {
 
 
     /* here, position is relative because we want the 'card_image_wrapper_css' position to be absolute */
-    position: 'relative'
+    position:'relative'
 }
 
 
