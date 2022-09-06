@@ -17,6 +17,11 @@ const app = express()
 // middleware
 app.use(express.json())
 
+app.use('/', (req, res) => {
+    res.json({message: "Hello World"})
+})
+
+
 // routes
 app.use('/api/bookmarks', bookmarkRoute)
 
