@@ -48,3 +48,6 @@ const connectDB = async() => {
 
 
 connectDB()
+
+
+export {app}
