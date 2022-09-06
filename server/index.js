@@ -31,7 +31,7 @@ const connectDB = async() => {
         await mongoose.connect(process.env.MONGO_URI)
 
         /* after the mongoDB is connected, we want to start to listen for requests */
-        app.listen(process.env.PORT || 4000 , ()=> {
+        app.listen(4000 , ()=> {
 
             console.log(`MongoDB is connected & Listening on port: ${process.env.PORT}`)
 
