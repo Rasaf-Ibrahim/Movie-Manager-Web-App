@@ -6,8 +6,9 @@
   "author": "Rasaf Ibrahim",
   "license": "MIT",
   "scripts": {
-    "start": "node server.js",
-    "dev": "nodemon server.js"
+    "dev": "nodemon server.js",
+    "build": "node server.js"
+    
   },
   "dependencies": {
     "dotenv": "^16.0.2",
