@@ -1,6 +1,6 @@
-import BookmarkModel from '../models/BookmarkModel.js';
+const BookmarkModel = require('../models/bookmarkModel.js')
 
-import mongoose from 'mongoose';
+const mongoose = require('mongoose');
 
 
 
@@ -193,4 +193,6 @@ const updateBookmark = async (req, res) => {
 
 
 
-export { fetchBookmark, fetchBookmarks, createBookmark, deleteBookmark, updateBookmark }
+
+
+module.exports = { fetchBookmark, fetchBookmarks, createBookmark, deleteBookmark, updateBookmark }

@@ -1,15 +1,12 @@
-import * as dotenv from 'dotenv'
+require('dotenv').config()
 
-import express from "express";
+const express = require('express')
 
-import mongoose from "mongoose";
+const mongoose = require('mongoose');
 
-import bookmarkRoute from './routes/bookmarkRoute.js'
+const bookmarkRoute = require('./routes/bookmarkRoute.js')
 
 
-
-// dotenv
-dotenv.config()
 
 // express
 const app = express()
@@ -50,4 +47,3 @@ const connectDB = async() => {
 connectDB()
 
 
-export {app}

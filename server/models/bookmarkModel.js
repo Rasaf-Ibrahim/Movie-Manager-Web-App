@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+const mongoose = require('mongoose');
 
 const bookmarkSchema = mongoose.Schema({
 
@@ -25,8 +25,5 @@ const bookmarkSchema = mongoose.Schema({
 }, { timestamps: true })
 
 
-const exportingBookmarkModel = mongoose.model('BookmarkModel', bookmarkSchema)
-
-export default exportingBookmarkModel
-
+module.exports = mongoose.model('BookmarkModel', bookmarkSchema)
 

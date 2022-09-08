@@ -1,6 +1,7 @@
-import express from "express";
+const express = require('express')
 
-import { createBookmark, fetchBookmarks, fetchBookmark, deleteBookmark, updateBookmark } from "../controllers/bookmarkController.js";
+const { createBookmark, fetchBookmarks, fetchBookmark, deleteBookmark, updateBookmark } = require('../controllers/bookmarkController.js') 
+
 
 
 const router = express.Router()
@@ -27,4 +28,4 @@ router.patch('/:id', updateBookmark)
 
 
 
-export default router;
+module.exports = router
