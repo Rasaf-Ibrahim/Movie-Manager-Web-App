@@ -6,6 +6,7 @@ import LANDING_PAGE from "pages/landing-page"
 import NOT_FOUND_PAGE from 'pages/not-found-page'
 import MOVIE_SEARCH_PAGE from 'pages/movie-search-page'
 import MOVIE_INFO_PAGES from 'pages/movie-info-pages'
+import FAVORITE_PAGE from 'pages/favorite-page'
 
 
 // functional component
@@ -27,7 +28,10 @@ export default function App() {
           <Route path='/search-movie' element={<MOVIE_SEARCH_PAGE />} />
 
           {/* Movie Info Pages */}
-          <Route path='/search-movie/:id' element={<MOVIE_INFO_PAGES/>}  />
+          <Route path='/search-movie/:id' element={<MOVIE_INFO_PAGES />} />
+
+          {/* Favorite Page */}
+          <Route path='/favorite' element={<FAVORITE_PAGE />} />
 
 
           {/* 404 Error Page */}

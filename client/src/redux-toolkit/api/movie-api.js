@@ -10,12 +10,12 @@ export const MovieSearchApi = createApi({
     endpoints: (builder) => ({
 
         MovieSearch: builder.query({
-            query: (movieName) => `/?s=${movieName}&apikey=1350c188`
+            query: (movieName) => `/?s=${movieName}&apikey=${process.env.REACT_APP_OMDB_API_KEY}`
 
         }),
 
         movieInfo:  builder.query({
-            query:(imdbID)=> `/?i=${imdbID}&apikey=1350c188`
+            query:(imdbID)=> `/?i=${imdbID}&apikey=${process.env.REACT_APP_OMDB_API_KEY}`
         
         }),
     })

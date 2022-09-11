@@ -26,7 +26,7 @@ export default function MovieResult({ searchedKeyword }) {
 
             {
 
-                /*  Immediately invoked immediately invoke */
+                /*  Immediately invoked anonymous function */
                 (() => {
 
                     if (isLoading) {
@@ -67,7 +67,7 @@ export default function MovieResult({ searchedKeyword }) {
                                 return (
 
 
-                                    <ERROR_TEXT text='No matching results. Maybe give it another shot with different keywords.' />
+                                    <ERROR_TEXT text='No matching results. Maybe give it another shot with different keywords or exact name of the movie.' />
 
 
                                 )
@@ -93,7 +93,7 @@ export default function MovieResult({ searchedKeyword }) {
                     }
 
 
-                })()  /* End: Immediately invoked immediately invoke */
+                })()  /* End: Immediately invoked anonymous function */
 
 
             }

@@ -2,9 +2,6 @@ import { Link } from "react-router-dom"
 
 import { Box, Button } from "@mui/material"
 
-import ADD_REMOVE_FAVORITE_BUTTON from "components/features/add-remove-favorite-button";
-
-
 import {
     whole_component_css,
     all_cards_wrapper_css,
@@ -16,15 +13,10 @@ import {
     movie_title_css,
 } from './style'
 
+import ADD_REMOVE_FAVORITE_BUTTON from "components/features/add-remove-favorite-button"
 
 
-
-
-
-export default function DISPLAYING_MOVIE_RESULT({ data }) {
-
-
-console.log(data.Search)
+export default function DISPLAYING_FAVORITE_MOVIE({ data, refetchInTheFavoriteMoviePage }) {
 
 
     return (
@@ -38,7 +30,7 @@ console.log(data.Search)
 
 
                 {/*  Note: mapping all result here */}
-                {data.Search.map((movie) => (
+                {data.map((movie) => (
 
 
                     /* card_wrapper < all_cards_wrapper */
@@ -51,19 +43,17 @@ console.log(data.Search)
 
                             {
                                 /* Note: Some movie's poster is missing */
-                                movie.Poster === 'N/A' ?
+                                movie.imageUrl === 'N/A' ?
 
 
-                                    <Box component='img' sx={{ ...card_image_css }} src="https://via.placeholder.com/750x750.png?text=Sorry,+No+Poster" alt={movie.Title} />
+                                    <Box component='img' sx={{ ...card_image_css }} src="https://via.placeholder.com/750x750.png?text=Sorry,+No+Poster" alt={movie.title} />
 
                                     :
 
-                                    <Box component='img' sx={{ ...card_image_css }} src={movie.Poster} alt={movie.Title} />
+                                    <Box component='img' sx={{ ...card_image_css }} src={movie.imageUrl} alt={movie.title} />
                             }
 
 
-
-                       
                         </Box> {/* End: card_image_wrapper > card_wrapper */}
 
 
@@ -79,7 +69,7 @@ console.log(data.Search)
 
                             <Box component="p" sx={{ ...movie_title_css }} >
 
-                                {movie.Title}
+                                {movie.title}
 
                             </Box>
 
@@ -94,7 +84,7 @@ console.log(data.Search)
 
                                     <Box component='span'>
                                         {/* Capitalizing the first letter */}
-                                        {movie.Type.charAt(0).toUpperCase() + movie.Type.slice(1)}
+                                        {movie.type.charAt(0).toUpperCase() + movie.type.slice(1)}
                                     </Box>
 
                                 </Box>
@@ -106,17 +96,11 @@ console.log(data.Search)
                                     <Box component='span'>Year: </Box>
 
                                     <Box component='span'>
-                                        {movie.Year}
+                                        {movie.year}
                                     </Box>
 
                                 </Box>
 
-
-                                <Box>     
-                                    
-                                    <ADD_REMOVE_FAVORITE_BUTTON movie={movie}/>
-                                
-                                </Box>
 
 
 
@@ -124,6 +108,11 @@ console.log(data.Search)
                             </Box> {/* End: movie_type_year_wrapper < card_all_content_except_image_css */}
 
 
+                            <Box>
+
+                                <ADD_REMOVE_FAVORITE_BUTTON movie={movie} refetchInTheFavoriteMoviePage={refetchInTheFavoriteMoviePage} />
+
+                            </Box>
 
                             {/* card_more_info_button < card_all_content_except_image_css */}
                             <Box>

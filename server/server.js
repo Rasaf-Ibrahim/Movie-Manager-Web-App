@@ -1,22 +1,31 @@
-require('dotenv').config()
 
+// importing necessary stuffs
 const express = require('express')
 
 const mongoose = require('mongoose');
 
-const bookmarkRoute = require('./routes/bookmarkRoute.js')
+require('dotenv').config()
 
+const cors = require('cors')
+
+
+const favoriteRoute = require('./routes/favoriteRoute.js')
 
 
 // express
 const app = express()
+
+
+// CORS (Cross-origin resource sharing allows AJAX requests to skip the Same-origin policy and access resources from remote hosts)
+app.use(cors())
+
 
 // middleware
 app.use(express.json())
 
 
 // routes
-app.use('/api/bookmarks', bookmarkRoute)
+app.use('/api/Favorites', favoriteRoute)
 
 
 

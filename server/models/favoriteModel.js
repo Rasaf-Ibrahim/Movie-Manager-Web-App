@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const bookmarkSchema = mongoose.Schema({
+const favoriteSchema = mongoose.Schema({
 
     title: {
         type: String,
@@ -12,12 +12,17 @@ const bookmarkSchema = mongoose.Schema({
         required: true
     },
 
-    year: {
-        type: Number,
+    type: {
+        type: String,
         required: true
     },
 
-    movieID: {
+    year: {
+        type: String,
+        required: true
+    },
+
+    imdbID: {
         type: String,
         required: true
     }
@@ -25,5 +30,5 @@ const bookmarkSchema = mongoose.Schema({
 }, { timestamps: true })
 
 
-module.exports = mongoose.model('BookmarkModel', bookmarkSchema)
+module.exports = mongoose.model('FavoriteModel', favoriteSchema)
 
