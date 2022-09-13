@@ -3,10 +3,10 @@ import { Box, Typography, } from "@mui/material"
 
 // CSS
 
-import { whole_component_css, all_contents_css,poster_image_wrapper_css, poster_img_css, title_css, a_info_section_css, info_title_css, info_value_css, everything_without_poster_title_css } from './style'
+import { whole_component_css, all_contents_css, poster_image_wrapper_css, poster_img_css, title_css, a_info_section_css, info_title_css, info_value_css, everything_without_poster_title_css } from './style'
 
 
-export default function MOVIE_DETAIL({ data }) {
+export default function DISPLAYING_MOVIE_DETAILS({ data }) {
 
     return (
 
@@ -22,7 +22,7 @@ export default function MOVIE_DETAIL({ data }) {
 
                     {/* poster_wrapper < movie_detail_wrapper */}
 
-                    <Box sx={{...poster_image_wrapper_css}}>
+                    <Box sx={{ ...poster_image_wrapper_css }}>
 
                         {
                             /* Note: Some movie's poster is missing */
@@ -33,7 +33,7 @@ export default function MOVIE_DETAIL({ data }) {
 
                                 :
 
-                                <Box component="img" sx={{ ...poster_img_css }} src={data.Poster} alt={data.Title}/>
+                                <Box component="img" sx={{ ...poster_img_css }} src={data.Poster} alt={data.Title} />
                         }
 
                     </Box> {/* End: poster_wrapper < movie_detail_wrapper */}
@@ -41,7 +41,7 @@ export default function MOVIE_DETAIL({ data }) {
 
 
                     {/* title < movie_detail_wrapper */}
-                    <Typography variant="h3" sx={{...title_css}}>{data.Title}</Typography>
+                    <Typography variant="h3" sx={{ ...title_css }}>{data.Title}</Typography>
 
 
                     {/* everything_without_poster_title < movie_detail_wrapper */}
@@ -79,7 +79,7 @@ export default function MOVIE_DETAIL({ data }) {
                         {
                             data.Type === 'series' && (
 
-                                 /* seasons < movie_detail_wrapper */
+                                /* seasons < movie_detail_wrapper */
                                 <Box sx={{ ...a_info_section_css }}>
 
                                     <Box sx={{ ...info_title_css }}>
@@ -94,7 +94,7 @@ export default function MOVIE_DETAIL({ data }) {
 
                             )
                         }
-                        
+
 
 
                         {/* imdbRating < movie_detail_wrapper */}
@@ -105,7 +105,7 @@ export default function MOVIE_DETAIL({ data }) {
                             </Box>
 
                             <Box sx={{ ...info_value_css }}>
-                                {data.imdbRating} 
+                                {data.imdbRating}
                             </Box>
 
                         </Box>
@@ -114,59 +114,59 @@ export default function MOVIE_DETAIL({ data }) {
                         {/* imdbRating < movie_detail_wrapper */}
                         <Box sx={{ ...a_info_section_css }}>
 
-                          <Box sx={{ ...info_title_css }}>
-                              Total Rating Providers
-                          </Box>
+                            <Box sx={{ ...info_title_css }}>
+                                Total Rating Providers
+                            </Box>
 
-                          <Box sx={{ ...info_value_css }}>
-                              {data.imdbVotes}
-                          </Box>
+                            <Box sx={{ ...info_value_css }}>
+                                {data.imdbVotes}
+                            </Box>
 
-                      </Box>
+                        </Box>
 
 
 
-                
+
                         {/* Only if it's a movie, then there will be boxOffice property*/}
                         {
                             data.Type === 'movie' && (
 
-                            /* boxOffice < movie_detail_wrapper */
-                            <Box sx={{ ...a_info_section_css }}>
+                                /* boxOffice < movie_detail_wrapper */
+                                <Box sx={{ ...a_info_section_css }}>
 
-                                <Box sx={{ ...info_title_css }}>
-                                    Box Office
+                                    <Box sx={{ ...info_title_css }}>
+                                        Box Office
+                                    </Box>
+
+                                    <Box sx={{ ...info_value_css }}>
+
+                                        {data.BoxOffice}
+
+                                    </Box>
+
                                 </Box>
-
-                                <Box sx={{ ...info_value_css }}>
-                            
-                                   {data.BoxOffice}
-                                    
-                                </Box>  
-
-                            </Box>
 
                             )
                         }
 
-                   
 
 
 
 
 
-                    {/* awards < movie_detail_wrapper */}
-                    <Box sx={{ ...a_info_section_css }}>
 
-                        <Box sx={{ ...info_title_css }}>
-                            Awards
+                        {/* awards < movie_detail_wrapper */}
+                        <Box sx={{ ...a_info_section_css }}>
+
+                            <Box sx={{ ...info_title_css }}>
+                                Awards
+                            </Box>
+
+                            <Box sx={{ ...info_value_css }}>
+                                {data.Awards}
+                            </Box>
+
                         </Box>
-
-                        <Box sx={{ ...info_value_css }}>
-                            {data.Awards}
-                        </Box>
-
-                    </Box>
 
 
                         {/* genre < movie_detail_wrapper */}
@@ -197,21 +197,21 @@ export default function MOVIE_DETAIL({ data }) {
                         </Box>
 
 
-                          {/* country < movie_detail_wrapper */}
-                          <Box sx={{ ...a_info_section_css }}>
+                        {/* country < movie_detail_wrapper */}
+                        <Box sx={{ ...a_info_section_css }}>
 
-                          <Box sx={{ ...info_title_css }}>
-                              Country
-                          </Box>
+                            <Box sx={{ ...info_title_css }}>
+                                Country
+                            </Box>
 
-                          <Box sx={{ ...info_value_css }}>
-                              {data.Country}
-                          </Box>
+                            <Box sx={{ ...info_value_css }}>
+                                {data.Country}
+                            </Box>
 
-                      </Box>
+                        </Box>
 
 
-            
+
 
                         {/* actors < movie_detail_wrapper */}
                         <Box sx={{ ...a_info_section_css }}>
@@ -256,8 +256,8 @@ export default function MOVIE_DETAIL({ data }) {
 
 
 
-                         {/* plot < movie_detail_wrapper */}
-                         <Box sx={{ ...a_info_section_css, gridRow:'span 2' }}>
+                        {/* plot < movie_detail_wrapper */}
+                        <Box sx={{ ...a_info_section_css, gridRow: 'span 2' }}>
 
                             <Box sx={{ ...info_title_css }} >
                                 Plot
@@ -269,10 +269,10 @@ export default function MOVIE_DETAIL({ data }) {
 
                         </Box>
 
-                    
 
-                        
-                     
+
+
+
 
                     </Box> {/* End: everything_without_poster_title < movie_detail_wrapper */}
 

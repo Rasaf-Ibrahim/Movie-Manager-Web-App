@@ -20,11 +20,10 @@ import {
 
 
 
+export default function DISPLAYING_MOVIE_SEARCH_RESULT({ data }) {
 
-export default function DISPLAYING_MOVIE_RESULT({ data }) {
 
-
-console.log(data.Search)
+    console.log(data.Search)
 
 
     return (
@@ -63,7 +62,7 @@ console.log(data.Search)
 
 
 
-                       
+
                         </Box> {/* End: card_image_wrapper > card_wrapper */}
 
 
@@ -112,10 +111,10 @@ console.log(data.Search)
                                 </Box>
 
 
-                                <Box>     
-                                    
+                                <Box>
+
                                     <ADD_REMOVE_FAVORITE_BUTTON movie={movie} />
-                                
+
                                 </Box>
 
 
