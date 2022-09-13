@@ -1,4 +1,3 @@
-
 // importing necessary stuffs
 const express = require('express')
 
@@ -10,6 +9,8 @@ const cors = require('cors')
 
 
 const favoriteRoute = require('./routes/favoriteRoute.js')
+
+const watchLaterRoute = require('./routes/watchLaterRoute')
 
 
 // express
@@ -26,6 +27,7 @@ app.use(express.json())
 
 // routes
 app.use('/api/Favorites', favoriteRoute)
+app.use('/api/watch-later', watchLaterRoute)
 
 
 
