@@ -1,6 +1,6 @@
 import { MAIN_LAYOUT } from "components/layout"
 
-import FAVORITE from "components/page-specific/favorite/favorite"
+import FAVORITE from "components/page-specific/movie/movie"
 
 export default function FAVORITE_PAGE() {
 

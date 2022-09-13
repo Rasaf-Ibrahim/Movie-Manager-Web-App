@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { Box, Typography } from "@mui/material";
 
 import { useMovieInfoQuery } from "redux-toolkit/api/movie-api";
-import { ERROR_TEXT, LOADING_SPINNER } from "components/ui";
+import { ERROR_TEXT, LOADING_SPINNER } from "components/reusable/ui";
 import MOVIE_DETAIL from "./child-1/movie-detail";
 
 

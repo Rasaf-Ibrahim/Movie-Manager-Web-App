@@ -3,14 +3,14 @@ import { Box } from "@mui/material"
 import { useMovieSearchQuery } from "redux-toolkit/api/movie-api"
 
 
-import DISPLAYING_MOVIE_RESULT from "./child-1.1/displaying-movie-result"
+import DISPLAYING_MOVIE_RESULT from "./child-2.1.1/displaying-movie-result"
 
 
-import { ERROR_TEXT, LOADING_SPINNER } from "components/ui"
+import { ERROR_TEXT, LOADING_SPINNER } from "components/reusable/ui"
 
 
 // functional component
-export default function MovieResult({ searchedKeyword }) {
+export default function MovieResult({ searchedKeyword}) {
 
 
     // Note: In the 'useMovieSearchQuery', I am passing 'searchedKeyword' prop as a argument. Also, I have passed a alternative argument 'Frozen'. 'Frozen' is a name of a movie. Initially after the page load, when 'searchedKeyword' is empty, then the api will search for the alternative value 'Frozen' and populate some results on the page. I don't want the page to be empty at the initial load. So, I have passed this alternative default argument.
@@ -53,7 +53,7 @@ export default function MovieResult({ searchedKeyword }) {
                             return (
 
 
-                                <DISPLAYING_MOVIE_RESULT data={data} />
+                                <DISPLAYING_MOVIE_RESULT data={data}  />
                             )
 
 

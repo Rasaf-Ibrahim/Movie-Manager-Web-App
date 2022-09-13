@@ -6,9 +6,10 @@ import responsiveSpacing from 'utils/responsive-spacing/responsive-spacing';
 
 import { useFetchFavoritesQuery } from 'redux-toolkit/api/favorite-api';
 
-import { ERROR_TEXT, LOADING_SPINNER } from 'components/ui';
+import { ERROR_TEXT, LOADING_SPINNER } from 'components/reusable/ui';
 
-import DISPLAYING_FAVORITE_MOVIE from './child-1/displaying-movie';
+import DISPLAYING_FAVORITE_MOVIE from './favorite/displaying-movie';
+import MovieSearch from './search-movie/movie-search';
 
 
 
@@ -39,6 +40,7 @@ export default function FAVORITE() {
 
                     <Tabs value={selectedTab} onChange={handleChange} aria-label="Tabs" 	 >
 
+                        <Tab label="Search Movie" />
                         <Tab label="Favorite" />
                         <Tab label="Watch Later" />
 
@@ -50,9 +52,12 @@ export default function FAVORITE() {
 
                 {/* Content of the tab */}
 
+                {selectedTab === 0 && <MovieSearch/>}
 
-                {/* tab = 0 */}
-                {selectedTab === 0 &&
+
+
+                {/* tab = 1 */}
+                {selectedTab === 1 &&
 
 
                     /*  Immediately invoked anonymous function */
@@ -78,7 +83,7 @@ export default function FAVORITE() {
 
                             return (
 
-                                <DISPLAYING_FAVORITE_MOVIE data={data} refetchInTheFavoriteMoviePage={refetch} />
+                                <DISPLAYING_FAVORITE_MOVIE data={data} />
 
                             )
 
@@ -97,7 +102,7 @@ export default function FAVORITE() {
 
 
 
-                {selectedTab === 1 && <Typography>Hello, this is ibrahim</Typography>}
+                {selectedTab === 2 && <Typography>Hello, this is ibrahim</Typography>}
 
 
                 {/* As content, we can have anything but just for example, We are having a single line of text here. */}
