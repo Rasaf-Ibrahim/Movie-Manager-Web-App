@@ -3,10 +3,11 @@ import { Box } from "@mui/material"
 import { useSearchMovieQuery } from "redux-toolkit/api/movie-api"
 
 
-import DISPLAYING_MOVIE_SEARCH_RESULT from "./child-1.1/displaying-movie-search-result"
+import MOVIE_CARD from "components/reusable/ui/movie-card/movie-card"
 
 
 import { ERROR_TEXT, LOADING_SPINNER } from "components/reusable/ui"
+
 
 
 // functional component
@@ -52,8 +53,7 @@ export default function MOVIE_SEARCH_RESULT({ searchedKeyword }) {
 
                             return (
 
-
-                                <DISPLAYING_MOVIE_SEARCH_RESULT data={data} />
+                                <MOVIE_CARD data={data.Search}/>
                             )
 
 

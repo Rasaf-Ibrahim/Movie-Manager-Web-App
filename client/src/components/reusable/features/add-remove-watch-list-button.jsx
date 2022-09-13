@@ -1,76 +1,100 @@
+/*
+ Both 'features/add-remove-favorite-button.js' & 'features/add-remove-watch-later-button.js' has similar structure. Just different text, icon and api. 
+*/
+
+
 import { IconButton, Tooltip } from "@mui/material"
+
 
 import AddToQueueIcon from '@mui/icons-material/AddToQueue';
 import RemoveFromQueueIcon from '@mui/icons-material/RemoveFromQueue';
 
-import { useSearchFavoriteQuery, useAddFavoriteMutation, useDeleteFavoriteMutation } from 'redux-toolkit/api/favorite-api';
+
+import { useFetchWatchLaterQuery, useSearchWatchLaterQuery, useAddWatchLaterMutation, useDeleteWatchLaterMutation } from 'redux-toolkit/api/watch-later-api';
 
 import responsiveSpacing from "utils/responsive-spacing/responsive-spacing";
 
 
 
 
-export default function ADD_REMOVE_FAVORITE_BUTTON({ movie }) {
+export default function ADD_REMOVE_WATCH_LATER_BUTTON({movie}) {
 
 
-    /* Note: Need to check whether any of the fetched movie is already in the database's favorite collection or not (if a movie is already in the database's favorite collection', then we need to show the remove button but if a movie is not in the 's database's favorite collection', we need to show the add button.) */
-    const { data, error, refetch } = useSearchFavoriteQuery(movie.imdbID)
+    /* Note: In the 'search-movie' section, we need to check whether any of the fetched movie is already in the database's watch-later collection or not (because if a movie is already in the database's watch-later collection', then we need to show the remove button but if a movie is not in the 's database's watch-later collection', we need to show the add button.) To check this, we will need 'useSearchWatchLaterQuery' hook. */
 
 
-
-    /* Note: You can add the movie if it's not already added in the database's favorite collection */
-    const [addFavorite] = useAddFavoriteMutation()
+    /* Note: If we add or remove a movie as watch-later, we need to update the 'watch-later' section. To update the 'watch-later' section, we need to refetch all the watch-later movies there. To refetch we need 'useFetchWatchLaterQuery' hook.*/
 
 
-    const handleAddFavorite = async (favoriteItems) => {
-
-        await addFavorite(favoriteItems)
+    /* Note: We are having two query hooks(useSearchWatchLaterQuery & useFetchWatchLaterQuery) here. Both of them return us a object with same propertyNames(data, refetch, error, etc.). So, while we destructure these hooks' returned object, we need to rename the destructured properties. */
 
 
-        /* Note: refetch the useSearchFavoriteQuery so that the UI knows that the movie is added on the database and can change the 'add button' to 'remove button' */
-        refetch()
+    const { error: searchedWatchLaterError, refetch: searchedWatchLaterRefetch} = useSearchWatchLaterQuery(movie.imdbID)
+
+
+    const {  refetch: fetchedWatchLaterRefetch } = useFetchWatchLaterQuery()
+
+    /* Note: If a movie is not already added in the database's watch-later collection, you can add it. */
+    const [addWatchLater] = useAddWatchLaterMutation()
+
+
+    const handleAddWatchLater = async (watchLaterItems) => {
+
+        await addWatchLater(watchLaterItems)
+
+
+        /* Note: refetch the useSearchWatchLaterQuery hook so that the UI knows that the movie is added on the database and the 'add button' can be changed to 'remove button' */
+        searchedWatchLaterRefetch()
+
+
+        /* Note: This will refetch all the watch-later movies  in the watch-later movie section */
+        fetchedWatchLaterRefetch()
     }
 
 
 
 
-    /* Note: You can remove the movie if it's already added in the  database's favorite collection */
+    /* Note: If a movie is not already added in the database's watch-later collection, you can delete it.*/
 
-    const [deleteFavorite] = useDeleteFavoriteMutation()
+    const [deleteWatchLater] = useDeleteWatchLaterMutation()
 
-    const handleDeleteFavorite = async (imdbID) => {
+    const handleDeleteWatchLater = async (imdbID) => {
 
-        await deleteFavorite(imdbID)
+        await deleteWatchLater(imdbID)
 
-        /* refetch the useSearchFavoriteQuery so that the UI knows that the movie is removed from the database and can change the 'remove button' to 'add button' */
-        refetch()
+        /* Note: refetch the useSearchWatchLaterQuery hook so that the UI knows that the movie is added on the database and the 'remove button' can be changed to 'add button' */
+        searchedWatchLaterRefetch()
+
+        /* Note: This will refetch all the watch-later movies  in the watch-later movie section */
+        fetchedWatchLaterRefetch()
     }
 
 
 
-    console.log(data)
+
 
     return (
 
         <>
 
-            {/* If any fetched movie is not already in the database's favorite collection, then useSearchFavoriteQuery will return us an 'error'. So, if movie gets an error, then we will need to show 'Add to favorite' button. */}
+            {/* If any fetched movie is not already in the database's watch-later collection, then useSearchWatchLaterQuery will return us an 'error'. So, if a movie gets an error, then we will need to show 'Add to watch-later' button. */}
 
-            {error ?
+            {searchedWatchLaterError ?
 
-                <Tooltip title="Add to Favorite" arrow>
+                <Tooltip title="Add to Watch Later" arrow>
 
-                    <IconButton sx={{ fontSize: responsiveSpacing(1) }} color='primary' onClick={async () => handleAddFavorite({
+                    <IconButton sx={{ fontSize: responsiveSpacing(1.2), color:'primary.main'}} onClick={async () => handleAddWatchLater({
 
-                        "title": `${movie.Title}`,
-                        "imageUrl": `${movie.Poster}`,
-                        "type": `${movie.Type}`,
-                        "year": `${movie.Year}`,
+                        "Title": `${movie.Title}`,
+                        "Poster": `${movie.Poster}`,
+                        "Type": `${movie.Type}`,
+                        "Year": `${movie.Year}`,
                         "imdbID": `${movie.imdbID}`
-
+                        
                     })}>
 
-                        <AddToQueueIcon />
+                    
+                    <AddToQueueIcon />
 
                     </IconButton>
 
@@ -80,9 +104,9 @@ export default function ADD_REMOVE_FAVORITE_BUTTON({ movie }) {
                 :
 
 
-                <Tooltip title="Remove from Favorite" arrow>
+                <Tooltip title="Remove from Watch Later" arrow>
 
-                    <IconButton sx={{ fontSize: responsiveSpacing(1) }} color='primary' onClick={async () => handleDeleteFavorite(`${movie.imdbID}`)}>
+                    <IconButton sx={{ fontSize: responsiveSpacing(1.2), color:'pink.v3' }}  onClick={async () => handleDeleteWatchLater(`${movie.imdbID}`)}>
 
                         <RemoveFromQueueIcon />
 

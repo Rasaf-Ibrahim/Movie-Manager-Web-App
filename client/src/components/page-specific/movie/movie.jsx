@@ -1,11 +1,13 @@
 import { useState } from 'react';
 
-import { Box, Typography, Tabs, Tab } from '@mui/material'
+import { Box, Tabs, Tab } from '@mui/material'
+
 import responsiveSpacing from 'utils/responsive-spacing/responsive-spacing';
 
 
 import SEARCH_MOVIE from './search-movie/search-movie';
 import FAVORITE_MOVIE from './favorite/favorite-movie';
+import WATCH_LATER from './watch-later/watch-later';
 
 
 
@@ -50,7 +52,7 @@ export default function FAVORITE() {
                 {selectedTab === 1 && <FAVORITE_MOVIE />}
 
 
-                {selectedTab === 2 && <Typography>Hello, this is ibrahim</Typography>}
+                {selectedTab === 2 && <WATCH_LATER/>}
 
 
             </Box>

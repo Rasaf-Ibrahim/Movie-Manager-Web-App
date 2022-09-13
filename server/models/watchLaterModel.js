@@ -2,22 +2,22 @@ const mongoose = require('mongoose');
 
 const watchLaterSchema = mongoose.Schema({
 
-    title: {
+    Title: {
         type: String,
         required: true
     },
 
-    imageUrl: {
+    Poster: {
         type: String,
         required: true
     },
 
-    type: {
+    Type: {
         type: String,
         required: true
     },
 
-    year: {
+    Year: {
         type: String,
         required: true
     },

@@ -2,9 +2,6 @@ import { Link } from "react-router-dom"
 
 import { Box, Button } from "@mui/material"
 
-import ADD_REMOVE_FAVORITE_BUTTON from "components/reusable/features/add-remove-favorite-button";
-
-
 import {
     whole_component_css,
     all_cards_wrapper_css,
@@ -16,14 +13,11 @@ import {
     movie_title_css,
 } from './style'
 
+import ADD_REMOVE_FAVORITE_BUTTON from "components/reusable/features/add-remove-favorite-button"
+import ADD_REMOVE_WATCH_LATER_BUTTON from "components/reusable/features/add-remove-watch-list-button"
 
 
-
-
-export default function DISPLAYING_MOVIE_SEARCH_RESULT({ data }) {
-
-
-    console.log(data.Search)
+export default function MOVIE_CARD({data}) {
 
 
     return (
@@ -37,7 +31,7 @@ export default function DISPLAYING_MOVIE_SEARCH_RESULT({ data }) {
 
 
                 {/*  Note: mapping all result here */}
-                {data.Search.map((movie) => (
+                {data.map((movie) => (
 
 
                     /* card_wrapper < all_cards_wrapper */
@@ -59,8 +53,6 @@ export default function DISPLAYING_MOVIE_SEARCH_RESULT({ data }) {
 
                                     <Box component='img' sx={{ ...card_image_css }} src={movie.Poster} alt={movie.Title} />
                             }
-
-
 
 
                         </Box> {/* End: card_image_wrapper > card_wrapper */}
@@ -111,18 +103,19 @@ export default function DISPLAYING_MOVIE_SEARCH_RESULT({ data }) {
                                 </Box>
 
 
-                                <Box>
-
-                                    <ADD_REMOVE_FAVORITE_BUTTON movie={movie} />
-
-                                </Box>
-
 
 
 
                             </Box> {/* End: movie_type_year_wrapper < card_all_content_except_image_css */}
 
 
+                            <Box>
+
+                                <ADD_REMOVE_FAVORITE_BUTTON movie={movie} />
+
+                                <ADD_REMOVE_WATCH_LATER_BUTTON movie={movie} />
+
+                            </Box>
 
                             {/* card_more_info_button < card_all_content_except_image_css */}
                             <Box>

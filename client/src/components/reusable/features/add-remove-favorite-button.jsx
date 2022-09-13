@@ -1,7 +1,16 @@
+/*
+ Both 'features/add-remove-favorite-button.js' & 'features/add-remove-watch-later-button.js' has similar structure. Just different text, icon and api. 
+*/
+
+
 import { IconButton, Tooltip } from "@mui/material"
 
-import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
-import FavoriteIcon from '@mui/icons-material/Favorite';
+
+
+import BookmarkAddIcon from '@mui/icons-material/BookmarkAdd';
+import BookmarkRemoveIcon from '@mui/icons-material/BookmarkRemove';
+
+
 
 import {useFetchFavoritesQuery, useSearchFavoriteQuery, useAddFavoriteMutation, useDeleteFavoriteMutation } from 'redux-toolkit/api/favorite-api';
 
@@ -77,17 +86,17 @@ export default function ADD_REMOVE_FAVORITE_BUTTON({movie}) {
 
                 <Tooltip title="Add to Favorite" arrow>
 
-                    <IconButton sx={{ fontSize: responsiveSpacing(1) }} color='primary' onClick={async () => handleAddFavorite({
+                    <IconButton sx={{ fontSize: responsiveSpacing(1.2), color:'primary.main'}}  onClick={async () => handleAddFavorite({
 
-                        "title": `${movie.Title}`,
-                        "imageUrl": `${movie.Poster}`,
-                        "type": `${movie.Type}`,
-                        "year": `${movie.Year}`,
+                        "Title": `${movie.Title}`,
+                        "Poster": `${movie.Poster}`,
+                        "Type": `${movie.Type}`,
+                        "Year": `${movie.Year}`,
                         "imdbID": `${movie.imdbID}`
 
                     })}>
 
-                        <FavoriteBorderIcon />
+                        <BookmarkAddIcon />
 
                     </IconButton>
 
@@ -99,9 +108,9 @@ export default function ADD_REMOVE_FAVORITE_BUTTON({movie}) {
 
                 <Tooltip title="Remove from Favorite" arrow>
 
-                    <IconButton sx={{ fontSize: responsiveSpacing(1) }} color='primary' onClick={async () => handleDeleteFavorite(`${movie.imdbID}`)}>
+                    <IconButton sx={{ fontSize: responsiveSpacing(1.2), color:'pink.v3' }} onClick={async () => handleDeleteFavorite(`${movie.imdbID}`)}>
 
-                        <FavoriteIcon />
+                        <BookmarkRemoveIcon />
 
                     </IconButton>
 

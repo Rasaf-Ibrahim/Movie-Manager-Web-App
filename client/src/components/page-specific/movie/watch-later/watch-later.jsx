@@ -1,16 +1,13 @@
-
-import DISPLAYING_FAVORITE_MOVIE from './child-1/displaying-favorite-movie';
-
 import { ERROR_TEXT, LOADING_SPINNER } from 'components/reusable/ui';
-
-import { useFetchFavoritesQuery } from 'redux-toolkit/api/favorite-api';
 import MOVIE_CARD from 'components/reusable/ui/movie-card/movie-card';
 
+import { useFetchWatchLaterQuery } from 'redux-toolkit/api/watch-later-api';
 
-export default function FAVORITE_MOVIE() {
+
+export default function WATCH_LATER() {
 
 
-    const { data, error, isLoading, isSuccess } = useFetchFavoritesQuery()
+    const { data, error, isLoading, isSuccess } = useFetchWatchLaterQuery()
 
 
     return (
@@ -38,7 +35,7 @@ export default function FAVORITE_MOVIE() {
 
                     return (
 
-                        <MOVIE_CARD data={data} />
+                        <MOVIE_CARD data={data}/>
 
                     )
 
