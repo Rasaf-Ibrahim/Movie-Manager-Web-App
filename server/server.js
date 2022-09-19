@@ -8,9 +8,11 @@ require('dotenv').config()
 const cors = require('cors')
 
 
-const favoriteRoute = require('./routes/favoriteRoute.js')
+const favoriteRoute = require('./routes/favoriteRoute')
 
 const watchLaterRoute = require('./routes/watchLaterRoute')
+
+const userRoute = require('./routes/userRoute')
 
 
 // express
@@ -28,6 +30,7 @@ app.use(express.json())
 // routes
 app.use('/api/Favorites', favoriteRoute)
 app.use('/api/watch-later', watchLaterRoute)
+app.use('/api/user', userRoute)
 
 
 

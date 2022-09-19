@@ -7,19 +7,19 @@ const router = express.Router()
 
 
 // Get all favorites
-router.get('/', fetchFavorites)
+router.route('/').get(fetchFavorites)
 
 
 // Search a specific favorite
-router.get('/:id', searchFavorite)
+router.route('/:id').get(searchFavorite)
 
 
 // Post a new favorite
-router.post('/', createFavorite)
+router.route('/').post(createFavorite)
 
 
 // Delete a specific favorite
-router.delete('/:id', deleteFavorite)
+router.route('/:id').delete(deleteFavorite)
 
 
 

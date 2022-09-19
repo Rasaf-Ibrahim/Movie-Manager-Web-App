@@ -2,17 +2,7 @@ const WatchLaterModel = require('../models/watchLaterModel')
 
 
 
-/* 
 
-Description:  Fetch all the  watch later movies
-
-Method: GET
-
-Route: /api/watch-later
-
-Access: Private
-
-*/
 
 const fetchWatchLaterMovies = async (req, res) => {
 

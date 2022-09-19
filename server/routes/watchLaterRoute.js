@@ -7,20 +7,18 @@ const router = express.Router()
 
 
 // Get all watch later movies
-router.get('/', fetchWatchLaterMovies)
-
+router.route('/').get(fetchWatchLaterMovies)
 
 // Search a specific watch later movie
-router.get('/:id', searchWatchLaterMovie)
+router.route('/:id').get(searchWatchLaterMovie)
 
 
 // Post a new watch later movie
-router.post('/', createWatchLaterMovie)
+router.route('/').post(createWatchLaterMovie)
 
 
 // Delete a specific watch later movie
-router.delete('/:id', deleteWatchLaterMovie)
-
+router.route('/:id').delete(deleteWatchLaterMovie)
 
 
 module.exports = router
