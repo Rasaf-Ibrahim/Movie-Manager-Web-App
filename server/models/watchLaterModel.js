@@ -24,7 +24,8 @@ const watchLaterSchema = mongoose.Schema({
 
     imdbID: {
         type: String,
-        required: true
+        required: true,
+        unique: true
     }
 
 }, { timestamps: true })

@@ -9,10 +9,12 @@ const cors = require('cors')
 
 
 const favoriteRoute = require('./routes/favoriteRoute')
-
 const watchLaterRoute = require('./routes/watchLaterRoute')
+const userRoute = require('./routes/userRoute');
 
-const userRoute = require('./routes/userRoute')
+// Error handling
+const AppError = require('./utlis/appError');
+const globalErrorHandler = require('./middleware/globalErrorHandler');
 
 
 // express
@@ -31,6 +33,24 @@ app.use(express.json())
 app.use('/api/Favorites', favoriteRoute)
 app.use('/api/watch-later', watchLaterRoute)
 app.use('/api/user', userRoute)
+
+
+
+
+
+// route not found 
+app.all('*', (req, res, next) =>{
+
+    next(new AppError(`This '${req.originalUrl}' route doesn't exist on the server.`, 404))
+
+})
+
+
+
+// global error handling middleware (This middleware must be placed after all the middlewares)
+app.use(globalErrorHandler)
+
+
 
 
 
