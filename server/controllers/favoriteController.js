@@ -1,6 +1,7 @@
 const FavoriteModel = require('../models/favoriteModel.js')
 
 const AppError = require('../utlis/appError.js')
+const tryCatchAsync = require('../utlis/tryCatchAsync.js')
 
 
 
@@ -17,26 +18,15 @@ Access: Private
 
 */
 
-const fetchFavorites = async (req, res, next) => {
-
-    try {
+const fetchFavorites = tryCatchAsync(async (req, res, next) => {
 
         const favorites = await FavoriteModel.find({}).sort({ createdAt: -1 })
 
         res.status(200).json(favorites)
 
-    }
-
-
-    catch(error) {
-
         return next(new AppError(error.message, 404, error))
 
-    }
-
-
-
-}
+})
 
 
 
@@ -55,10 +45,9 @@ Access: Private
 */
 
 
-const searchFavorite = async (req, res, next) => {
+const searchFavorite = tryCatchAsync(async (req, res, next) => {
 
 
-    try {
 
         const { id } = req.params
 
@@ -75,17 +64,7 @@ const searchFavorite = async (req, res, next) => {
 
       res.status(200).json(favorite)
         
-    }
-
-   
-    catch (error) {
-
-        return next(new AppError(error.message, 404, error))
-
-    }
-    
-
-}
+})
 
 
 
@@ -104,24 +83,17 @@ Access: Private
 
 */
 
-const createFavorite = async (req, res, next) => {
+const createFavorite = tryCatchAsync(async (req, res, next) => {
 
-    try {
 
          /* In the following, I am using spread operator to create  a object in the database with whatever there is in the 'req.body'. But actually, I can't simply put whatever I want in the req.body. Only some properties are accepted and they are defined in the mongoose schema. So, I need to make sure in the fronted that I only send those properties in the req.body.  */
 
         const favorite = await FavoriteModel.create({ ...req.body })
 
         res.status(200).json(favorite)
-    }
+    
 
-    catch (error) {
-
-       return next(new AppError(error.message, 404, error))
-
-    }
-
-}
+})
 
 
 
@@ -140,10 +112,9 @@ Access: Private
 */
 
 
-const deleteFavorite = async (req, res, next) => {
+const deleteFavorite = tryCatchAsync(async (req, res, next) => {
 
-    try {
-
+    
         const { id } = req.params
 
         // trying to find the favorite 
@@ -160,16 +131,9 @@ const deleteFavorite = async (req, res, next) => {
 
 
         res.status(200).json(favorite)
-    }
+    
 
-
-    catch (error) {
-
-        return next(new AppError(error.message, 404, error))
- 
-     }
-
-}
+})
 
 
 

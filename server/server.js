@@ -37,7 +37,6 @@ app.use('/api/user', userRoute)
 
 
 
-
 // route not found 
 app.all('*', (req, res, next) =>{
 
