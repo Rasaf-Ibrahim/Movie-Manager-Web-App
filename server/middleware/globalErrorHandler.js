@@ -1,4 +1,5 @@
 const mongooseError = require("../utlis/mongooseError")
+const jwtError = require('../utlis/jwtError')
 
 
 /*  Express comes with a built-in error handler that takes care of any errors that might be encountered in the app.  If we pass an error to next() and we do not handle it in a custom error handler, it will be handled by the built-in error handler. The following function is the default express error handler. */
@@ -17,11 +18,14 @@ const globalErrorHandler = (err, req, res, next) => {
 
 
 
-        // only call the mongooseError function, when there is a errorObject. Otherwise, the application can crash on some instances like on not-found route. 
+        // only call the mongooseError & jwtError function, when there is a errorObject. Otherwise, the application can crash on some instances like on not-found route. 
         if (err.errorObject) {
 
             // the mongooseError function only changes the err.message
             mongooseError(err)
+
+            // the jwtError function only changes the err.message.But here, I am changing the statusCode.
+            jwtError(err, statusCode=401)
 
         }
 
@@ -44,11 +48,14 @@ const globalErrorHandler = (err, req, res, next) => {
     else if (process.env.NODE_ENV === 'production') {
 
 
-        // only call the mongooseError function, when there is a errorObject. Otherwise, the application can crash on some instances like on not-found route. 
+        // only call the mongooseError & jwtError function, when there is a errorObject. Otherwise, the application can crash on some instances like on not-found route. 
         if (err.errorObject) {
 
             // the mongooseError function only changes the err.message
             mongooseError(err)
+
+            // the jwtError function only changes the err.message.But here, I am changing the statusCode.
+            jwtError(err, statusCode=401)
 
         }
 
