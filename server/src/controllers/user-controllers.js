@@ -4,7 +4,6 @@ import { StatusCodes } from 'http-status-codes'
 
 // model
 import user_model from '../models/user-model.js'
-import refresh_token_model from '../models/refresh-token-model.js'
 
 // utils
 import generate_token from '../utils/generate-token/generate-token.js'

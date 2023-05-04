@@ -3,10 +3,8 @@ import jwt from 'jsonwebtoken'
 import { StatusCodes } from 'http-status-codes'
 import { nanoid } from 'nanoid'
 
-
 // model
 import user_model from '../models/user-model.js'
-import refresh_token_model from '../models/refresh-token-model.js'
 
 // utils
 import { hash_password, compare_passwords } from '../utils/hash-password/hash-password.js'
@@ -324,47 +322,10 @@ const reset_password = tryCatchAsync(async (req, res, next) => {
 
 
 
-// @desc obtain new access tokens using the refresh tokens
-// @route GET /api/users/refresh
-// @access PUBLIC
-const getAccessToken = tryCatchAsync(async (req, res) => {
-    const refreshToken = req.body.token;
-    const email = req.body.email;
-
-    // search if currently loggedin user has the refreshToken sent
-    const currentAccessToken = await refresh_token_model.findOne({ email });
-
-    if (!refreshToken || refreshToken !== currentAccessToken.token) {
-        res.status(400);
-        throw new Error('Refresh token not found, login again');
-    }
-
-    // If the refresh token is valid, create a new accessToken and return it.
-    jwt.verify(
-        refreshToken,
-        process.env.JWT_REFRESH_TOKEN_SECRET,
-        (err, user) => {
-            if (!err) {
-                const accessToken = generate_token(user.id, 'access');
-                return res.json({ success: true, accessToken });
-            } else {
-                return res.json({
-                    success: false,
-                    message: 'Invalid refresh token',
-                });
-            }
-        }
-    );
-});
-
-
-
-
 
 
 export {
     signin_user,
-    getAccessToken,
     signup_user,
     verify_email,
     send_email_verification_mail,
