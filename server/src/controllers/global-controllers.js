@@ -33,7 +33,6 @@ import { StatusCodes } from 'http-status-codes'
 
 
 
-/* 🔖 We thought about sending html as response for the following root_request. But to stay consistent with other endpoints, we are not sending HTML as response */
 
 const root_request = (req, res) => {
 

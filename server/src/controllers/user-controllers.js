@@ -84,8 +84,6 @@ const fetch_all_user_documents = tryCatchAsync(async (req, res) => {
     const documents_per_page = Number(req.query.documents_per_page) || 20
 
 
-    /*🔖 the countDocuments method takes a filter object as an argument and returns the number of documents that match the filter in the collection. In this case, the filter object is empty, which means that it will count all the documents in the collection. */
-
     // Get the total number of documents in the user collection using the countDocuments method
     const total_documents = await user_model.countDocuments({});
 

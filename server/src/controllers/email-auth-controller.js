@@ -51,15 +51,6 @@ const signup_user = tryCatchAsync(async (req, res, next) => {
 
 
 
-    /*🔖 
-    
-        - You may think, in the mongoose schema, we have set 'select:false' for the password field. So, the above created_document will not include password field.
-        - But 'select:false' only works when we query, use find, findOne(), etc methods. 
-        - But 'select:false' in the schema will not work for create method. So, we will need to explicitly exclude the password before we send the created_document as response
-    
-    */
-
-
 
     // 🍪 we will send the following object as response
     const user_info = {
