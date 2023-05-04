@@ -9,11 +9,11 @@ import user_model from '../models/user-model.js'
 import refresh_token_model from '../models/refresh-token-model.js'
 
 // utils
-import { hash_password, compare_passwords } from '../utlis/hash-password/hash-password.js'
-import generate_token from '../utlis/generate-token/generate-token.js'
-import send_mail from '../utlis/send-mail/send-mail.js'
-import AppError from '../utlis/error-handlers/app-error.js'
-import tryCatchAsync from '../utlis/error-handlers/try-catch-async.js'
+import { hash_password, compare_passwords } from '../utils/hash-password/hash-password.js'
+import generate_token from '../utils/generate-token/generate-token.js'
+import send_mail from '../utils/send-mail/send-mail.js'
+import AppError from '../utils/error-handlers/app-error.js'
+import tryCatchAsync from '../utils/error-handlers/try-catch-async.js'
 
 
 
@@ -39,7 +39,7 @@ const signup_user = tryCatchAsync(async (req, res, next) => {
     // 🍪 Create a new user in the database with the extracted data
     let created_document = await user_model.create({
         full_name: full_name.trim(),
-       
+
         //making username unique and less than 20 characters
         username: `${full_name.trim().split(' ')[0].substring(0, 10)}_${nanoid(8)}`,
 
@@ -200,7 +200,7 @@ const signin_user = tryCatchAsync(async (req, res, next) => {
     if (user_document) {
         correct_password = await compare_passwords(password, user_document.password)
 
-        
+
     }
 
 
@@ -273,8 +273,8 @@ const send_password_reset_mail = tryCatchAsync(async (req, res, next) => {
         email: user_document.email
     })
 
-    
- })
+
+})
 
 
 

@@ -7,9 +7,9 @@ import user_model from '../models/user-model.js'
 import refresh_token_model from '../models/refresh-token-model.js'
 
 // utils
-import generate_token from '../utlis/generate-token/generate-token.js'
-import AppError from '../utlis/error-handlers/app-error.js'
-import tryCatchAsync from '../utlis/error-handlers/try-catch-async.js'
+import generate_token from '../utils/generate-token/generate-token.js'
+import AppError from '../utils/error-handlers/app-error.js'
+import tryCatchAsync from '../utils/error-handlers/try-catch-async.js'
 
 
 /**

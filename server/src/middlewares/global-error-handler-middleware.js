@@ -2,8 +2,8 @@
 import { StatusCodes } from 'http-status-codes'
 
 // importing utils
-import mongoose_error from "../utlis/error-handlers/mongoose-error.js"
-import jwt_error from '../utlis/error-handlers/jwt-error.js'
+import mongoose_error from "../utils/error-handlers/mongoose-error.js"
+import jwt_error from '../utils/error-handlers/jwt-error.js'
 
 
 

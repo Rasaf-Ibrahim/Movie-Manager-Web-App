@@ -11,9 +11,9 @@ import file_upload_middleware from './src/middlewares/file-upload-middleware.js'
 import global_error_handler_middleware from './src/middlewares/global-error-handler-middleware.js'
 
 // importing utils from this project
-import cloudinary_config from './src/utlis/cloudinary-config.js'
-import swagger_documentation from './src/utlis/swagger-api-documentation.js'
-import connect_db_and_start_server from './src/utlis/connect-db-and-start-server.js'
+import cloudinary_config from './src/utils/cloudinary-config.js'
+import swagger_documentation from './src/utils/swagger-api-documentation.js'
+import connect_db_and_start_server from './src/utils/connect-db-and-start-server.js'
 
 // importing routes from this project
 import global_routes from './src/routes/global-routes.js'
