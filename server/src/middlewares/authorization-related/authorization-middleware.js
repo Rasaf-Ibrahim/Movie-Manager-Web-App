@@ -6,8 +6,8 @@ import { StatusCodes } from 'http-status-codes'
 import user_model from '../../models/user-model.js'
 
 // importing utils
-import AppError from '../utlis/error-handlers/app-error.js'
-import tryCatchAsync from '../utlis/error-handlers/try-catch-async.js'
+import AppError from '../utils/error-handlers/app-error.js'
+import tryCatchAsync from '../utils/error-handlers/try-catch-async.js'
 
 
 
@@ -102,7 +102,7 @@ const restrictTo = (...roles) => {
 }
 
 
-export { 
-    protect, 
-    restrictTo 
+export {
+    protect,
+    restrictTo
 }

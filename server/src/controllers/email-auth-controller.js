@@ -3,17 +3,15 @@ import jwt from 'jsonwebtoken'
 import { StatusCodes } from 'http-status-codes'
 import { nanoid } from 'nanoid'
 
-
 // model
 import user_model from '../models/user-model.js'
-import refresh_token_model from '../models/refresh-token-model.js'
 
 // utils
-import { hash_password, compare_passwords } from '../utlis/hash-password/hash-password.js'
-import generate_token from '../utlis/generate-token/generate-token.js'
-import send_mail from '../utlis/send-mail/send-mail.js'
-import AppError from '../utlis/error-handlers/app-error.js'
-import tryCatchAsync from '../utlis/error-handlers/try-catch-async.js'
+import { hash_password, compare_passwords } from '../utils/hash-password/hash-password.js'
+import generate_token from '../utils/generate-token/generate-token.js'
+import send_mail from '../utils/send-mail/send-mail.js'
+import AppError from '../utils/error-handlers/app-error.js'
+import tryCatchAsync from '../utils/error-handlers/try-catch-async.js'
 
 
 
@@ -39,7 +37,7 @@ const signup_user = tryCatchAsync(async (req, res, next) => {
     // 🍪 Create a new user in the database with the extracted data
     let created_document = await user_model.create({
         full_name: full_name.trim(),
-       
+
         //making username unique and less than 20 characters
         username: `${full_name.trim().split(' ')[0].substring(0, 10)}_${nanoid(8)}`,
 
@@ -200,7 +198,7 @@ const signin_user = tryCatchAsync(async (req, res, next) => {
     if (user_document) {
         correct_password = await compare_passwords(password, user_document.password)
 
-        
+
     }
 
 
@@ -273,8 +271,8 @@ const send_password_reset_mail = tryCatchAsync(async (req, res, next) => {
         email: user_document.email
     })
 
-    
- })
+
+})
 
 
 
@@ -324,47 +322,10 @@ const reset_password = tryCatchAsync(async (req, res, next) => {
 
 
 
-// @desc obtain new access tokens using the refresh tokens
-// @route GET /api/users/refresh
-// @access PUBLIC
-const getAccessToken = tryCatchAsync(async (req, res) => {
-    const refreshToken = req.body.token;
-    const email = req.body.email;
-
-    // search if currently loggedin user has the refreshToken sent
-    const currentAccessToken = await refresh_token_model.findOne({ email });
-
-    if (!refreshToken || refreshToken !== currentAccessToken.token) {
-        res.status(400);
-        throw new Error('Refresh token not found, login again');
-    }
-
-    // If the refresh token is valid, create a new accessToken and return it.
-    jwt.verify(
-        refreshToken,
-        process.env.JWT_REFRESH_TOKEN_SECRET,
-        (err, user) => {
-            if (!err) {
-                const accessToken = generate_token(user.id, 'access');
-                return res.json({ success: true, accessToken });
-            } else {
-                return res.json({
-                    success: false,
-                    message: 'Invalid refresh token',
-                });
-            }
-        }
-    );
-});
-
-
-
-
 
 
 export {
     signin_user,
-    getAccessToken,
     signup_user,
     verify_email,
     send_email_verification_mail,
