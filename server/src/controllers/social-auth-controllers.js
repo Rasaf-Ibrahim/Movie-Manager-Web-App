@@ -19,10 +19,6 @@ dotenv.config()
 // the following controller will handle all possible response 
 let social_auth_response = tryCatchAsync(async (req, res, next) => {
 
-
-    /* 🔖
-        If there is no req.user, that means there is no session cookie in the browser, which indicates that the login process was not successful. In this case, we send a failed response
-    */
     if (!req.user) {
 
         res.status(StatusCodes.NOT_FOUND).json({
@@ -31,24 +27,7 @@ let social_auth_response = tryCatchAsync(async (req, res, next) => {
         }) 
     }
 
-    /* 🔖
 
-        If req.user exists, it means that the login process was successful, and the user session information is available in the browser cookie.
-
-        However, our application requires more than just a successful login with the provider (the provider can be Google or Facebook or Twitter or Github). We need to attempt to create a user document in our database using the information from the user session cookie.
-
-        Moreover, our plan is to send token for authentication and authorization. We need the session cookie only at the time of authenticating with the provider and couple of more seconds to get the info of the user. And the maxAge for the cookie session is set just for 2 minutes so that we don't need to manually delete the session when we don't need it.
-    */
-
-
-    /* 🔖
-
-        - checking if the user already exists in the database
-
-        - we shouldn't search the user with google_id
-
-        - we must search the user with email because the same email can be registered with a different provider
-    */
 
     let user_document = await user_model.findOne({ email: req.user.emails[0].value})
 
@@ -98,11 +77,7 @@ let social_auth_response = tryCatchAsync(async (req, res, next) => {
     }
 
 
-    /* 🔖
 
-        when an user tries to login with google but the user account already exists with a different provider, then we need to finish the process by sending a response that the user account already exists and needs to login with a different provider 
-    
-    */
     if(user_document && req.user.provider === 'google' && user_document.auth_provider !== 'google' ) {
 
         if(user_document.auth_provider === 'email') {
@@ -115,13 +90,6 @@ let social_auth_response = tryCatchAsync(async (req, res, next) => {
         }
     }
 
-
-
-    /* 🔖
-    
-        when an user tries to sign with google and the user account already exists in the database and user information suggest that the user was registered with google account, then we can send a successful sign in response with tokens and user information
-    
-    */
 
     if(user_document && req.user.provider === 'google' && user_document.auth_provider === 'google' ) {
 
