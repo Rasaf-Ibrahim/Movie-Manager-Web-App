@@ -13,6 +13,8 @@ import SIGN_UP___PAGE from "@/pages/signup/_pages";
 import SIGN_IN___PAGE from "@/pages/signin/_page";
 import SEND_EMAIL_VERIFICATION_MAIL___PAGE from "@/pages/send-email-verification-mail/_pages";
 import SEND_PASSWORD_RESET_MAIL___PAGE from "@/pages/send-password-reset-mail/_pages";
+import RESET_PASSWORD___PAGE from "@/pages/reset-password/_page";
+import SOCIAL_AUTH_RESPONSE___PAGE from "@/pages/social-auth-response/_page";
 
 
 

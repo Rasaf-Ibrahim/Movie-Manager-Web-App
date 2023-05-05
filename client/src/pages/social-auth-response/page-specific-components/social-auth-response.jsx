@@ -2,7 +2,7 @@
 import { useSocialAuthResponse } from "@/api/auth/social-auth-response";
 
 // zustand store & immer
-import { user_store } from "@/projects/authentication/store/user-store";
+import { user_store } from "@/store/user-store";
 import produce from 'immer'
 
 // styled-components
