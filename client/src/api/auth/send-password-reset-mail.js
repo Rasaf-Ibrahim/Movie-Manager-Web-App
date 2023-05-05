@@ -7,7 +7,7 @@ import { authAxios } from "./axios-instances/auth-axios";
 
 
 // importing zustand store & immer
-import { user_store } from '../store/user-store'
+import { user_store } from '@/store/user-store';
 import produce from 'immer'
 
 // importing react-toastify

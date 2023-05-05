@@ -57,7 +57,7 @@ export default function LANDING___COMPONENT() {
 
                 {/* only show the sign up button if the user is not logged in */}
                 {!user_info &&
-                    <ROUTER_LINK___STYLED to='/authentication-project/sign-up'>
+                    <ROUTER_LINK___STYLED to='/sign-up'>
 
                         <REGISTER_BUTTON___STYLED>
                             Sign Up Now

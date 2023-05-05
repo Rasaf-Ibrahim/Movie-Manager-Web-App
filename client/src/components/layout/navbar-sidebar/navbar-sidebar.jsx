@@ -62,7 +62,7 @@ export default function NAVBAR_SIDEBAR___COMPONENT() {
 
                     :
 
-                    <ROUTER_LINK___STYLED to='/authentication-project/sign-in'>
+                    <ROUTER_LINK___STYLED to='/sign-in'>
 
                         <Button variant='contained'>
                             Sign In
