@@ -51,7 +51,6 @@ export default function LOGGED_IN_BUT_NOT_VERIFIED({ children }) {
 
                 <>
 
-                    {/* 🔖 Don't change the following toast to 'Your email is already verified' because this toast will be visible not only when the user mistakenly visit the verify email page, also when the user verifies the email. So, the following toast would be the appropriate message. */}
                     {toast.info('Your email is verified')}
 
                     <Navigate to='/' />
