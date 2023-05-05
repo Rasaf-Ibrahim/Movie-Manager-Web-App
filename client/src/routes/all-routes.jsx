@@ -58,6 +58,17 @@ const allRoutes = createBrowserRouter([
     },
 
 
+    /* ✅✅ Couldn't make valid route protection but UI gets changed based on the user state ✅✅  */
+    {
+        path: "/social-auth-response",
+        element: (
+
+            <SOCIAL_AUTH_RESPONSE___PAGE />
+
+        )
+    },
+
+
 
     /* ✅✅ Accessible to not signed in user ✅✅  */
 
@@ -95,6 +106,19 @@ const allRoutes = createBrowserRouter([
 
         )
     },
+
+
+    /* 🍔 Reset Password */
+    {
+        path: "/reset-password",
+        element: (
+            <NOT_LOGGED_IN>
+                <RESET_PASSWORD___PAGE />
+            </NOT_LOGGED_IN>
+
+        )
+    },
+    
 
 
 
