@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 
 // pages
 import LANDING___PAGE from "@/pages/_landing/_page";
+import NOT_FOUND___PAGE from "@/pages/_not-found/_page";
 
 
 
@@ -14,6 +15,14 @@ const allRoutes = createBrowserRouter([
         path: "/",
         element: <LANDING___PAGE />,
     },
+
+  
+    /* 🍔 Not Found Page */
+    {
+        path: "*",
+        element: <NOT_FOUND___PAGE />,
+    },
+
 
 
    
