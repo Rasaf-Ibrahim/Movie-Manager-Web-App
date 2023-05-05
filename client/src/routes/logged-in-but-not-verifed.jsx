@@ -1,5 +1,5 @@
 // store
-import { user_store } from '@/projects/authentication/store/user-store';
+import { user_store } from '@/store/user-store';
 
 // router
 import { Navigate } from 'react-router-dom'
