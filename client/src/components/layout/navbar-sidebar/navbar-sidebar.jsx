@@ -6,8 +6,7 @@ import { styled } from '@mui/material/styles'
 import ROUTER_LINK___STYLED from "@/styles/styled-components/router-link/router-link";
 
 // store
-import { user_store } from '@/projects/authentication/store/user-store';
-
+import { user_store } from "@/store/user-store"
 
 // components
 import { Button } from "@mui/material";

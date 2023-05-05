@@ -8,8 +8,7 @@ import { useMediaQuery, useTheme } from '@mui/material'
 
 
 // api
-import { useUploadImage } from "@/api/upload-image.js";
-
+import { useUploadImage } from "@/api/image-upload/upload-image";
 
 // color-picker library
 import { ChromePicker } from 'react-color';
