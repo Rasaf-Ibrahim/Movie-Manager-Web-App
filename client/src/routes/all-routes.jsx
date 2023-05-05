@@ -2,7 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 
 //route protection HOC
 import NOT_LOGGED_IN from "./not-logged-in";
-
+import LOGGED_IN_BUT_NOT_VERIFIED from "./logged-in-but-not-verifed";
 
 // pages
 import LANDING___PAGE from "@/pages/_landing/_page";
@@ -11,6 +11,8 @@ import PRIVACY_POLICY___PAGE from "@/pages/privacy-policy/_page";
 import TERMS_OF_SERVICE___PAGE from "@/pages/terms-of-service/_page";
 import SIGN_UP___PAGE from "@/pages/signup/_pages";
 import SIGN_IN___PAGE from "@/pages/signin/_page";
+import SEND_EMAIL_VERIFICATION_MAIL___PAGE from "@/pages/send-email-verification-mail/_pages";
+import SEND_PASSWORD_RESET_MAIL___PAGE from "@/pages/send-password-reset-mail/_pages";
 
 
 
@@ -80,7 +82,37 @@ const allRoutes = createBrowserRouter([
             </NOT_LOGGED_IN>
         )
     },
+
+
+    /* 🍔 Send Password Reset Mail */
+    {
+        path: "/send-password-reset-mail",
+        element: (
+
+            <NOT_LOGGED_IN>
+                <SEND_PASSWORD_RESET_MAIL___PAGE />
+            </NOT_LOGGED_IN>
+
+        )
+    },
+
+
+
+    /* ✅✅ Accessible to signed in but not verified user ✅✅  */
     
+    /* 🍔 Send email verification mail */
+    {
+        path: "/send-email-verification-mail",
+        element: (
+            <LOGGED_IN_BUT_NOT_VERIFIED>
+                <SEND_EMAIL_VERIFICATION_MAIL___PAGE />
+            </LOGGED_IN_BUT_NOT_VERIFIED>
+        )
+    },
+
+
+
+
 
 
 
