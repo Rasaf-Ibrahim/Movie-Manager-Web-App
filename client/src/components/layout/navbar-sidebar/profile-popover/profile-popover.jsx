@@ -2,7 +2,8 @@
 import { useState } from "react"
 
 // store
-import { user_store } from '@/projects/authentication/store/user-store'
+
+import { user_store } from "@/store/user-store"
 
 // component
 import { Avatar, Popover } from "@mui/material"

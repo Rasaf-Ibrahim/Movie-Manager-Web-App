@@ -6,7 +6,7 @@ import MenuOutlinedIcon from '@mui/icons-material/MenuOutlined';
 
 // components
 import { IconButton } from "@mui/material"
-import LOGO___COMPONENT from '@/components/reusable/for-any-project/logo/logo';
+import LOGO___COMPONENT from '@/components/reusable/just-for-this-project/logo/logo';
 
 
 /*-------------------------------------------------------------------
