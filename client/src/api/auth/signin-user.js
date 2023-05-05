@@ -39,12 +39,6 @@ export function useSigninUser() {
                 }))
 
 
-                /*  🔖
-                    - simply navigate to desired restricted page
-                    - no need to check with condition that the email is verified or not
-                    - those conditional check are already implemented in the routes folder  
-                */
-
                 navigate('/')
             },
 

@@ -27,13 +27,6 @@ export function useVerifyEmail() {
                     draft.user_info.is_email_confirmed = true
                 }))
 
-                /* 🔖 On Success, we don't need to show a toast because we have modified the state above.
-
-
-                    As 'user_info.is_email_confirmed' is true now, in the route, <LOGGED_IN_BUT_NOT_VERIFIED/> will automatically redirect and show a toast that says 'Your email is verified'
-                    
-                */
-
             },
 
             onError: (error) => {
