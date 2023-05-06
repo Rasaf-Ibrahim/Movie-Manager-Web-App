@@ -109,9 +109,15 @@ const user_schema = mongoose.Schema({
         default: 'user'
     },
 
+    
+    last_signed_in_unix_timestamp: {
+        type:String,
+        required: true
+    },
+
     last_access_unix_timestamp: {
-        type: String,
-        default: Date.now()
+        type:String,
+        required: true
     },
 
 
