@@ -37,29 +37,33 @@ const signup_user = tryCatchAsync(async (req, res, next) => {
     // 🍪 Create a new user in the database with the extracted data
     let created_document = await user_model.create({
         full_name: full_name.trim(),
-
+       
         //making username unique and less than 20 characters
         username: `${full_name.trim().split(' ')[0].substring(0, 10)}_${nanoid(8)}`,
 
         email,
         password,
         password_confirm,
-        role
+        role,
+        last_signed_in_unix_timestamp: Date.now(),
+        last_access_unix_timestamp: Date.now()
     })
 
 
 
+    /*🔖 
+    
+        - You may think, in the mongoose schema, we have set 'select:false' for the password field. So, the above created_document will not include password field.
+        - But 'select:false' only works when we query, use find, findOne(), etc methods. 
+        - But 'select:false' in the schema will not work for create method. So, we will need to explicitly exclude the password before we send the created_document as response
+    
+    */
 
-    // 🍪 we will send the following object as response
-    const user_info = {
-        _id: created_document._doc._id,
-        full_name: created_document._doc.full_name,
-        username: created_document._doc.username,
-        email: created_document._doc.email,
-        is_email_confirmed: created_document._doc.is_email_confirmed,
-        picture_link: created_document._doc.picture_link,
-        role: created_document._doc.role
-    }
+
+    // 🍪 before we send the user document as response, we need exclude some properties
+    const { password:user_password, google_id, auth_provider,
+        ...user_document_without_sensitive_information } = created_document._doc
+
 
 
     // 🍪 We will also send access and refresh token as response
@@ -72,7 +76,7 @@ const signup_user = tryCatchAsync(async (req, res, next) => {
     res.status(StatusCodes.CREATED).json({
 
         status: 'User has been registered successfully.',
-        user_info,
+        user_info: user_document_without_sensitive_information,
         access_token,
         refresh_token
     })
@@ -80,7 +84,6 @@ const signup_user = tryCatchAsync(async (req, res, next) => {
 
 
 })
-
 
 
 /*-------------------------------------------------------------------
@@ -198,7 +201,7 @@ const signin_user = tryCatchAsync(async (req, res, next) => {
     if (user_document) {
         correct_password = await compare_passwords(password, user_document.password)
 
-
+        
     }
 
 
@@ -208,18 +211,25 @@ const signin_user = tryCatchAsync(async (req, res, next) => {
         return next(new AppError('Incorrect Email or Password', StatusCodes.UNAUTHORIZED))
     }
 
+    
+    
+    // 🍪 update user document before sending success response 
+    const updated_user_document = await user_model.findOneAndUpdate(
+
+        { _id: user_document._id },
+
+        {
+            last_signed_in_unix_timestamp: Date.now(),
+            last_access_unix_timestamp: Date.now()
+        },
+
+        { new: true, runValidators: true }
+    )
 
 
-    // 🍪 we will send the following object as response
-    const user_info = {
-        _id: user_document._id,
-        full_name: user_document.full_name,
-        username: user_document.username,
-        email: user_document.email,
-        is_email_confirmed: user_document.is_email_confirmed,
-        picture_link: user_document.picture_link,
-        role: user_document.role
-    }
+    // 🍪 before we send the user document as response, we need exclude some properties
+    const { password:user_password, google_id, auth_provider,
+        ...user_document_without_sensitive_information } = updated_user_document._doc
 
 
     // 🍪 generate both the access and the refresh tokens
@@ -230,7 +240,7 @@ const signin_user = tryCatchAsync(async (req, res, next) => {
     // 🍪 send a success response with the user data and access, refresh tokens
     res.status(StatusCodes.OK).json({
         status: 'User has been authorized successfully.',
-        user_info,
+        user_info: user_document_without_sensitive_information,
         access_token,
         refresh_token
     })
@@ -238,6 +248,7 @@ const signin_user = tryCatchAsync(async (req, res, next) => {
 
 
 })
+
 
 
 
