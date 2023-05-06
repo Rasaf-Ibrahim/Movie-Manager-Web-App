@@ -133,7 +133,7 @@ export default function VERIFY_EMAIL___COMPONENT() {
                     </Typography>
 
 
-                    <ROUTER_LINK___STYLED to='/authentication-project/send-email-verification-mail'>
+                    <ROUTER_LINK___STYLED to='/send-email-verification-mail'>
 
                         <Button variant='contained'>
                             Send Mail Page

@@ -1,4 +1,5 @@
 import { Helmet, HelmetProvider } from "react-helmet-async";
+import MAIN_LAYOUT___COMPONENT from "@/components/layout/main-layout";
 import VERIFY_EMAIL___COMPONENT from "./page-specific-components/verify-email";
 
 
@@ -16,7 +17,9 @@ export default function VERIFY_EMAIL___PAGE() {
                 </Helmet>
 
                 {/* Component */}
-                <VERIFY_EMAIL___COMPONENT/>
+                <MAIN_LAYOUT___COMPONENT>
+                    <VERIFY_EMAIL___COMPONENT />
+                </MAIN_LAYOUT___COMPONENT>
 
             </HelmetProvider>
         </>

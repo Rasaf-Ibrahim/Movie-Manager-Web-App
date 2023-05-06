@@ -22,6 +22,16 @@ export default function NOT_LOGGED_IN({ children }) {
     if (!user_info) {
         return children
     }
+    
+  
+
+    // we need to check if five seconds or more have passed since user has signed in 
+    const current_time_unix_timestamp = Date.now()
+    const five_seconds_in_milliseconds = 5000
+    const user_last_signed_in_unix_timestamp = user_info.last_signed_in_unix_timestamp
+
+    const five_seconds_or_more_have_passed_since_user_has_signed_in = (current_time_unix_timestamp - five_seconds_in_milliseconds) >= user_last_signed_in_unix_timestamp
+
 
 
     // if logged in, redirect
@@ -29,14 +39,20 @@ export default function NOT_LOGGED_IN({ children }) {
 
         <>
 
-            {toast.info('You are already signed in.')}
+            {/* only show the toast if the user is signed in for at least 5 seconds */}
+            { five_seconds_or_more_have_passed_since_user_has_signed_in
+               &&
+
+               toast.info('You are already signed in.')
+            }
+             
+            
 
             <Navigate to='/' />
 
         </>
 
     )
-
 
 }
 

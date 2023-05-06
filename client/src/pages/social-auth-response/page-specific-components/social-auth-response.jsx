@@ -187,7 +187,7 @@ const ERROR_RESPONSE___SECTION = ({ error }) => {
                             </Typography>
 
 
-                            <ROUTER_LINK___STYLED to='/authentication-project/sign-in'>
+                            <ROUTER_LINK___STYLED to='/sign-in'>
 
                                 <Button variant="contained"> Sign in Page </Button>
 
