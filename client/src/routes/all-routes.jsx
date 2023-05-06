@@ -18,6 +18,7 @@ import RESET_PASSWORD___PAGE from "@/pages/reset-password/_page";
 import SOCIAL_AUTH_RESPONSE___PAGE from "@/pages/social-auth-response/_page";
 import VERIFY_EMAIL___PAGE from "@/pages/verify-email/_page";
 import PROFILE___PAGE from "@/pages/profile/_page";
+import MOVIE___PAGE from "@/pages/movie/_page";
 
 
 
@@ -167,6 +168,19 @@ const allRoutes = createBrowserRouter([
         )
     },
 
+
+
+    /* ✅✅ Accessible to signed in and verified user ✅✅  */
+
+    {
+        path: "/movie",
+        element: (
+            <LOGGED_IN_AND_VERIFIED>
+                <MOVIE___PAGE />
+            </LOGGED_IN_AND_VERIFIED>
+
+        )
+    },
 
 
 
