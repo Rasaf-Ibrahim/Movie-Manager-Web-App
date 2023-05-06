@@ -35,64 +35,67 @@ export default function LOGO___COMPONENT(props) {
         if (!props.background_is_always_light && !props.background_is_always_dark && !props.background_has_opposite_theme_color) {
 
             return theme.palette.primary.main
-        } 
-        
+        }
+
         else if (props.background_is_always_light) {
 
             return theme.palette.primary.static_variant.dark_1
-        } 
-        
+        }
+
         else if (props.background_is_always_dark) {
 
             return theme.palette.primary.static_variant.light_1
-        } 
-        
+        }
+
         else if (props.background_has_opposite_theme_color) {
 
             return theme.palette.primary.opposite_theme.main
         }
     }
-          
+
 
     return (
 
-        <Box sx={{
+        <ROUTER_LINK___STYLED to='/'>
             
-            // layout 
-            padding:'0.3rem',
-            
-            // appearance
-            borderRadius: '0.3rem',
-            boxShadow: `0px 0px 5px 2px ${color_based_on_props()}`,
+            <Box sx={{
 
-            // child layout
-            display:'flex',
-            gap:'0.2rem'
-        }}>
-            
+                // layout 
+                padding: '0.3rem',
 
-            <Typography  sx={{
-                fontFamily:"'Lobster Two', 'cursive'",
-                fontSize: '11px',
-                lineHeight:'0.7'
+                // appearance
+                borderRadius: '0.3rem',
+                boxShadow: `0px 0px 5px 2px ${color_based_on_props()}`,
+
+                // child layout
+                display: 'flex',
+                gap: '0.2rem'
             }}>
-                
-                <Box>Rasaf's</Box>
-                <Box>&nbsp; Project</Box>
-
-            </Typography>
 
 
-            <Typography  
-                variant='body1' 
-                sx={{fontFamily:"'Lobster Two', 'cursive'"}}>
+                <Typography sx={{
+                    fontFamily: "'Lobster Two', 'cursive'",
+                    fontSize: '11px',
+                    lineHeight: '0.7'
+                }}>
 
-                Movie Manager
-            </Typography>
+                    <Box>Rasaf's</Box>
+                    <Box>&nbsp; Project</Box>
+
+                </Typography>
 
 
-        </Box>
+                <Typography
+                    variant='body1'
+                    sx={{ fontFamily: "'Lobster Two', 'cursive'" }}>
 
+                    Movie Manager
+                </Typography>
+
+
+            </Box>
+
+        </ROUTER_LINK___STYLED>
     )
 }
 
