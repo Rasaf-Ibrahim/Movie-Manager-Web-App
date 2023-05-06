@@ -3,6 +3,7 @@ import { createBrowserRouter } from "react-router-dom";
 //route protection HOC
 import NOT_LOGGED_IN from "./not-logged-in";
 import LOGGED_IN_BUT_NOT_VERIFIED from "./logged-in-but-not-verifed";
+import LOGGED_IN_AND_VERIFIED from "./logged-in-and-verfied";
 
 // pages
 import LANDING___PAGE from "@/pages/_landing/_page";
@@ -15,6 +16,8 @@ import SEND_EMAIL_VERIFICATION_MAIL___PAGE from "@/pages/send-email-verification
 import SEND_PASSWORD_RESET_MAIL___PAGE from "@/pages/send-password-reset-mail/_pages";
 import RESET_PASSWORD___PAGE from "@/pages/reset-password/_page";
 import SOCIAL_AUTH_RESPONSE___PAGE from "@/pages/social-auth-response/_page";
+import VERIFY_EMAIL___PAGE from "@/pages/verify-email/_page";
+import PROFILE___PAGE from "@/pages/profile/_page";
 
 
 
@@ -137,8 +140,32 @@ const allRoutes = createBrowserRouter([
     },
 
 
+    /* 🍔 Verify Email */
+    {
+        path: "/verify-email",
+        element: (
+            <LOGGED_IN_BUT_NOT_VERIFIED>
+                <VERIFY_EMAIL___PAGE />
+            </LOGGED_IN_BUT_NOT_VERIFIED>
+        )
+    },
 
 
+
+
+    /* ✅✅ Accessible to signed in and verified user ✅✅  */
+    
+
+    /* 🍔 Profile */
+    {
+        path: "/profile",
+        element: (
+            <LOGGED_IN_AND_VERIFIED>
+                <PROFILE___PAGE />
+            </LOGGED_IN_AND_VERIFIED>
+
+        )
+    },
 
 
 
