@@ -259,7 +259,7 @@ const FILL_FORM_AND_RESET_PASSWORD___SECTION = ({ token, mutate, status, data, e
 
 
 
-                        <ROUTER_LINK___STYLED to='/authentication-project/send-password-reset-mail'>
+                        <ROUTER_LINK___STYLED to='/send-password-reset-mail'>
 
                             <Button variant='contained'>
                                 Visit Password Reset Mail Page
@@ -307,7 +307,7 @@ const PASSWORD_IS_RESET_SUCCESSFULLY___SECTION = ({ password_reset }) => {
             </Typography>
 
 
-            <ROUTER_LINK___STYLED to='/authentication-project/sign-in'>
+            <ROUTER_LINK___STYLED to='/sign-in'>
 
                 <Button variant='contained'>
                     Sign in Page
