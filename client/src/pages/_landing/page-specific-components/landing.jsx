@@ -16,7 +16,6 @@ import responsiveSpacing from '@/utils/responsive-spacing/responsive-spacing';
 // components
 import { Typography, Button } from '@mui/material';
 
-import SVG_ILLUSTRATION_HEADER___COMPONENT from './svg-jsx/svg-illustration-header';
 import SVG_ILLUSTRATION_MOVIE___COMPONENT from './svg-jsx/svg-illustration-movie';
 
 
