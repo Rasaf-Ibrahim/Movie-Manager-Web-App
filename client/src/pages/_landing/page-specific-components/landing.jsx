@@ -16,7 +16,7 @@ import responsiveSpacing from '@/utils/responsive-spacing/responsive-spacing';
 // components
 import { Typography, Button } from '@mui/material';
 
-import SVG_ILLUSTRATION_HEADER___COMPONENT from './svg-jsx/svg-illustration-header';
+import SVG_ILLUSTRATION_MOVIE___COMPONENT from './svg-jsx/svg-illustration-movie';
 
 
 
@@ -51,13 +51,13 @@ export default function LANDING___COMPONENT() {
                 </HEADER_TITLE___STYLED>
 
                 <HEADER_SUBTITLE___STYLED>
-                    Search Any Movie, Know Details Info of a Movie, Bookmark Your Favorite Movie and More!
+                    Search any movie, know details info of a movie, bookmark your favorite movie and more!
                 </HEADER_SUBTITLE___STYLED>
 
 
                 {/* only show the sign up button if the user is not logged in */}
                 {!user_info &&
-                    <ROUTER_LINK___STYLED to='/authentication-project/sign-up'>
+                    <ROUTER_LINK___STYLED to='/sign-up'>
 
                         <REGISTER_BUTTON___STYLED>
                             Sign Up Now
@@ -73,7 +73,7 @@ export default function LANDING___COMPONENT() {
             <WRAPPER_OF_ILLUSTRATION___STYLED>
 
 
-                <SVG_ILLUSTRATION_HEADER___COMPONENT
+                <SVG_ILLUSTRATION_MOVIE___COMPONENT
                     background_is_always_light={false}
                     background_is_always_dark={false}
                     background_has_opposite_theme_color=

@@ -58,7 +58,7 @@ export default function POPOVER_CONTENT___COMPONENT() {
 
 
             {/* Profile */}
-            <ROUTER_LINK___STYLED to='/authentication-project/profile'>
+            <ROUTER_LINK___STYLED to='/profile'>
                 <ListItem>
                     <ListItemButton>
                         <ListItemIcon>

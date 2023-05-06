@@ -1,31 +1,29 @@
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import MAIN_LAYOUT___COMPONENT from "@/components/layout/main-layout";
-import LANDING___COMPONENT from "./page-specific-components/landing";
+import PRIVACY_POLICY___COMPONENT from "./page-specific-components/privacy-policy";
 
 
 
-export default function LANDING___PAGE() {
+export default function PRIVACY_POLICY___PAGE() {
 
     return (
         <>
             <HelmetProvider>
 
-
                 <Helmet>
-                    <title>Project - Authentication</title>
+                    <title>Privacy Policy</title>
                 </Helmet>
+
 
                 {/* Component */}
                 <MAIN_LAYOUT___COMPONENT 
-                    navbar_margin_bottom = {'0.02rem'}
-                    footer_margin_top  = {'1rem'}  
+                    navbar_margin_bottom = {'2.5rem'}
+                    footer_margin_top  = {'2rem'}  
                 >
 
-                    <LANDING___COMPONENT />
+                    <PRIVACY_POLICY___COMPONENT />
 
                 </MAIN_LAYOUT___COMPONENT>
-              
-
 
             </HelmetProvider>
         </>
