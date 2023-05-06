@@ -17,7 +17,7 @@ export default function LANDING___PAGE() {
 
                 {/* Component */}
                 <MAIN_LAYOUT___COMPONENT 
-                    navbar_margin_bottom = {'0.2rem'}
+                    navbar_margin_bottom = {'0.02rem'}
                     footer_margin_top  = {'1rem'}  
                 >
 

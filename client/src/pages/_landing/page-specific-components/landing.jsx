@@ -17,6 +17,7 @@ import responsiveSpacing from '@/utils/responsive-spacing/responsive-spacing';
 import { Typography, Button } from '@mui/material';
 
 import SVG_ILLUSTRATION_HEADER___COMPONENT from './svg-jsx/svg-illustration-header';
+import SVG_ILLUSTRATION_MOVIE___COMPONENT from './svg-jsx/svg-illustration-movie';
 
 
 
@@ -51,7 +52,7 @@ export default function LANDING___COMPONENT() {
                 </HEADER_TITLE___STYLED>
 
                 <HEADER_SUBTITLE___STYLED>
-                    Search Any Movie, Know Details Info of a Movie, Bookmark Your Favorite Movie and More!
+                    Search any movie, know details info of a movie, bookmark your favorite movie and more!
                 </HEADER_SUBTITLE___STYLED>
 
 
@@ -73,7 +74,7 @@ export default function LANDING___COMPONENT() {
             <WRAPPER_OF_ILLUSTRATION___STYLED>
 
 
-                <SVG_ILLUSTRATION_HEADER___COMPONENT
+                <SVG_ILLUSTRATION_MOVIE___COMPONENT
                     background_is_always_light={false}
                     background_is_always_dark={false}
                     background_has_opposite_theme_color=
