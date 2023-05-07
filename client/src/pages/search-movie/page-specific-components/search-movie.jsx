@@ -29,7 +29,7 @@ import { useLogger, useMount, useUpdateEffect } from 'react-use';
 /*-------------------------------------------------------------------
  ✅ Functional Component 
 ----------------------------------------------------------------------*/
-export default function MOVIE___COMPONENT() {
+export default function SEARCH_MOVIE___COMPONENT() {
 
     // theme 
     const theme = useTheme()
@@ -39,18 +39,18 @@ export default function MOVIE___COMPONENT() {
     return (
 
         <Box sx={{
-            marginTop:'2rem',
-            marginBottom:'2rem',
+            marginTop: '2rem',
+            marginBottom: '2rem',
         }}>
 
- 
-            <Typography 
-                variant='h4' 
-                sx={{ 
-                    textAlign:'center',
-                    color:'primary.main',
-             
-                }}  
+
+            <Typography
+                variant='h4'
+                sx={{
+                    textAlign: 'center',
+                    color: 'primary.main',
+
+                }}
             >
 
                 Search Movie
@@ -72,7 +72,7 @@ export default function MOVIE___COMPONENT() {
 
 
 /*-------------------------------------------------------------------
- ✅ Section of <MOVIE___COMPONENT/>
+ ✅ Section of <SEARCH_MOVIE___COMPONENT/>
 ----------------------------------------------------------------------*/
 
 
@@ -104,10 +104,10 @@ function SEARCH_MOVIE___SECTION() {
 
     // random placeholder movie
 
-    useMount(()=> {
+    useMount(() => {
 
 
-        
+
 
         const placeholder_movie = get_random_placeholder_movie()
 
@@ -157,7 +157,7 @@ function SEARCH_MOVIE___SECTION() {
                     searchedKeyword.trim()
                 }
 
-                random_placeholder_movie = {random_placeholder_movie}
+                random_placeholder_movie={random_placeholder_movie}
             />
 
         </>
@@ -186,9 +186,9 @@ function MOVIE_SEARCH_RESULT___COMPONENT({ searchedKeyword, random_placeholder_m
 
 
     // refetch whenever input changes
-    useUpdateEffect(()=>{
+    useUpdateEffect(() => {
         refetch()
-    },[searchedKeyword, random_placeholder_movie])
+    }, [searchedKeyword, random_placeholder_movie])
 
     useLogger('data', data)
 
@@ -310,11 +310,11 @@ function get_random_placeholder_movie() {
         'The Matrix',
 
         'Toy Story'
-      ]
+    ]
 
 
     const randomIndex = Math.floor(Math.random() * short_name_but_famous_movie.length);
     return short_name_but_famous_movie[randomIndex];
-  }
+}
 
 
