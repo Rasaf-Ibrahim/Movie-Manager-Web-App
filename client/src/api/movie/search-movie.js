@@ -1,18 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
-import axios from 'axios';
+import { omdbapi_axios } from './axios-instances/omdbapi-axios';
 
-
-
-// creating new axios instance
-const movieAxios = axios.create({
-
-    baseURL: "https://www.omdbapi.com",
-
-    headers: {
-        'Content-Type': 'application/json'
-    }
-
-})
 
 
 
@@ -24,7 +12,7 @@ export function useSearchMovie(searched_word) {
 
     queryFn: async () => {
 
-       const response = await movieAxios.get(
+       const response = await omdbapi_axios.get(
 
          `/?s=${searched_word}&apikey=${import.meta.env.VITE_OMDB_API_KEY}`,
         )
