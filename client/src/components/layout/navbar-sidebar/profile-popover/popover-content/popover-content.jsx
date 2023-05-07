@@ -1,6 +1,6 @@
 // hooks
 import useSwitchMuiTheme from '@/utils/global-hooks/use-switch-mui-theme.js';
-import { useTheme } from '@mui/material';
+import { useTheme } from '@mui/material/styles';
 
 // importing router
 import { useNavigate } from 'react-router-dom';

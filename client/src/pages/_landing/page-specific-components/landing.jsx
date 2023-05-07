@@ -1,5 +1,5 @@
 // hook
-import { useTheme } from '@mui/material';
+import { useTheme } from '@mui/material/styles';
 
 // store
 import { user_store } from '@/store/user-store';

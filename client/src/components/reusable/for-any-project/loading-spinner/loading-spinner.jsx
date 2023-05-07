@@ -1,5 +1,5 @@
 // hook
-import { useTheme } from '@mui/material';
+import { useTheme } from '@mui/material/styles';
 
 // PropTypes
 import { PropTypes } from "prop-types";

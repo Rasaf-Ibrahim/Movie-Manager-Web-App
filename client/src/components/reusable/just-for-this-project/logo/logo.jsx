@@ -10,7 +10,7 @@ import responsiveSpacing from '@/utils/responsive-spacing/responsive-spacing';
 
 
 // useTheme hook
-import { useTheme } from "@mui/material";
+import { useTheme } from '@mui/material/styles';
 
 
 
@@ -57,7 +57,7 @@ export default function LOGO___COMPONENT(props) {
     return (
 
         <ROUTER_LINK___STYLED to='/'>
-            
+
             <Box sx={{
 
                 // layout 

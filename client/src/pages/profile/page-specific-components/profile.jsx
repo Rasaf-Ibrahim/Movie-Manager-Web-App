@@ -2,8 +2,7 @@
 import { user_store } from '@/store/user-store';
 import media_queries from '@/utils/media-queries/media-queries';
 import { Avatar, Box, Typography } from '@mui/material'
-import { useTheme } from '@mui/material'
-
+import { useTheme } from '@mui/material/styles';
 
 // styled-components
 import { styled } from "@mui/material/styles";

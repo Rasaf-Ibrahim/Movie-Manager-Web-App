@@ -2,9 +2,8 @@
 // hook
 import { useLogger, useMount, useUpdateEffect } from "react-use";
 import { useImmer } from "use-immer";
-import { useMediaQuery, useTheme } from '@mui/material'
-
-
+import { useMediaQuery } from '@mui/material'
+import { useTheme } from '@mui/material/styles';
 
 
 // api

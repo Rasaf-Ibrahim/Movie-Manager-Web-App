@@ -8,7 +8,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 
 // useTheme hook
-import { useTheme } from "@mui/material";
+import { useTheme } from '@mui/material/styles';
 import NETWORK_STATUS___COMPONENT from "@/components/reusable/for-any-project/network-status/network-status";
 
 
