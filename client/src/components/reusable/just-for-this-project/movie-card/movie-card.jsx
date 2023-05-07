@@ -12,6 +12,7 @@ import {
     movie_type_year_wrapper_css,
     movie_title_css,
 } from './style'
+import ROUTER_LINK___STYLED from "@/styles/styled-components/router-link/router-link"
 
 // import ADD_REMOVE_FAVORITE_BUTTON from "components/reusable/features/add-remove-favorite-button"
 // import ADD_REMOVE_WATCH_LATER_BUTTON from "components/reusable/features/add-remove-watch-list-button"
@@ -120,13 +121,13 @@ export default function MOVIE_CARD___COMPONENT({ data }) {
                             {/* card_more_info_button < card_all_content_except_image_css */}
                             <Box>
 
-                                <Link to={`/movie/${movie.imdbID}`} style={{ textDecoration: 'none' }}>
+                                <ROUTER_LINK___STYLED to={`/movie-details/${movie.imdbID}`}>
 
                                     <Button size="small" color="primary" variant='outlined'>
                                         More Info
                                     </Button>
 
-                                </Link>
+                                </ROUTER_LINK___STYLED>
 
                             </Box>
 
