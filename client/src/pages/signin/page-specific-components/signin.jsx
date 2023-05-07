@@ -234,7 +234,7 @@ const WRAPPER_OF_FORM_CONTENT___STYLED = styled((props) =>
         padding-top:1rem;
         padding-bottom:1rem;
 
-        background-color: ${theme.palette.background.variation};
+        background-color: ${theme.palette.background.variation_1};
         box-shadow: 5px 5px 2px 0px;
 
         border-radius:1rem;

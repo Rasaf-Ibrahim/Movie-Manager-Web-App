@@ -44,20 +44,20 @@ export default function PROFILE___COMPONENT() {
                     {user_info.full_name}
                 </Typography>
 
-                
+
                 <Typography variant='body1'>
-                   Username: {user_info.username}
+                    Username: {user_info.username}
                 </Typography>
 
 
                 <Typography variant='body1'>
-                   Email: {user_info.email}
+                    Email: {user_info.email}
                 </Typography>
 
 
 
 
-                
+
             </PROFILE_CARD___STYLED>
 
         </WRAPPER_OF_JSX___STYLED>
@@ -106,7 +106,7 @@ const PROFILE_CARD___STYLED = styled((props) =>
     ${media_queries.name_xs_sm_md_lg_xl('width', '100%', '90%', '80%', '70%', '60%')};
 
     ${/* appearance */ ''}
-    background-color: ${theme.palette.background.variation};
+    background-color: ${theme.palette.background.variation_1};
     border: 0.05rem solid ${theme.palette.divider};
     border-radius: 0.5rem;
 

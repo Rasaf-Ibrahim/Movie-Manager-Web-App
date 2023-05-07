@@ -111,7 +111,7 @@ const CALL_TO_ACTION_SECTION___STYLED = styled('div')(
 
     ({ theme }) => `
 
-    background-color: ${theme.palette.mode === 'dark' ? theme.palette.background.variation : theme.palette.primary.static_variant.light_1};
+    background-color: ${theme.palette.mode === 'dark' ? theme.palette.background.variation_1 : theme.palette.primary.static_variant.light_1};
 
 
     ${responsiveSpacing.styledComponent.cssSyntax('padding', 2)};

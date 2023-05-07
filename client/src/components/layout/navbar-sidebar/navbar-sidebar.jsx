@@ -94,7 +94,7 @@ const NAVBAR___STYLED = styled('nav')(
 
     ({ theme }) => `
 
-        background-color: ${theme.palette.mode === 'dark' ? theme.palette.background.variation : theme.palette.primary.main};
+        background-color: ${theme.palette.mode === 'dark' ? theme.palette.background.variation_1 : theme.palette.primary.main};
         
         color: ${theme.palette.text.static_variant.light_primary};
     

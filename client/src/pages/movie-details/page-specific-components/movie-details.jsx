@@ -23,60 +23,60 @@ import LOADING_SPINNER___COMPONENT from "@/components/reusable/for-any-project/l
 export default function MOVIE_DETAILS___COMPONENT() {
 
 
-  const { id } = useParams()
+    const { id } = useParams()
 
-  const  { isLoading, isSuccess, isError, data, error, refetch } = useMovieDetails(id)
-
-
-
-  return (
-
-
-    <Box>
-
-      {
-
-        /* Immediately invoked anonymous function */
-        (() => {
-
-
-          if (isLoading) {
-            return (
-                <LOADING_SPINNER___COMPONENT fullPage={false} margin='3rem' />
-            )
-          }
-
-
-          else if (isError) {
-
-            return (
-
-              <ERROR_TEXT___COMPONENT error_text='Something is wrong.' />
-            )
-          }
-
-
-          else if (isSuccess) {
-
-            return (
-
-              <DISPLAYING_MOVIE_DETAILS data={data} />
-
-
-            )
-          }
+    const { isLoading, isSuccess, isError, data, error, refetch } = useMovieDetails(id)
 
 
 
-        })() /* End: Immediately invoked anonymous function */
+    return (
 
 
-      }
+        <Box>
 
-    </Box>
+            {
+
+                /* Immediately invoked anonymous function */
+                (() => {
 
 
-  )
+                    if (isLoading) {
+                        return (
+                            <LOADING_SPINNER___COMPONENT fullPage={false} margin='3rem' />
+                        )
+                    }
+
+
+                    else if (isError) {
+
+                        return (
+
+                            <ERROR_TEXT___COMPONENT error_text='Something is wrong.' />
+                        )
+                    }
+
+
+                    else if (isSuccess) {
+
+                        return (
+
+                            <DISPLAYING_MOVIE_DETAILS data={data} />
+
+
+                        )
+                    }
+
+
+
+                })() /* End: Immediately invoked anonymous function */
+
+
+            }
+
+        </Box>
+
+
+    )
 
 }
 
@@ -93,139 +93,139 @@ function DISPLAYING_MOVIE_DETAILS({ data }) {
 
 
 
-// 🍔 CSS
+    // 🍔 CSS
+
+    /* Note about Width:
     
-/* Note about Width:
-
-Haven't added any width to the 'whole_component_css' or 'all_contents_css' or 'everything_without_poster_title_css' because these are just wrappers. I don't want to add width to any wrappers. I want to add width to every individual section. So, I have added width to 'poster_img_css' &  'a_info_section_css' 
-
-
- I have created all the breakpoints by multiplying 20rem(320px). So, any individual section's width must be smaller than 20rem(320px). Actually, one section must not have larger than 18rem because then It would be possible to provide 1rem margin to the left and right side. 
-
-*/
-
-
-
-
-const whole_component_css = {
-    marginTop: '2.2rem',
-
-    // centering the the content horizontally
-    display: 'grid',
-    justifyItems: 'center'
-}
-
-
-const all_contents_css = {
-    padding: '1.1rem',
-
-    backgroundColor: 'background.variation',
-    boxShadow: 1,
-
-    borderRadius: '1rem',
-
-    display: 'grid',
-    justifyItems: 'center',
-    textAlign: 'center',
-    gap: '2.2rem',
-}
-
-
-const poster_image_wrapper_css = {
-
-    boxShadow: 4,
-
-    padding: '0.55rem',
-    borderRadius:'1rem',
-
-    // centering the the content horizontally and vertically
-    display: 'grid',
-    justifyItems: 'center',
-    alignItems:'center'
-
-}
-
-
-
-const poster_img_css = {
-
-    objectFit: 'cover',
-    borderRadius:'1rem',
-    height: { xs: '26rem', sm: '28rem', md: '32rem', lg:'34rem' },
-    width: { xs: '16rem', sm: '19rem', md: '22rem', lg:'25rem' },
-}
-
-const title_css = {
-    marginTop:'1.1rem',
-    marginBottom: '1.1rem'
-}
-
-
-const everything_without_poster_title_css = {
-    display: 'grid',
-    gap: '2rem',
-    gridTemplateColumns: { xs: '1fr', sm: '1fr 1fr', md: '1fr 1fr 1fr', lg:'1fr 1fr 1fr 1fr' },
-
-
-    // by default, alignItems is 'stretch', it makes lot of section larger than it needs to be. so, changing to 'start'
-    alignItems:'start'
-
-
-
-  /* If any section is bigger than than other sections, then you may provide at least "gridRow: 'span 2'" to that section. For example, plot section is larger than other section. So, in the 'movie-detail.jsx' file,on the sx={{}} object of plot section, use gridRow:'span 2'.  */
-
-}
-
-
-
-
-const a_info_section_css = {
-
-
-    width: '18rem',
-    minHeight:'8rem',
-    padding:'1.5rem',
-    backgroundColor: 'background.variation_2',
-    boxShadow: 1,
-    borderTopColor: 'primary.main',
-    borderTop: 6,
-
-    borderRadius:3,
-
-    gridTemplateColumns: '1fr',
-
-    position:'relative',
-
-
-    // centering the the content horizontally & vertically
-    display: 'grid',
-    justifyItems: 'center',
-    alignItems:'center'
-
-}
-
-
-const info_title_css = {
-
-    position:'absolute',
-    top:'-1.5rem',
-    left:'-0.5rem',
-    padding: '0.55rem',
-
- 
-    borderRadius:3,
+    Haven't added any width to the 'whole_component_css' or 'all_contents_css' or 'everything_without_poster_title_css' because these are just wrappers. I don't want to add width to any wrappers. I want to add width to every individual section. So, I have added width to 'poster_img_css' &  'a_info_section_css' 
     
-    typography: 'subtitle2',
-    fontWeight: 'medium',
-    backgroundColor:'background.variation_2',
-    boxShadow:2
-}
+    
+     I have created all the breakpoints by multiplying 20rem(320px). So, any individual section's width must be smaller than 20rem(320px). Actually, one section must not have larger than 18rem because then It would be possible to provide 1rem margin to the left and right side. 
+    
+    */
 
 
-const info_value_css = {
-    padding: '0.55rem',
-    typography: 'h6',
-}
+
+
+    const whole_component_css = {
+        marginTop: '2.2rem',
+
+        // centering the the content horizontally
+        display: 'grid',
+        justifyItems: 'center'
+    }
+
+
+    const all_contents_css = {
+        padding: '1.1rem',
+
+        backgroundColor: 'background.variation_1',
+        boxShadow: 1,
+
+        borderRadius: '1rem',
+
+        display: 'grid',
+        justifyItems: 'center',
+        textAlign: 'center',
+        gap: '2.2rem',
+    }
+
+
+    const poster_image_wrapper_css = {
+
+        boxShadow: 4,
+
+        padding: '0.55rem',
+        borderRadius: '1rem',
+
+        // centering the the content horizontally and vertically
+        display: 'grid',
+        justifyItems: 'center',
+        alignItems: 'center'
+
+    }
+
+
+
+    const poster_img_css = {
+
+        objectFit: 'cover',
+        borderRadius: '1rem',
+        height: { xs: '26rem', sm: '28rem', md: '32rem', lg: '34rem' },
+        width: { xs: '16rem', sm: '19rem', md: '22rem', lg: '25rem' },
+    }
+
+    const title_css = {
+        marginTop: '1.1rem',
+        marginBottom: '1.1rem'
+    }
+
+
+    const everything_without_poster_title_css = {
+        display: 'grid',
+        gap: '2rem',
+        gridTemplateColumns: { xs: '1fr', sm: '1fr 1fr', md: '1fr 1fr 1fr', lg: '1fr 1fr 1fr 1fr' },
+
+
+        // by default, alignItems is 'stretch', it makes lot of section larger than it needs to be. so, changing to 'start'
+        alignItems: 'start'
+
+
+
+        /* If any section is bigger than than other sections, then you may provide at least "gridRow: 'span 2'" to that section. For example, plot section is larger than other section. So, in the 'movie-detail.jsx' file,on the sx={{}} object of plot section, use gridRow:'span 2'.  */
+
+    }
+
+
+
+
+    const a_info_section_css = {
+
+
+        width: '18rem',
+        minHeight: '8rem',
+        padding: '1.5rem',
+        backgroundColor: 'background.variation_2',
+        boxShadow: 1,
+        borderTopColor: 'primary.main',
+        borderTop: 6,
+
+        borderRadius: 3,
+
+        gridTemplateColumns: '1fr',
+
+        position: 'relative',
+
+
+        // centering the the content horizontally & vertically
+        display: 'grid',
+        justifyItems: 'center',
+        alignItems: 'center'
+
+    }
+
+
+    const info_title_css = {
+
+        position: 'absolute',
+        top: '-1.5rem',
+        left: '-0.5rem',
+        padding: '0.55rem',
+
+
+        borderRadius: 3,
+
+        typography: 'subtitle2',
+        fontWeight: 'medium',
+        backgroundColor: 'background.variation_2',
+        boxShadow: 2
+    }
+
+
+    const info_value_css = {
+        padding: '0.55rem',
+        typography: 'h6',
+    }
 
 
 

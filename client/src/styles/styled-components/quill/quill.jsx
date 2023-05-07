@@ -602,7 +602,7 @@ const CSS_FOR_QUILL_EDITOR____STYLED = styled((props) =>
 
 
      .ql-snow .ql-tooltip {
-        background-color: ${theme.palette.background.variation};
+        background-color: ${theme.palette.background.variation_1};
         color: ${theme.palette.text.primary};
         border: 1px solid ${theme.palette.primary.dark};
         box-shadow: 0px 0px 5px  ${theme.palette.primary.dark};
@@ -699,7 +699,7 @@ const CSS_FOR_QUILL_EDITOR____STYLED = styled((props) =>
 
     .ql-snow .ql-tooltip.ql-editing input[type=text] {
         display: inline-block;
-        background-color: ${theme.palette.background.variation};
+        background-color: ${theme.palette.background.variation_1};
         color: ${theme.palette.text.primary};
         border: 2px solid ${theme.palette.primary.light};
         box-shadow: 0px 0px 2px  ${theme.palette.primary.dark};
@@ -842,26 +842,26 @@ const CSS_FOR_QUILL_GENERATED_HTML___STYLED = styled((props) =>
 
 
 
-        <CSS_FOR_QUILL_EDITOR____STYLED   sx={(theme) => ({
-            /*Override any style of the <CSS_FOR_QUILL_EDITOR____STYLED/> here in the sx */
+    <CSS_FOR_QUILL_EDITOR____STYLED sx={(theme) => ({
+        /*Override any style of the <CSS_FOR_QUILL_EDITOR____STYLED/> here in the sx */
 
 
-            '.ql-editor' : {
-                backgroundColor: theme.palette.background.default
-            }
+        '.ql-editor': {
+            backgroundColor: theme.palette.background.default
+        }
 
 
-        })}>
+    })}>
 
-           <div className='ql-container ql-snow'>
+        <div className='ql-container ql-snow'>
 
-              <div className='ql-editor'>
+            <div className='ql-editor'>
 
                 <div {...props}></div>
 
-              </div>
+            </div>
 
-           </div>
+        </div>
     </CSS_FOR_QUILL_EDITOR____STYLED>
 
 
@@ -894,7 +894,7 @@ const QUILL_TOOLBAR_OPTIONS___STYLED = styled((props) =>
 
         ${/* styling the options displayed in the picker, such as the color picker or font picker */''}
         .ql-picker-options {
-        background-color: ${theme.palette.background.variation}
+        background-color: ${theme.palette.background.variation_1}
         }
 
 
