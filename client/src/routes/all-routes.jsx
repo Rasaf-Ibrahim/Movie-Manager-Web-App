@@ -173,7 +173,7 @@ const allRoutes = createBrowserRouter([
     /* ✅✅ Accessible to signed in and verified user ✅✅  */
 
     {
-        path: "/movie",
+        path: "/search-movie",
         element: (
             <LOGGED_IN_AND_VERIFIED>
                 <MOVIE___PAGE />

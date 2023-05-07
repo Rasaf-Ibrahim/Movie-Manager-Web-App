@@ -3,8 +3,11 @@ import { useState } from 'react';
 // api hook
 import { useSearchMovie } from '@/api/movie/search-movie';
 
+// theme hook
+import { useTheme } from '@mui/material/styles';
 
-import { Box, Tabs, Tab, TextField, InputAdornment } from '@mui/material'
+
+import { Box, Tabs, Tab, TextField, InputAdornment, Typography } from '@mui/material'
 
 import SearchIcon from '@mui/icons-material/Search';
 
@@ -28,51 +31,38 @@ import { useLogger, useMount, useUpdateEffect } from 'react-use';
 ----------------------------------------------------------------------*/
 export default function MOVIE___COMPONENT() {
 
-
-
-    // when we select a tab, the state changes
-    const [selectedTab, setSelectedTab] = useState(0);
-
-    const handleChange = (event, newValue) => {
-        setSelectedTab(newValue);
-    }
+    // theme 
+    const theme = useTheme()
 
 
 
     return (
 
-        <>
+        <Box sx={{
+            marginTop:'2rem',
+            marginBottom:'2rem',
+        }}>
 
-            <Box sx={{ width: '100%', marginTop: '1.1rem' }}>
+ 
+            <Typography 
+                variant='h4' 
+                sx={{ 
+                    textAlign:'center',
+                    color:'primary.main',
+             
+                }}  
+            >
 
-                <Box sx={{ borderBottom: 1, borderColor: 'divider', display: 'flex', justifyContent: 'center' }}>
-
-                    <Tabs value={selectedTab} onChange={handleChange} aria-label="Tabs" 	 >
-
-                        <Tab label="Search Movie" />
-                        <Tab label="Favorite" />
-                        <Tab label="Watch Later" />
-
-                    </Tabs>
-
-                </Box>
-
-
-
-                {/* Content of the tab */}
-
-                {selectedTab === 0 && <SEARCH_MOVIE___SECTION />}
+                Search Movie
+            </Typography>
 
 
-                {/* {selectedTab === 1 && <FAVORITE_MOVIE />}
+
+            <SEARCH_MOVIE___SECTION />
 
 
-                {selectedTab === 2 && <WATCH_LATER/>} */}
 
-
-            </Box>
-
-        </>
+        </Box>
 
     )
 }
@@ -298,15 +288,28 @@ function MOVIE_SEARCH_RESULT___COMPONENT({ searchedKeyword, random_placeholder_m
 
 function get_random_placeholder_movie() {
 
-    // we will have short movie name here, for example Frozen. Because with short keyword, we will get more result and the UI will be filled. Before adding any movie in the array, search the movie and check what result we are getting.
+    /*
+        We must choose popular movies that have multiple sequels, so that with one search we can get multiple results. Additionally, we should choose a short movie name, such as 'Avengers', to increase the likelihood of getting more results and filling the UI. Before adding any movie to the array, search for the movie and check the result.
+   */
     const short_name_but_famous_movie = [
 
-        'Batman',
-        'Superman',
+        'Avengers',
         'Iron Man',
         'Thor',
+        'Spider-Man',
         'Captain America',
-        'Life'
+        'Batman',
+        'Superman',
+
+        'Harry Potter',
+
+        'Twilight',
+
+        'Sherlock',
+
+        'The Matrix',
+
+        'Toy Story'
       ]
 
 
