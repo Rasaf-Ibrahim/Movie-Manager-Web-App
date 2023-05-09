@@ -18,8 +18,10 @@ import RESET_PASSWORD___PAGE from "@/pages/reset-password/_page";
 import SOCIAL_AUTH_RESPONSE___PAGE from "@/pages/social-auth-response/_page";
 import VERIFY_EMAIL___PAGE from "@/pages/verify-email/_page";
 import PROFILE___PAGE from "@/pages/profile/_page";
-import MOVIE___PAGE from "@/pages/movie/_page";
-
+import SEARCH_MOVIE___PAGE from "@/pages/search-movie/_page";
+import MOVIE_DETAILS___PAGE from "@/pages/movie-details/_page";
+import CONTENT_FLICKERING_PROTECTOR from "./content-flickering-protector";
+import BOOKMARKED_MOVIES___PAGE from "@/pages/bookmarked-movies/_page";
 
 
 
@@ -36,7 +38,7 @@ const allRoutes = createBrowserRouter([
         element: <LANDING___PAGE />,
     },
 
-  
+
     /* 🍔 Not Found Page */
     {
         path: "*",
@@ -124,12 +126,12 @@ const allRoutes = createBrowserRouter([
 
         )
     },
-    
+
 
 
 
     /* ✅✅ Accessible to signed in but not verified user ✅✅  */
-    
+
     /* 🍔 Send email verification mail */
     {
         path: "/send-email-verification-mail",
@@ -155,7 +157,7 @@ const allRoutes = createBrowserRouter([
 
 
     /* ✅✅ Accessible to signed in and verified user ✅✅  */
-    
+
 
     /* 🍔 Profile */
     {
@@ -176,7 +178,20 @@ const allRoutes = createBrowserRouter([
         path: "/search-movie",
         element: (
             <LOGGED_IN_AND_VERIFIED>
-                <MOVIE___PAGE />
+                <SEARCH_MOVIE___PAGE />
+            </LOGGED_IN_AND_VERIFIED>
+
+        )
+    },
+
+
+    {
+        path: "/movie-details/:id",
+        element: (
+            <LOGGED_IN_AND_VERIFIED>
+
+                    <MOVIE_DETAILS___PAGE />
+
             </LOGGED_IN_AND_VERIFIED>
 
         )
@@ -184,7 +199,27 @@ const allRoutes = createBrowserRouter([
 
 
 
-   
+    {
+        path: "/bookmarked-movies",
+        element: (
+            <LOGGED_IN_AND_VERIFIED>
+
+                    <BOOKMARKED_MOVIES___PAGE />
+
+            </LOGGED_IN_AND_VERIFIED>
+
+        )
+    },
+
+
+
+
+
+
+
+
+
+
 
 ])
 
