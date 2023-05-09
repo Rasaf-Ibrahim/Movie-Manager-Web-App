@@ -5,6 +5,9 @@
     "main": "server.js",
     "author": "Rasaf Ibrahim",
     "license": "MIT",
+    "engines": {
+        "node": ">=12"
+      },
     "scripts": {
       "dev": "nodemon server.js",
       "build": "node server.js"
