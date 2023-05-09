@@ -14,8 +14,6 @@ import {
 } from './style'
 import ROUTER_LINK___STYLED from "@/styles/styled-components/router-link/router-link"
 
-// import ADD_REMOVE_FAVORITE_BUTTON from "components/reusable/features/add-remove-favorite-button"
-// import ADD_REMOVE_WATCH_LATER_BUTTON from "components/reusable/features/add-remove-watch-list-button"
 
 
 export default function MOVIE_CARD___COMPONENT({ data }) {
@@ -110,14 +108,6 @@ export default function MOVIE_CARD___COMPONENT({ data }) {
                             </Box> {/* End: movie_type_year_wrapper < card_all_content_except_image_css */}
 
 
-                            {/* <Box>
-
-                                <ADD_REMOVE_FAVORITE_BUTTON movie={movie} />
-
-                                <ADD_REMOVE_WATCH_LATER_BUTTON movie={movie} />
-
-                            </Box> */}
-
                             {/* card_more_info_button < card_all_content_except_image_css */}
                             <Box>
 
@@ -145,3 +135,15 @@ export default function MOVIE_CARD___COMPONENT({ data }) {
         </Box> /* End: whole_component */
     )
 }
+
+
+
+
+
+
+
+
+
+
+
+
