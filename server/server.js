@@ -19,9 +19,13 @@ import connect_db_and_start_server from './src/utils/connect-db-and-start-server
 import global_routes from './src/routes/global-routes.js'
 import social_auth_routes from './src/routes/social-auth-routes.js'
 import email_auth_routes from './src/routes/email-auth-routes.js'
+import favorite_movie_routes from './src/routes/movie/favorite-routes.js'
+import yet_to_watch_movie_routes from './src/routes/movie/yet-to-watch-routes.js'
+import already_watched_movie_routes from './src/routes/movie/already-watched-routes.js'
 
 // importing services
 import social_auth_setup_func from './src/services/social-auth-setup.js'
+
 
 
 // dotenv
@@ -64,8 +68,9 @@ cloudinary_config()
 app.use('/', global_routes)
 app.use('/api/v1/auth', email_auth_routes)
 app.use('/api/v1/auth/social', social_auth_routes)
-
-
+app.use('/api/v1/movie/favorite', favorite_movie_routes)
+app.use('/api/v1/movie/yet-to-watch', yet_to_watch_movie_routes)
+app.use('/api/v1/movie/already-watched', already_watched_movie_routes )
 
 // swagger Documentation
 swagger_documentation(app)
