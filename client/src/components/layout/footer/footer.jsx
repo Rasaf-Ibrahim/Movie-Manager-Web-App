@@ -74,7 +74,7 @@ const FOOTER_HAS_NO_CONTENT___SECTION = () => {
     return (
 
         <Box sx={(theme) => ({
-            backgroundColor: theme.palette.background.variation,
+            backgroundColor: theme.palette.background.variation_1,
             padding: '2rem',
         })}>
 
@@ -408,7 +408,7 @@ const WRAPPER_OF_FOOTER___STYLED = styled((props) =>
 )(({ theme }) => `
 
     ${/* color */''} 
-    background-color: ${theme.palette.background.variation};
+    background-color: ${theme.palette.background.variation_1};
 
     
    ${/* spacing */''}

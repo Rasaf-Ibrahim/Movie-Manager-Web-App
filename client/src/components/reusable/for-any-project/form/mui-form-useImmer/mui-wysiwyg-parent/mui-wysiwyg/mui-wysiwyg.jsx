@@ -1,7 +1,7 @@
 // hook
 import { useRef } from 'react';
 import { useMount, useUpdateEffect } from 'react-use';
-import { useTheme } from '@mui/material';
+import { useTheme } from '@mui/material/styles';
 
 
 // quillRef Library

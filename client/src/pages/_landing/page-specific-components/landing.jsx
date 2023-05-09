@@ -1,5 +1,5 @@
 // hook
-import { useTheme } from '@mui/material';
+import { useTheme } from '@mui/material/styles';
 
 // store
 import { user_store } from '@/store/user-store';
@@ -64,6 +64,19 @@ export default function LANDING___COMPONENT() {
                         </REGISTER_BUTTON___STYLED>
 
                     </ROUTER_LINK___STYLED>
+                   
+                }
+
+                {user_info && user_info.is_email_confirmed && 
+
+                    <ROUTER_LINK___STYLED to='/search-movie'>
+
+                        <REGISTER_BUTTON___STYLED>
+                            Search Movie
+                        </REGISTER_BUTTON___STYLED>
+
+                    </ROUTER_LINK___STYLED>
+
                 }
 
 
@@ -111,7 +124,7 @@ const CALL_TO_ACTION_SECTION___STYLED = styled('div')(
 
     ({ theme }) => `
 
-    background-color: ${theme.palette.mode === 'dark' ? theme.palette.background.variation : theme.palette.primary.static_variant.light_1};
+    background-color: ${theme.palette.mode === 'dark' ? theme.palette.background.variation_1 : theme.palette.primary.static_variant.light_1};
 
 
     ${responsiveSpacing.styledComponent.cssSyntax('padding', 2)};

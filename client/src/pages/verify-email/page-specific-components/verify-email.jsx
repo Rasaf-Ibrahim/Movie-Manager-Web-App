@@ -86,7 +86,7 @@ export default function VERIFY_EMAIL___COMPONENT() {
                     </Typography>
 
 
-                    <ROUTER_LINK___STYLED to='/'>
+                    <ROUTER_LINK___STYLED to='/search-movie'>
 
                         <Button variant='contained'>
                             Home Page

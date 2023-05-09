@@ -36,14 +36,14 @@ const a_card_wrapper_css = {
     width: '17rem',
 
 
-    backgroundColor: 'backgroundVariation.v1',
+    backgroundColor: 'background.variation_1',
     boxShadow: 1,
 
     borderRadius: '1rem',
 
 
     /* here, position is relative because we want the 'card_image_wrapper_css' position to be absolute */
-    position:'relative'
+    position: 'relative'
 }
 
 

@@ -120,7 +120,7 @@ const SUCCESS_RESPONSE___SECTION = ({ data }) => {
             }
 
 
-            <ROUTER_LINK___STYLED to='/'>
+            <ROUTER_LINK___STYLED to='/search-movie'>
 
                 <Button variant="contained"> Go to Home Page </Button>
 

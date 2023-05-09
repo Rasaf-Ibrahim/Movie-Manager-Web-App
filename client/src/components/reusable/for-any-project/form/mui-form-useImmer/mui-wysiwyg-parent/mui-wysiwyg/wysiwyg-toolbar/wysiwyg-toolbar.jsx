@@ -2,9 +2,8 @@
 // hook
 import { useLogger, useMount, useUpdateEffect } from "react-use";
 import { useImmer } from "use-immer";
-import { useMediaQuery, useTheme } from '@mui/material'
-
-
+import { useMediaQuery } from '@mui/material'
+import { useTheme } from '@mui/material/styles';
 
 
 // api
@@ -423,7 +422,7 @@ const FONT___SECTION = ({ quillRef, wysiwyg_state, update_wysiwyg_state }) => {
     return (
 
         <Tooltip title="Font" placement="top">
- 
+
 
             <FormControl sx={{ minWidth: '6.3rem' }} margin='dense'>
 
@@ -2694,7 +2693,7 @@ const MODAL_CONTENT___STYLED = styled((props) =>
     left: 50%;
     transform: translate(-50%, -50%);
     width: 400;
-    background: ${theme.palette.background.variation};
+    background: ${theme.palette.background.variation_1};
     box-shadow: 2rem;
     padding: 2rem;
 `)
@@ -2742,7 +2741,7 @@ const WRAPPER_OF_FORM_CONTENT___STYLED = styled((props) =>
     padding-top:1rem;
     padding-bottom:1rem;
 
-    background-color: ${theme.palette.background.variation};
+    background-color: ${theme.palette.background.variation_1};
 
 
     ${/* Button's size is getting changed while toggling the email form if we use display:'grid' instead of display:'flex' & flex-direction:'column' */ ''}
