@@ -20,7 +20,6 @@ import VERIFY_EMAIL___PAGE from "@/pages/verify-email/_page";
 import PROFILE___PAGE from "@/pages/profile/_page";
 import SEARCH_MOVIE___PAGE from "@/pages/search-movie/_page";
 import MOVIE_DETAILS___PAGE from "@/pages/movie-details/_page";
-import CONTENT_FLICKERING_PROTECTOR from "./content-flickering-protector";
 import BOOKMARKED_MOVIES___PAGE from "@/pages/bookmarked-movies/_page";
 
 
