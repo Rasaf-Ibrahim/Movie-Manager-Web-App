@@ -115,8 +115,6 @@ function SEARCH_MOVIE___SECTION() {
 
     })
 
-    useLogger(random_placeholder_movie, 'placeholder')
-
 
     // css
     const from_wrapper_css = {
@@ -189,8 +187,6 @@ function MOVIE_SEARCH_RESULT___COMPONENT({ searchedKeyword, random_placeholder_m
     useUpdateEffect(() => {
         refetch()
     }, [searchedKeyword, random_placeholder_movie])
-
-    useLogger('data', data)
 
 
     return (
