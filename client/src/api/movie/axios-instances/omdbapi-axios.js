@@ -2,7 +2,7 @@ import axios from 'axios';
 
 
 // creating new axios instance
-export const omdbapi_axios = axios.create({
+export const axios_omdb_api = axios.create({
 
     baseURL: "https://www.omdbapi.com",
 

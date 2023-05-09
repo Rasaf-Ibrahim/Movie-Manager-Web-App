@@ -1,32 +1,34 @@
 import { useQuery } from '@tanstack/react-query';
-import { omdbapi_axios } from './axios-instances/omdbapi-axios';
+import { axios_omdb_api } from './axios-instances/omdbapi-axios';
 
 
 
 
 export function useMovieDetails(imdb_id) {
 
-  return useQuery({
+    return useQuery({
 
-    queryKey: ["movie_details"],
+        queryKey: ["movie_details"],
 
-    queryFn: async () => {
+        queryFn: async () => {
 
-       const response = await omdbapi_axios.get(
+            const response = await axios_omdb_api.get(
 
-         `/?i=${imdb_id}&apikey=${import.meta.env.VITE_OMDB_API_KEY}`
-        )
+                `/?i=${imdb_id}&apikey=${import.meta.env.VITE_OMDB_API_KEY}`
+            )
 
-        return response.data
-    },
+            return response.data
+        },
 
 
-    enabled: true,
+        enabled: true,
 
-    refetchOnWindowFocus: false,
+        refetchOnWindowFocus: false,
 
-    retry: true,
+        retry: true,
 
-  })
+        cacheTime: 0,
+
+    })
 
 }
