@@ -12,7 +12,7 @@ export default function LANDING___PAGE() {
 
 
                 <Helmet>
-                    <title>Project - Authentication</title>
+                    <title>Movie Manager</title>
                 </Helmet>
 
                 {/* Component */}
