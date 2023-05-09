@@ -64,6 +64,19 @@ export default function LANDING___COMPONENT() {
                         </REGISTER_BUTTON___STYLED>
 
                     </ROUTER_LINK___STYLED>
+                   
+                }
+
+                {user_info && user_info.is_email_confirmed && 
+
+                    <ROUTER_LINK___STYLED to='/search-movie'>
+
+                        <REGISTER_BUTTON___STYLED>
+                            Search Movie
+                        </REGISTER_BUTTON___STYLED>
+
+                    </ROUTER_LINK___STYLED>
+
                 }
 
 
