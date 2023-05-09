@@ -4,12 +4,13 @@ import { useParams } from "react-router-dom";
 // api hook
 import { useMovieDetails } from "@/api/movie/movie-details";
 
-
 // components
-import { Box, Typography } from "@mui/material";
+import { Box, Button, Typography } from "@mui/material";
 
 import ERROR_TEXT___COMPONENT from "@/components/reusable/for-any-project/error-text/error-text";
 import LOADING_SPINNER___COMPONENT from "@/components/reusable/for-any-project/loading-spinner/loading-spinner";
+import BOOKMARK_BUTTONS___COMPONENT from "@/components/reusable/just-for-this-project/bookmark-buttons/bookmark-buttons";
+import { useEffect, useState } from "react";
 
 
 
@@ -60,7 +61,7 @@ export default function MOVIE_DETAILS___COMPONENT() {
 
                         return (
 
-                            <DISPLAYING_MOVIE_DETAILS data={data} />
+                            <DISPLAYING_MOVIE_DETAILS data={data} imdb_id = {id}  />
 
 
                         )
@@ -88,27 +89,25 @@ export default function MOVIE_DETAILS___COMPONENT() {
 
 
 // 🍪
-function DISPLAYING_MOVIE_DETAILS({ data }) {
+function DISPLAYING_MOVIE_DETAILS({ data, imdb_id}) {
 
 
-
-
-    // 🍔 CSS
-
-    /* Note about Width:
     
-    Haven't added any width to the 'whole_component_css' or 'all_contents_css' or 'everything_without_poster_title_css' because these are just wrappers. I don't want to add width to any wrappers. I want to add width to every individual section. So, I have added width to 'poster_img_css' &  'a_info_section_css' 
+        // 🍔 CSS
     
-    
-     I have created all the breakpoints by multiplying 20rem(320px). So, any individual section's width must be smaller than 20rem(320px). Actually, one section must not have larger than 18rem because then It would be possible to provide 1rem margin to the left and right side. 
-    
-    */
-
-
+        /* Note about Width:
+        
+        Haven't added any width to the 'whole_component_css' or 'all_contents_css' or 'everything_without_poster_title_css' because these are just wrappers. I don't want to add width to any wrappers. I want to add width to every individual section. So, I have added width to 'poster_img_css' &  'a_info_section_css' 
+        
+        
+         I have created all the breakpoints by multiplying 20rem(320px). So, any individual section's width must be smaller than 20rem(320px). Actually, one section must not have larger than 18rem because then It would be possible to provide 1rem margin to the left and right side. 
+        
+        */
 
 
     const whole_component_css = {
-        marginTop: '2.2rem',
+        marginTop: '2rem',
+        marginBottom: '2rem',
 
         // centering the the content horizontally
         display: 'grid',
@@ -155,10 +154,6 @@ function DISPLAYING_MOVIE_DETAILS({ data }) {
         width: { xs: '16rem', sm: '19rem', md: '22rem', lg: '25rem' },
     }
 
-    const title_css = {
-        marginTop: '1.1rem',
-        marginBottom: '1.1rem'
-    }
 
 
     const everything_without_poster_title_css = {
@@ -184,11 +179,11 @@ function DISPLAYING_MOVIE_DETAILS({ data }) {
 
         width: '18rem',
         minHeight: '8rem',
-        padding: '1.5rem',
+        padding:'1.5rem',
         backgroundColor: 'background.variation_2',
         boxShadow: 1,
         borderTopColor: 'primary.main',
-        borderTop: 6,
+        borderTop: 3,
 
         borderRadius: 3,
 
@@ -215,17 +210,27 @@ function DISPLAYING_MOVIE_DETAILS({ data }) {
 
         borderRadius: 3,
 
-        typography: 'subtitle2',
+        typography: 'body2',
         fontWeight: 'medium',
-        backgroundColor: 'background.variation_2',
+        backgroundColor: 'background.variation_3',
         boxShadow: 2
     }
 
 
     const info_value_css = {
         padding: '0.55rem',
-        typography: 'h6',
+        typography: 'body1',
     }
+
+
+
+
+
+    useEffect(() => {
+        window.scrollTo(0, 0); // Scroll to top on component mount
+      }, []);
+    
+
 
 
 
@@ -234,6 +239,7 @@ function DISPLAYING_MOVIE_DETAILS({ data }) {
     return (
 
         <>
+
 
             {/* movie_detail_wrapper_parent */}
             <Box sx={{ ...whole_component_css }}>
@@ -261,11 +267,14 @@ function DISPLAYING_MOVIE_DETAILS({ data }) {
 
                     </Box> {/* End: poster_wrapper < movie_detail_wrapper */}
 
-
-
+                 
                     {/* title < movie_detail_wrapper */}
-                    <Typography variant="h3" sx={{ ...title_css }}>{data.Title}</Typography>
+                    <Typography variant="h4" color='primary.main'>{data.Title}</Typography> 
 
+                    <Box  sx={{marginTop:'2.5rem', marginBottom:'2.5rem'}}>
+                        <BOOKMARK_BUTTONS___COMPONENT movie_data={data} imdb_id={imdb_id} />
+
+                    </Box>
 
                     {/* everything_without_poster_title < movie_detail_wrapper */}
                     <Box sx={{ ...everything_without_poster_title_css }}>
