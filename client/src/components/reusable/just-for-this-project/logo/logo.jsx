@@ -4,9 +4,8 @@ import { Box, Typography } from '@mui/material'
 import ROUTER_LINK___STYLED from '@/styles/styled-components/router-link/router-link'
 
 
-import { styled } from '@mui/material/styles';
-
-import responsiveSpacing from '@/utils/responsive-spacing/responsive-spacing';
+// importing zustand store
+import { user_store } from "@/store/user-store"
 
 
 // useTheme hook
@@ -54,9 +53,29 @@ export default function LOGO___COMPONENT(props) {
     }
 
 
+
+    // 🍪 get the user state properties 
+    const { user_info } = user_store(state => ({
+        user_info: state?.user_info
+    }))
+
+
+    const right_path_to_redirect  = () => {
+
+        if(user_info?.is_email_confirmed) {
+            return '/search-movie'
+        }
+
+        else {
+            return '/'
+        }
+
+    }
+
+
     return (
 
-        <ROUTER_LINK___STYLED to='/'>
+        <ROUTER_LINK___STYLED to={right_path_to_redirect()}>
 
             <Box sx={{
 
