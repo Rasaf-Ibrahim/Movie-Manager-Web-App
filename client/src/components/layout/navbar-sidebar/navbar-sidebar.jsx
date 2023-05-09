@@ -77,7 +77,7 @@ export default function NAVBAR_SIDEBAR___COMPONENT() {
 
 
             {/* Drawer */}
-            <DRAWER___COMPONENT showDrawer={showDrawer} handleClose={handleClose} />
+            {/* <DRAWER___COMPONENT showDrawer={showDrawer} handleClose={handleClose} /> */}
 
 
         </>

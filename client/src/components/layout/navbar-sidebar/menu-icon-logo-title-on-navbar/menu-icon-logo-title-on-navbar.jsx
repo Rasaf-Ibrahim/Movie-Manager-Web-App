@@ -27,11 +27,11 @@ export default function MENU_ICON_LOGO_TITLE_ON_NAVBAR___COMPONENT(props) {
         <JSX_WRAPPER___STYLED>
 
             {/* hamburger icon */}
-            <IconButton onClick={handleShowDrawer} sx={{ fontSize: '2rem', color: 'inherit' }}>
+            {/* <IconButton onClick={handleShowDrawer} sx={{ fontSize: '2rem', color: 'inherit' }}>
 
                 <MenuOutlinedIcon />
 
-            </IconButton>
+            </IconButton> */}
 
 
             {/* logo and title */}

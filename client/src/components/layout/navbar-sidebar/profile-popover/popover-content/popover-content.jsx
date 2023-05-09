@@ -71,14 +71,16 @@ export default function POPOVER_CONTENT___COMPONENT() {
 
 
             {/* Dashboard */}
-            <ListItem>
-                <ListItemButton>
-                    <ListItemIcon>
-                        <GridViewIcon sx={{ fontSize: '2rem' }} />
-                    </ListItemIcon>
-                    <ListItemText primary="Dashboard" />
-                </ListItemButton>
-            </ListItem>
+            <ROUTER_LINK___STYLED to='/bookmarked-movies'>
+                <ListItem>
+                    <ListItemButton>
+                        <ListItemIcon>
+                            <GridViewIcon sx={{ fontSize: '2rem' }} />
+                        </ListItemIcon>
+                        <ListItemText primary="Bookmarked Movies" />
+                    </ListItemButton>
+                </ListItem>
+            </ROUTER_LINK___STYLED>
 
 
             <ListItem>
