@@ -30,7 +30,7 @@ export default function social_auth_setup_func(app) {
             {
                 clientID: process.env.GOOGLE_OAUTH_CLIENT_ID,
                 clientSecret: process.env.GOOGLE_OAUTH_CLIENT_SECRET,
-                callbackURL: "/api/v1/auth/social/google/redirect"
+                callbackURL: `${process.env.GOOGLE_OAUTH_REDIRECT_URL}`
             },
 
             // 2nd argument - callback function which will be called when a user successfully authenticates with Google
