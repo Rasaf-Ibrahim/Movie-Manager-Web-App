@@ -6,8 +6,8 @@
     "author": "Rasaf Ibrahim",
     "license": "MIT",
     "engines": {
-        "node": ">=12"
-      },
+        "node": "16.14.0"
+    },
     "scripts": {
       "dev": "nodemon server.js",
       "build": "node server.js"
