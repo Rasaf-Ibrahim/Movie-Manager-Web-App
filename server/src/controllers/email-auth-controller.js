@@ -36,10 +36,10 @@ const signup_user = tryCatchAsync(async (req, res, next) => {
 
     // 🍪 Create a new user in the database with the extracted data
     let created_document = await user_model.create({
-        full_name: full_name.trim(),
+        full_name: full_name?.trim(),
        
         //making username unique and less than 20 characters
-        username: `${full_name.trim().split(' ')[0].substring(0, 10)}_${nanoid(8)}`,
+        username: `${full_name?.trim().split(' ')[0].substring(0, 10)}_${nanoid(8)}`,
 
         email,
         password,
