@@ -87,7 +87,7 @@ export default function WAKE_UP_THE_SERVER() {
 function MODAL___COMPONENT({show_message, isLoading, isSuccess}) {
 
 
-    const [open, setOpen] = useState(true);
+    const [open, setOpen] = useState(false);
   
   
     // opening and closing the modal based on condition
