@@ -108,7 +108,7 @@ const FORM_ALL_SIGN_UP_OPTIONS___SECTION = () => {
 
     const googleAuth = () => {
         window.open(
-            `${import.meta.env.VITE_API_URL}/auth/social/google`,
+            `${import.meta.env.VITE_SERVER_BASE_URL}/api/v1/auth/social/google`,
             "_self"
 
         )

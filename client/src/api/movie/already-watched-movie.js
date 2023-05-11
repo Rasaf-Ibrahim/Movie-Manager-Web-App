@@ -14,7 +14,7 @@ import { toast } from "react-toastify";
 // creating new axios instance
 export const axios_already_watched_movie = axios.create({
 
-    baseURL: `${import.meta.env.VITE_API_URL}/movie/already-watched`,
+    baseURL: `${import.meta.env.VITE_SERVER_BASE_URL}/api/v1/movie/already-watched`,
 
     headers: {
         'Content-Type': 'application/json'
@@ -98,8 +98,8 @@ function fetch_a_already_watched_movie_hook(payload) {
             const response = await axios_already_watched_movie.get(
 
                 `/fetch-one-of-a-user/${payload.user_id}/${payload.imdb_id}`,
-  
- 
+
+
             )
 
             return response.data
@@ -123,27 +123,27 @@ function delete_from_already_watched_hook() {
 
     return useMutation(
 
-      (payload) => axios_already_watched_movie.delete(`/delete-one/${payload.user_id}/${payload.imdb_id}`),
+        (payload) => axios_already_watched_movie.delete(`/delete-one/${payload.user_id}/${payload.imdb_id}`),
 
-      {
+        {
 
-        onSuccess: () => {
-          // show success toast
-          toast.success('The movie has been successfully removed from the Already Watched list');
-        },
+            onSuccess: () => {
+                // show success toast
+                toast.success('The movie has been successfully removed from the Already Watched list');
+            },
 
-        onError: (error) => {
-          // show error toast
-          const error_message = error.response.data.message;
-          toast.error(error_message);
-        },
+            onError: (error) => {
+                // show error toast
+                const error_message = error.response.data.message;
+                toast.error(error_message);
+            },
 
-      }
+        }
 
     )
 
- }
-  
+}
+
 
 
 

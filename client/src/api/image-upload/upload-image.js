@@ -4,11 +4,11 @@ import { useMutation } from '@tanstack/react-query';
 
 const uploadImageAxios = axios.create({
 
-    baseURL: import.meta.env.VITE_API_URL,
+    baseURL: `${import.meta.env.VITE_SERVER_BASE_URL}/api/v1`,
 
     headers: {
         'Content-Type': 'multipart/form-data'
-     }
+    }
 
 })
 
@@ -16,19 +16,19 @@ const uploadImageAxios = axios.create({
 
 export function useUploadImage() {
 
-  return useMutation(
+    return useMutation(
 
-    (formData) => uploadImageAxios.post('/image/upload-one', formData),
+        (formData) => uploadImageAxios.post('/image/upload-one', formData),
 
-    {
-      onSuccess: (data) => data,
+        {
+            onSuccess: (data) => data,
 
-      onError: (error) => {
-        throw new Error(error.response.data.message);
-      },
-    }
+            onError: (error) => {
+                throw new Error(error.response.data.message);
+            },
+        }
 
-  )
+    )
 }
 
 

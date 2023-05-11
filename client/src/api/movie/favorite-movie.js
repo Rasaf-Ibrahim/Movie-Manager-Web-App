@@ -14,7 +14,7 @@ import { toast } from "react-toastify";
 // creating new axios instance
 export const axios_favorite_movie = axios.create({
 
-    baseURL: `${import.meta.env.VITE_API_URL}/movie/favorite`,
+    baseURL: `${import.meta.env.VITE_SERVER_BASE_URL}/api/v1/movie/favorite`,
 
     headers: {
         'Content-Type': 'application/json'
@@ -78,8 +78,8 @@ function fetch_favorite_movies_hook(payload) {
 
         retry: true,
 
-        cacheTime:0
-   
+        cacheTime: 0
+
 
     })
 }
@@ -99,8 +99,8 @@ function fetch_a_favorite_movie_hook(payload) {
             const response = await axios_favorite_movie.get(
 
                 `/fetch-one-of-a-user/${payload.user_id}/${payload.imdb_id}`,
-  
- 
+
+
             )
 
             return response.data
@@ -124,27 +124,27 @@ function delete_from_favorite_hook() {
 
     return useMutation(
 
-      (payload) => axios_favorite_movie.delete(`/delete-one/${payload.user_id}/${payload.imdb_id}`),
+        (payload) => axios_favorite_movie.delete(`/delete-one/${payload.user_id}/${payload.imdb_id}`),
 
-      {
+        {
 
-        onSuccess: () => {
-          // show success toast
-          toast.success('The movie has been successfully removed from the favorite list');
-        },
+            onSuccess: () => {
+                // show success toast
+                toast.success('The movie has been successfully removed from the favorite list');
+            },
 
-        onError: (error) => {
-          // show error toast
-          const error_message = error.response.data.message;
-          toast.error(error_message);
-        },
+            onError: (error) => {
+                // show error toast
+                const error_message = error.response.data.message;
+                toast.error(error_message);
+            },
 
-      }
+        }
 
     )
 
- }
-  
+}
+
 
 
 

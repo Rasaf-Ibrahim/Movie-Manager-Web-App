@@ -14,7 +14,7 @@ import { toast } from "react-toastify";
 // creating new axios instance
 export const axios_yet_to_watch_movie = axios.create({
 
-    baseURL: `${import.meta.env.VITE_API_URL}/movie/yet-to-watch`,
+    baseURL: `${import.meta.env.VITE_SERVER_BASE_URL}/api/v1/movie/yet-to-watch`,
 
     headers: {
         'Content-Type': 'application/json'
@@ -78,7 +78,7 @@ function fetch_yet_to_watch_movies_hook(payload) {
 
         retry: true,
 
-    
+
 
 
     })
@@ -99,8 +99,8 @@ function fetch_a_yet_to_watch_movie_hook(payload) {
             const response = await axios_yet_to_watch_movie.get(
 
                 `/fetch-one-of-a-user/${payload.user_id}/${payload.imdb_id}`,
-  
- 
+
+
             )
 
             return response.data
@@ -114,7 +114,7 @@ function fetch_a_yet_to_watch_movie_hook(payload) {
         retry: false,
 
         cacheTime: 0,
- 
+
 
     })
 }
@@ -124,27 +124,27 @@ function delete_from_yet_to_watch_hook() {
 
     return useMutation(
 
-      (payload) => axios_yet_to_watch_movie.delete(`/delete-one/${payload.user_id}/${payload.imdb_id}`),
+        (payload) => axios_yet_to_watch_movie.delete(`/delete-one/${payload.user_id}/${payload.imdb_id}`),
 
-      {
+        {
 
-        onSuccess: () => {
-          // show success toast
-          toast.success('The movie has been successfully removed from the Yet to Watch list');
-        },
+            onSuccess: () => {
+                // show success toast
+                toast.success('The movie has been successfully removed from the Yet to Watch list');
+            },
 
-        onError: (error) => {
-          // show error toast
-          const error_message = error.response.data.message;
-          toast.error(error_message);
-        },
+            onError: (error) => {
+                // show error toast
+                const error_message = error.response.data.message;
+                toast.error(error_message);
+            },
 
-      }
+        }
 
     )
 
- }
-  
+}
+
 
 
 
