@@ -8,14 +8,34 @@ import { Strategy as google_strategy } from 'passport-google-oauth20'
 export default function social_auth_setup_func(app) {
 
     
-    app.use(
-        cookieSession({
-            name: 'social_auth_session',
-            keys: [process.env.COOKIE_SESSION_KEY],
-            maxAge: 0.5 * 60 * 1000, // 30seconds is more than enough
-            httpOnly: true
-        })
-    )
+
+    if(process.env.NODE_ENV === 'development') {
+
+        app.use(
+            cookieSession({
+                name: 'social_auth_session',
+                keys: [process.env.COOKIE_SESSION_KEY],
+                maxAge: 1 * 60 * 1000, // 1 minute is more than enough
+                httpOnly: true
+            })
+        )
+
+    }
+
+    else {
+
+        app.use(
+            cookieSession({
+                name: 'social_auth_session',
+                keys: [process.env.COOKIE_SESSION_KEY],
+                maxAge: 1 * 60 * 1000, // 1 minute is more than enough
+                httpOnly: true,
+                domain: '.rasaf-ibrahim.com',
+            })
+        )
+
+    }
+
 
     app.use(passport.initialize());
     app.use(passport.session());
