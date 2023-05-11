@@ -15,6 +15,8 @@ import { toast } from "react-toastify";
 import {Box, Typography, Modal, Backdrop, Fade} from "@mui/material"
 
 
+
+
 export default function WAKE_UP_THE_SERVER() {
 
 
@@ -55,7 +57,7 @@ export default function WAKE_UP_THE_SERVER() {
   
         return () => clearTimeout(timer);
   
-      }, [isLoading])
+    }, [isLoading])
 
 
 
@@ -66,7 +68,7 @@ export default function WAKE_UP_THE_SERVER() {
           toast.success('Server has awoken up!')
         }
 
-    }, [isSuccess])
+    }, [isSuccess, show_message])
 
 
 

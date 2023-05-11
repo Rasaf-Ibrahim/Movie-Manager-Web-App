@@ -32,11 +32,11 @@ export function useWakeUpTheServer(searched_word) {
             return response.data
         },
 
-        enabled: true,
+        enabled: false,
 
         // refetch in specific situation
         refetchOnWindowFocus: true,
-        refetchOnMount: true,
+        refetchOnMount: 'always',
         refetchOnReconnect: true,
 
         // always refetch after 10 minutes so that while a user is using the application, the server doesn't go to sleep
