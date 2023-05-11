@@ -21,7 +21,7 @@ let social_auth_response = tryCatchAsync(async (req, res, next) => {
 
     if (!req.user) {
 
-        res.status(StatusCodes.NOT_FOUND).json({
+      return  res.status(StatusCodes.NOT_FOUND).json({
             status: "failed",
             message: "No user session found. You are not signed in. You need to sign in first to use this application."
         })
@@ -66,7 +66,7 @@ let social_auth_response = tryCatchAsync(async (req, res, next) => {
 
 
             // send a success response with the user data and access, refresh tokens
-            res.status(StatusCodes.CREATED).json({
+          return res.status(StatusCodes.CREATED).json({
                 status: "success",
                 message: 'User has been signed up successfully.',
                 user_info: user_document_without_sensitive_information,
@@ -84,7 +84,7 @@ let social_auth_response = tryCatchAsync(async (req, res, next) => {
 
         if (user_document.auth_provider === 'email') {
 
-            res.status(StatusCodes.CONFLICT).json({
+         return  res.status(StatusCodes.CONFLICT).json({
                 status: 'failed',
                 message: "An account already exist with your Google account's email. The account was created by using an email and a password. You need to sign in with that email and the valid password."
             })
@@ -124,7 +124,7 @@ let social_auth_response = tryCatchAsync(async (req, res, next) => {
 
 
         // send a success response with the user data and access, refresh tokens
-        res.status(StatusCodes.OK).json({
+       return res.status(StatusCodes.OK).json({
             status: 'success',
             message: 'User has been signed in successfully.',
             user_info: user_document_without_sensitive_information,
