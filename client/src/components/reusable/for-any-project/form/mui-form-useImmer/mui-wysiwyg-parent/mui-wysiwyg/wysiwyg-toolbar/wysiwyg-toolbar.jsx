@@ -19,36 +19,34 @@ import media_queries from "@/utils/media-queries/media-queries";
 
 
 // icons
-import {
-    ExpandMore,
-    ExpandLess,
-    UndoRounded,
-    RedoRounded,
-    FormatBoldRounded,
-    FormatItalicRounded,
-    FormatUnderlinedRounded,
-    FormatStrikethroughRounded,
-    FormatListNumberedRounded,
-    FormatListBulletedRounded,
-    FormatAlignLeftRounded,
-    FormatAlignRightRounded,
-    FormatAlignCenterRounded,
-    FormatAlignJustifyRounded,
-    FormatIndentDecreaseRounded,
-    FormatIndentIncreaseRounded,
-    FormatTextdirectionLToRRounded,
-    FormatTextdirectionRToLRounded,
-    FormatQuoteRounded,
-    CodeRounded,
-    FormatColorTextRounded,
-    FormatColorFillRounded,
-    LinkRounded,
-    ImageRounded,
-    YouTube,
-    SubscriptRounded,
-    SuperscriptRounded,
-    FormatClearRounded
-} from "@mui/icons-material";
+import ExpandMore from "@mui/icons-material/ExpandMore";
+import ExpandLess from "@mui/icons-material/ExpandLess";
+import UndoRounded from "@mui/icons-material/UndoRounded";
+import RedoRounded from "@mui/icons-material/RedoRounded";
+import FormatBoldRounded from "@mui/icons-material/FormatBoldRounded";
+import FormatItalicRounded from "@mui/icons-material/FormatItalicRounded";
+import FormatUnderlinedRounded from "@mui/icons-material/FormatUnderlinedRounded";
+import FormatStrikethroughRounded from "@mui/icons-material/FormatStrikethroughRounded";
+import FormatListNumberedRounded from "@mui/icons-material/FormatListNumberedRounded";
+import FormatListBulletedRounded from "@mui/icons-material/FormatListBulletedRounded";
+import FormatAlignLeftRounded from "@mui/icons-material/FormatAlignLeftRounded";
+import FormatAlignRightRounded from "@mui/icons-material/FormatAlignRightRounded";
+import FormatAlignCenterRounded from "@mui/icons-material/FormatAlignCenterRounded";
+import FormatAlignJustifyRounded from "@mui/icons-material/FormatAlignJustifyRounded";
+import FormatIndentDecreaseRounded from "@mui/icons-material/FormatIndentDecreaseRounded";
+import FormatIndentIncreaseRounded from "@mui/icons-material/FormatIndentIncreaseRounded";
+import FormatTextdirectionLToRRounded from "@mui/icons-material/FormatTextdirectionLToRRounded";
+import FormatTextdirectionRToLRounded from "@mui/icons-material/FormatTextdirectionRToLRounded";
+import FormatQuoteRounded from "@mui/icons-material/FormatQuoteRounded";
+import CodeRounded from "@mui/icons-material/CodeRounded";
+import FormatColorTextRounded from "@mui/icons-material/FormatColorTextRounded";
+import FormatColorFillRounded from "@mui/icons-material/FormatColorFillRounded";
+import LinkRounded from "@mui/icons-material/LinkRounded";
+import ImageRounded from "@mui/icons-material/ImageRounded";
+import YouTube from "@mui/icons-material/YouTube";
+import SubscriptRounded from "@mui/icons-material/SubscriptRounded";
+import SuperscriptRounded from "@mui/icons-material/SuperscriptRounded";
+import FormatClearRounded from "@mui/icons-material/FormatClearRounded";
 
 // components
 import { Button, Select, MenuItem, FormControl, IconButton, Tooltip, Box, Divider, Popover, Modal, TextField, Typography } from '@mui/material';
