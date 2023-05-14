@@ -11,15 +11,6 @@ import GitHub  from '@mui/icons-material/Github';
 export const footer_data = {
 
 
-    /* 🍪 */
-    basic: {
-
-        logo_component: LOGO___COMPONENT,
-
-        about: 'Search any movie, know details info of a movie, bookmark your favorite movie and more!',
-
-    },
-
 
     /* 🍪 */
     social_accounts: [
