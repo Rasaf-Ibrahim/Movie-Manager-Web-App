@@ -8,6 +8,8 @@ import { authAxios } from "./axios-instances/auth-axios";
 import { user_store } from '@/store/user-store';
 import produce from 'immer'
 
+// importing react-toastify
+import { toast } from "react-toastify";
 
 
 
