@@ -1,9 +1,7 @@
 import LOGO___COMPONENT from '@/components/reusable/just-for-this-project/logo/logo';
-import Facebook from "@mui/icons-material/Facebook";
-import Twitter from "@mui/icons-material/Twitter";
-import Instagram from "@mui/icons-material/Instagram";
-import LinkedIn from "@mui/icons-material/LinkedIn";
-import GitHub  from '@mui/icons-material/Github';
+import TwitterIcon from "@mui/icons-material/Twitter";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import GitHubIcon from '@mui/icons-material/Github';
 
 
 
@@ -15,17 +13,17 @@ export const footer_data = {
     /* 🍪 */
     social_accounts: [
         {
-            icon_component: Twitter,
+            icon_component: TwitterIcon,
             link: 'https://twitter.com/_Rasaf_Ibrahim'
         },
 
         {
-            icon_component: LinkedIn,
+            icon_component: LinkedInIcon,
             link: 'https://www.linkedin.com/in/rasaf-ibrahim'
         },
 
         {
-            icon_component: GitHub,
+            icon_component: GitHubIcon,
             link: 'https://github.com/Rasaf-Ibrahim'
         },
 
