@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useUpdateEffect } from 'react-use';
+import { useLogger, useUpdateEffect } from 'react-use';
 
 
 // api hook
@@ -23,8 +23,18 @@ export default function SERVER_HEALTH_CHECK___COMPONENT() {
 
 
     // 🍪  useServerHealthCheck hook
-    const { isLoading, isSuccess, failureCount } = useServerHealthCheck()
+    const { isFetching, isSuccess, isLoadingError, isRefetchError } = useServerHealthCheck()
 
+
+   // useLogger('isFetching', isFetching) // Is true whenever the queryFn is executing, which includes initial loading as well as background refetches.
+
+   useLogger('isFetching', isFetching)
+
+   useLogger('isSuccess', isSuccess)
+
+   useLogger('isLoadingError', isLoadingError)
+
+   useLogger('isRefetchError', isRefetchError)
 
 
     // 🍪 get the state properties 
@@ -47,7 +57,7 @@ export default function SERVER_HEALTH_CHECK___COMPONENT() {
     useUpdateEffect(() => {
 
         // server is down 
-        if (failureCount !== 0) {
+        if (isLoadingError || isRefetchError) {
 
             server_health_store.setState(produce((draft) => {
 
@@ -59,7 +69,7 @@ export default function SERVER_HEALTH_CHECK___COMPONENT() {
 
         }
 
-    }, [failureCount])
+    }, [isLoadingError, isRefetchError])
 
 
 
@@ -70,7 +80,7 @@ export default function SERVER_HEALTH_CHECK___COMPONENT() {
         const timer = setTimeout(() => {
 
             // server is sleeping
-            if (isLoading) {
+            if (isFetching) {
 
                 server_health_store.setState(produce((draft) => {
 
@@ -83,21 +93,21 @@ export default function SERVER_HEALTH_CHECK___COMPONENT() {
             }
 
 
-        }, 3000);
+        }, 5000);
 
 
         return () => clearTimeout(timer);
 
        
 
-    },[isLoading])
+    },[isFetching])
 
 
 
     // 🍪 server has awaken up from sleep or down state
     useUpdateEffect(() => {
 
-        if (isSuccess && (server_is_sleeping || server_is_down)) {
+        if (isSuccess &&  (server_is_sleeping || server_is_down)) {
 
             server_health_store.setState(produce((draft) => {
 
@@ -107,6 +117,9 @@ export default function SERVER_HEALTH_CHECK___COMPONENT() {
 
             }))
 
+
+            toast.success('The server is up and running')
+            
         }
 
     }, [isSuccess])
@@ -152,10 +165,6 @@ function SERVER_IS_DOWN_MODAL___SECTION({ server_is_down, server_is_running }) {
 
         else {
             setOpen(false)
-
-            if(server_is_running) {
-                toast.success('The server is up and running')
-            }
         }
 
     }, [server_is_down])
@@ -237,11 +246,6 @@ function SERVER_IS_SLEEPING_MODAL___SECTION({ server_is_sleeping, server_is_runn
 
         else {
             setOpen(false)
-
-            if(server_is_running) {
-                toast.success('The server is up and running')
-            }
-
         }
 
     }, [server_is_sleeping])

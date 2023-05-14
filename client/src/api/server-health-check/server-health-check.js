@@ -4,6 +4,7 @@ import axios from 'axios';
 // zustand store 
 import { server_health_store } from '@/store/server-health-store';
 
+
 // creating new axios instance
 export const axios_server_health_check = axios.create({
 
@@ -20,7 +21,6 @@ export const axios_server_health_check = axios.create({
 
 export function useServerHealthCheck() {
 
-
     // 🍪 get the state properties 
     const {
         server_is_sleeping,
@@ -33,7 +33,10 @@ export function useServerHealthCheck() {
         server_is_down: state?.server_is_down,
     }))
 
+
     return useQuery({
+
+
 
         queryKey: ["server_health_check"],
 
@@ -50,14 +53,19 @@ export function useServerHealthCheck() {
         
         enabled: true,
 
+        refetchOnMount: true,
+        refetchOnWindowFocus: true,
+        refetchOnReconnect: true,
 
-        refetchInterval: 60000, //1m, 
+        refetchInterval: 30000, //30 seconds,
 
+        refetchIntervalInBackground: true,
 
-        retry: true,
+        retry: false,
 
+        retryOnMount: false,
 
-        cacheTime: 0,
+        //cacheTime
     })
 
 }
