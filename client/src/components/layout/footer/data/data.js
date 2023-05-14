@@ -1,7 +1,7 @@
 import LOGO___COMPONENT from '@/components/reusable/just-for-this-project/logo/logo';
 import TwitterIcon from "@mui/icons-material/Twitter";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import GitHubIcon from '@mui/icons-material/Github';
+import GitHubIcon from '@mui/icons-material/GitHub';
 
 
 
