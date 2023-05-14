@@ -10,7 +10,8 @@ import 'react-toastify/dist/ReactToastify.css';
 // useTheme hook
 import { useTheme } from '@mui/material/styles';
 import NETWORK_STATUS___COMPONENT from "@/components/reusable/for-any-project/network-status/network-status";
-import WAKE_UP_THE_SERVER from "./components/reusable/for-any-project/wake-up-the-server/wake-up-the-server";
+import SERVER_HEALTH_CHECK___COMPONENT from "./components/reusable/for-any-project/server-health/server-health-check";
+
 
 
 /*-------------------------------------------------------------------
@@ -30,8 +31,8 @@ export default function App() {
 
 
             <NETWORK_STATUS___COMPONENT />
-
-            <WAKE_UP_THE_SERVER/>
+             
+            <SERVER_HEALTH_CHECK___COMPONENT/>
 
 
             {/*🚀 ToastContainer */}
