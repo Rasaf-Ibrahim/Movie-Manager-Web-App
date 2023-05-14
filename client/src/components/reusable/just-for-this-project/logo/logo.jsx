@@ -92,7 +92,7 @@ export default function LOGO___COMPONENT(props) {
             }}>
 
 
-                <Typography sx={{
+                <Box sx={{
                     fontFamily: "'Lobster Two', 'cursive'",
                     fontSize: '11px',
                     lineHeight: '0.7'
@@ -101,7 +101,7 @@ export default function LOGO___COMPONENT(props) {
                     <Box>Rasaf's</Box>
                     <Box>&nbsp; Project</Box>
 
-                </Typography>
+                </Box>
 
 
                 <Typography
