@@ -23,7 +23,7 @@ export default function SERVER_HEALTH_CHECK___COMPONENT() {
 
 
     // 🍪  useServerHealthCheck hook
-    const { isLoading, isSuccess, isError } = useServerHealthCheck()
+    const { isLoading, isSuccess, failureCount } = useServerHealthCheck()
 
 
 
@@ -47,7 +47,7 @@ export default function SERVER_HEALTH_CHECK___COMPONENT() {
     useUpdateEffect(() => {
 
         // server is down 
-        if (isError) {
+        if (failureCount !== 0) {
 
             server_health_store.setState(produce((draft) => {
 
@@ -59,7 +59,7 @@ export default function SERVER_HEALTH_CHECK___COMPONENT() {
 
         }
 
-    }, [isError])
+    }, [failureCount])
 
 
 
