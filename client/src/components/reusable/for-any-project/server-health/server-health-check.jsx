@@ -1,30 +1,46 @@
-// hook
 import { useState } from 'react';
 import { useUpdateEffect } from 'react-use';
-import { useImmer } from 'use-immer';
+
 
 // api hook
 import { useServerHealthCheck } from '@/api/server-health-check/server-health-check';
 
-// react-toastify
+// zustand store & immer
+import { server_health_store } from '@/store/server-health-store';
+import produce from 'immer'
+
+
+//  react-toastify
 import { toast } from "react-toastify";
 
-
 // components
-import { Box, Typography, Modal, Backdrop, Fade } from "@mui/material";
+import { Box, Typography, Modal, Backdrop, Fade } from "@mui/material"
+
+
 
 
 export default function SERVER_HEALTH_CHECK___COMPONENT() {
 
-    // 🍪  useServerHealthCheck hook
-    const { isLoading, isSuccess, isError } = useServerHealthCheck();
 
-    // 🍪 create the state using useImmer hook
-    const [serverHealth, updateServerHealth] = useImmer({
-        server_is_running: true,
-        server_is_sleeping: false,
-        server_is_down: false
-    })
+    // 🍪  useServerHealthCheck hook
+    const { isLoading, isSuccess, isError } = useServerHealthCheck()
+
+
+
+    // 🍪 get the state properties 
+    const {
+        server_is_sleeping,
+        server_is_running,
+        server_is_down
+    } = server_health_store(state => ({
+
+        server_is_sleeping: state?.server_is_sleeping,
+        server_is_running: state?.server_is_running,
+        server_is_down: state?.server_is_down,
+    }))
+
+
+
 
 
     // 🍪 checking whether the server is down 
@@ -33,20 +49,22 @@ export default function SERVER_HEALTH_CHECK___COMPONENT() {
         // server is down 
         if (isError) {
 
-            updateServerHealth(draft => {
-                draft.server_is_running = false;
-                draft.server_is_sleeping = false;
-                draft.server_is_down = true;
-            });
+            server_health_store.setState(produce((draft) => {
+
+                draft.server_is_running = false
+                draft.server_is_sleeping = false
+                draft.server_is_down = true
+
+            }))
 
         }
 
-    }, [isError]);
+    }, [isError])
 
 
 
     // 🍪 checking whether the server is sleeping  
-    useUpdateEffect(() => {
+    useUpdateEffect(()=> {
 
 
         const timer = setTimeout(() => {
@@ -54,11 +72,13 @@ export default function SERVER_HEALTH_CHECK___COMPONENT() {
             // server is sleeping
             if (isLoading) {
 
-                updateServerHealth(draft => {
-                    draft.server_is_running = false;
-                    draft.server_is_sleeping = true;
-                    draft.server_is_down = false;
-                });
+                server_health_store.setState(produce((draft) => {
+
+                    draft.server_is_running = false
+                    draft.server_is_sleeping = true
+                    draft.server_is_down = false
+
+                }))
 
             }
 
@@ -68,26 +88,28 @@ export default function SERVER_HEALTH_CHECK___COMPONENT() {
 
         return () => clearTimeout(timer);
 
+       
 
-
-    }, [isLoading]);
+    },[isLoading])
 
 
 
     // 🍪 server has awaken up from sleep or down state
     useUpdateEffect(() => {
 
-        if (isSuccess && (serverHealth.server_is_sleeping || serverHealth.server_is_down)) {
+        if (isSuccess && (server_is_sleeping || server_is_down)) {
 
-            updateServerHealth(draft => {
-                draft.server_is_running = true;
-                draft.server_is_sleeping = false;
-                draft.server_is_down = false;
-            });
+            server_health_store.setState(produce((draft) => {
+
+                draft.server_is_running = true
+                draft.server_is_sleeping = false
+                draft.server_is_down = false
+
+            }))
 
         }
 
-    }, [isSuccess]);
+    }, [isSuccess])
 
 
 
@@ -96,14 +118,14 @@ export default function SERVER_HEALTH_CHECK___COMPONENT() {
         <>
 
             <SERVER_IS_DOWN_MODAL___SECTION 
-                server_is_down={serverHealth.server_is_down}
-                server_is_running = {serverHealth.server_is_running}
+                server_is_down={server_is_down}
+                server_is_running = {server_is_running}
             />
 
 
             <SERVER_IS_SLEEPING_MODAL___SECTION                  
-                server_is_sleeping={serverHealth.server_is_sleeping}
-                server_is_running ={serverHealth.server_is_running} 
+                server_is_sleeping={server_is_sleeping}
+                server_is_running ={server_is_running} 
             
             />
 
@@ -280,6 +302,4 @@ function SERVER_IS_SLEEPING_MODAL___SECTION({ server_is_sleeping, server_is_runn
         </Box>
     )
 }
-
-
 
