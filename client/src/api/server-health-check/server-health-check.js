@@ -1,9 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 
-// zustand store 
-import { server_health_store } from '@/store/server-health-store';
-
 
 // creating new axios instance
 export const axios_server_health_check = axios.create({
@@ -21,17 +18,6 @@ export const axios_server_health_check = axios.create({
 
 export function useServerHealthCheck() {
 
-    // 🍪 get the state properties 
-    const {
-        server_is_sleeping,
-        server_is_running,
-        server_is_down
-    } = server_health_store(state => ({
-
-        server_is_sleeping: state?.server_is_sleeping,
-        server_is_running: state?.server_is_running,
-        server_is_down: state?.server_is_down,
-    }))
 
 
     return useQuery({

@@ -1,157 +1,145 @@
-import { useState } from 'react';
-import { useLogger, useUpdateEffect } from 'react-use';
-
+// hook
+import { useEffect, useState } from "react";
+import { useUpdateEffect } from "react-use";
+import { useImmer } from "use-immer";
 
 // api hook
-import { useServerHealthCheck } from '@/api/server-health-check/server-health-check';
-
-// zustand store & immer
-import { server_health_store } from '@/store/server-health-store';
-import produce from 'immer'
+import { useServerHealthCheck } from "@/api/server-health-check/server-health-check";
 
 
 //  react-toastify
 import { toast } from "react-toastify";
 
 // components
-import { Box, Typography, Modal, Backdrop, Fade } from "@mui/material"
+import { Box, Typography, Modal, Backdrop, Fade } from "@mui/material";
 
 
 
 
+/*-------------------------------------------------------------------
+ ✅ Functional Component 
+----------------------------------------------------------------------*/
 export default function SERVER_HEALTH_CHECK___COMPONENT() {
 
 
-    // 🍪  useServerHealthCheck hook
-    const { isFetching, isSuccess, isLoadingError, isRefetchError } = useServerHealthCheck()
-
-
-   // useLogger('isFetching', isFetching) // Is true whenever the queryFn is executing, which includes initial loading as well as background refetches.
-
-   useLogger('isFetching', isFetching)
-
-   useLogger('isSuccess', isSuccess)
-
-   useLogger('isLoadingError', isLoadingError)
-
-   useLogger('isRefetchError', isRefetchError)
-
-
-    // 🍪 get the state properties 
-    const {
-        server_is_sleeping,
-        server_is_running,
-        server_is_down
-    } = server_health_store(state => ({
-
-        server_is_sleeping: state?.server_is_sleeping,
-        server_is_running: state?.server_is_running,
-        server_is_down: state?.server_is_down,
-    }))
+  // 🍪  useServerHealthCheck hook
+  const {
+    refetch,
+    isFetching,
+    isSuccess,
+    isError,
+  } = useServerHealthCheck();
 
 
 
-
-
-    // 🍪 checking whether the server is down 
-    useUpdateEffect(() => {
-
-        // server is down 
-        if (isLoadingError || isRefetchError) {
-
-            server_health_store.setState(produce((draft) => {
-
-                draft.server_is_running = false
-                draft.server_is_sleeping = false
-                draft.server_is_down = true
-
-            }))
-
-        }
-
-    }, [isLoadingError, isRefetchError])
+  // 🍪 get the state properties and updater function using useImmer hook
+  const [server_health_state, update_server_health_state] = useImmer({
+    server_is_running: true,
+    server_is_sleeping: false,
+    server_is_down: false
+  })
 
 
 
-    // 🍪 checking whether the server is sleeping  
-    useUpdateEffect(()=> {
+  // 🍪 checking whether the server is down
+  useUpdateEffect(() => {
+
+    if (isError) {
+
+      update_server_health_state(draft => {
+
+        draft.server_is_running = false;
+        draft.server_is_sleeping = false;
+        draft.server_is_down = true;
+
+      })
+    }
 
 
-        const timer = setTimeout(() => {
+    else if(!isError && isSuccess) {
 
-            // server is sleeping
-            if (isFetching) {
+        update_server_health_state(draft => {
 
-                server_health_store.setState(produce((draft) => {
+            draft.server_is_running = true;
+            draft.server_is_sleeping = false;
+            draft.server_is_down = false;
 
-                    draft.server_is_running = false
-                    draft.server_is_sleeping = true
-                    draft.server_is_down = false
+        })
 
-                }))
+    }
 
-            }
-
-
-        }, 5000);
-
-
-        return () => clearTimeout(timer);
-
-       
-
-    },[isFetching])
-
-
-
-    // 🍪 server has awaken up from sleep or down state
-    useUpdateEffect(() => {
-
-        if (isSuccess &&  (server_is_sleeping || server_is_down)) {
-
-            server_health_store.setState(produce((draft) => {
-
-                draft.server_is_running = true
-                draft.server_is_sleeping = false
-                draft.server_is_down = false
-
-            }))
-
-
-            toast.success('The server is up and running')
-            
-        }
-
-    }, [isSuccess])
+  }, [isError])
 
 
 
-    return (
-
-        <>
-
-            <SERVER_IS_DOWN_MODAL___SECTION 
-                server_is_down={server_is_down}
-                server_is_running = {server_is_running}
-            />
 
 
-            <SERVER_IS_SLEEPING_MODAL___SECTION                  
-                server_is_sleeping={server_is_sleeping}
-                server_is_running ={server_is_running} 
-            
-            />
 
-        </>
-    )
+  // 🍪 checking whether the server is sleeping
+  useEffect(() => {
+
+
+    const timer = setTimeout(() => {
+
+      // server is sleeping
+      if (isFetching) {
+        update_server_health_state(draft => {
+          draft.server_is_running = false;
+          draft.server_is_sleeping = true;
+          draft.server_is_down = false;
+        })
+      }
+
+    }, 3000)
+
+
+    if(!isFetching && isSuccess) {
+
+        update_server_health_state(draft => {
+            draft.server_is_running = true;
+            draft.server_is_sleeping = false;
+            draft.server_is_down = false;
+        })
+
+    }
+
+
+    return () => clearTimeout(timer)
+
+
+  }, [isFetching])
+
+
+
+
+
+/*-------------------------------------------------------------------
+ ✅ JSX
+----------------------------------------------------------------------*/
+  return (
+
+    <>
+
+      <SERVER_IS_DOWN_MODAL___SECTION
+        server_is_down={server_health_state.server_is_down}
+        isSuccess={isSuccess}
+      />
+
+
+      <SERVER_IS_SLEEPING_MODAL___SECTION
+        server_is_sleeping={server_health_state.server_is_sleeping}
+        isSuccess={isSuccess}
+      />
+
+    </>
+  )
 
 }
 
 
 
-
 // 🍪
-function SERVER_IS_DOWN_MODAL___SECTION({ server_is_down, server_is_running }) {
+function SERVER_IS_DOWN_MODAL___SECTION({ server_is_down, isSuccess }) {
 
 
     const [open, setOpen] = useState(server_is_down);
@@ -165,6 +153,12 @@ function SERVER_IS_DOWN_MODAL___SECTION({ server_is_down, server_is_running }) {
 
         else {
             setOpen(false)
+
+            if(isSuccess) {
+                toast.success("The server is up and running")
+            }
+
+
         }
 
     }, [server_is_down])
@@ -232,7 +226,7 @@ function SERVER_IS_DOWN_MODAL___SECTION({ server_is_down, server_is_running }) {
 
 
 // 🍪
-function SERVER_IS_SLEEPING_MODAL___SECTION({ server_is_sleeping, server_is_running }) {
+function SERVER_IS_SLEEPING_MODAL___SECTION({ server_is_sleeping, isSuccess }) {
 
 
     const [open, setOpen] = useState(server_is_sleeping);
@@ -246,6 +240,11 @@ function SERVER_IS_SLEEPING_MODAL___SECTION({ server_is_sleeping, server_is_runn
 
         else {
             setOpen(false)
+
+            
+            if(isSuccess) {
+                toast.success("The server is up and running")
+            }
         }
 
     }, [server_is_sleeping])

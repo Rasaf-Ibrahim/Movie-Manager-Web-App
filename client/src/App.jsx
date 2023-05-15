@@ -10,7 +10,7 @@ import 'react-toastify/dist/ReactToastify.css';
 // useTheme hook
 import { useTheme } from '@mui/material/styles';
 import NETWORK_STATUS___COMPONENT from "@/components/reusable/for-any-project/network-status/network-status";
-import SERVER_HEALTH_CHECK___COMPONENT from "./components/reusable/for-any-project/server-health/server-health-check";
+import SERVER_HEALTH_CHECK___COMPONENT from "./components/reusable/for-any-project/server-health-check/server-health-check";
 
 
 
