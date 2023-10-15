@@ -3,7 +3,7 @@
  ✅ import 
 ____________________________________________*/
 // types
-import { type_of_obj_with_any_values, type_of_single_element_jsx } from "../../../../types/commonly-used-types"
+import { type_of_obj_with_any_values, type_of_single_element_jsx } from "@/types/commonly-used-types"
 
 // nanoid
 import { nanoid } from "nanoid";

@@ -7,7 +7,7 @@ ____________________________________________*/
 import { nanoid } from 'nanoid'
 
 // types
-import { type_of_obj_with_any_values } from "../../../../types/commonly-used-types"
+import { type_of_obj_with_any_values } from "@/types/commonly-used-types"
 
 // hook
 import { useState, useEffect, useRef } from "react";

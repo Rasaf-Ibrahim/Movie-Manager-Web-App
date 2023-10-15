@@ -4,7 +4,7 @@
 ____________________________________________*/
 
 // types
-import { type_of_obj_with_any_values } from '../../../../types/commonly-used-types'
+import { type_of_obj_with_any_values } from '@/types/commonly-used-types'
 
 // react query
 import { useMutation } from '@tanstack/react-query';
