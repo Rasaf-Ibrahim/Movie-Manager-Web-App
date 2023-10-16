@@ -7,7 +7,7 @@ ____________________________________________*/
 // component
 import DYNAMIC___LAYOUT from "@/components/layouts/dynamic-layout/dynamic-layout";
 import LOADING_SPINNER___COMPONENT from "@/components/reusable/for-any-project/loading-spinner/loading-spinner";
-import ROUTE_PROTECTION___COMPONENT from "@/utils/route/protection/route-protection";
+import ROUTE_PROTECTION___COMPONENT from "@/utils/route/protection/route-protection"
 
 
 // dynamic component import

@@ -1,4 +1,3 @@
-
 /*__________________________________________
 
  ✅ import 
@@ -7,7 +6,7 @@ ____________________________________________*/
 // component
 import DYNAMIC___LAYOUT from "@/components/layouts/dynamic-layout/dynamic-layout"
 import LOADING_SPINNER___COMPONENT from "@/components/reusable/for-any-project/loading-spinner/loading-spinner"
-
+import ROUTE_PROTECTION___COMPONENT from "@/utils/route/protection/route-protection"
 
 
 // dynamic component import
@@ -40,12 +39,18 @@ export default function SERIES___PAGE() {
 
     return (
 
-        <DYNAMIC___LAYOUT 
-            auth_layout={true}
-            no_navigation_drawer={true}>
+        <ROUTE_PROTECTION___COMPONENT
+            can_access="signed_in_and_verified_user"
+        >
 
-            <SERIES___COMPONENT />
+            <DYNAMIC___LAYOUT 
+                auth_layout={true}
+                no_navigation_drawer={true}>
 
-        </DYNAMIC___LAYOUT>
+                <SERIES___COMPONENT />
+
+            </DYNAMIC___LAYOUT>
+
+        </ROUTE_PROTECTION___COMPONENT>
     )
 }
