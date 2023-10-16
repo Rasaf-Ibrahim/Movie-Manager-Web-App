@@ -360,9 +360,13 @@ const handle_oauth_sign_in_or_up = tryCatchAsync(async (req: Request, res: Respo
 
 
 
-    // 🥪 if the user exists but with a different provider, we need to send success response with access token and user info 
+    // 🥪 if the user exists and uses the same provider to log in, we need to send a success response with access token and user info 
     else if (user_document && user_document.auth_provider === oauth_user_info.auth_provider) {
 
+        // 🍔 Update last_signed_in_unix_timestamp and last_access_unix_timestamp for existing user
+        user_document.last_signed_in_unix_timestamp = String(Date.now())
+        user_document.last_access_unix_timestamp = String(Date.now())
+        await user_document.save()
 
 
         // 🍔 Send a new access token

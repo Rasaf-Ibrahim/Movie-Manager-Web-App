@@ -69,6 +69,17 @@ const sign_in_required = tryCatchAsync(async (req: any, res: Response, next: Nex
 
     if (!authorized_user) {
 
+        // Clearing invalid cookies from the user's browser
+        clear_cookie({
+            res:res,
+            cookie_name:'user_info'
+        })
+    
+        clear_cookie({
+            res:res,
+            cookie_name:'access_token'
+        })
+
         return error_response({
             next: next,
             status_code: StatusCodes.NOT_FOUND,
@@ -88,6 +99,17 @@ const sign_in_required = tryCatchAsync(async (req: any, res: Response, next: Nex
 
     if (seven_days_or_more_have_passed) {
 
+        // Clearing invalid cookies from the user's browser
+        clear_cookie({
+            res:res,
+            cookie_name:'user_info'
+        })
+    
+        clear_cookie({
+            res:res,
+            cookie_name:'access_token'
+        })
+
         return error_response({
             next: next,
             status_code: StatusCodes.FORBIDDEN,
@@ -106,10 +128,7 @@ const sign_in_required = tryCatchAsync(async (req: any, res: Response, next: Nex
         3. Send another cookie with user info 
         4. Create req.user because we will need that in the next middleware or controller
         5. Call the next() to go to next middleware
-
-
     */
-
 
 
     // 🍔 Update the user's last access unix timestamp 
