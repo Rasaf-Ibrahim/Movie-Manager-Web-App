@@ -17,7 +17,8 @@ import user_model from '../models/user-model.js'
 import tryCatchAsync from '../error-handlers/try-catch-async.js'
 import error_response from '../error-handlers/error-response/error-response.js'
 import config_obj from '../config/index.js'
-import send_cookie from '../utils/send-cookie/send-cookie.js'
+import clear_cookie from '../utils/cookie/clear-cookie.js'
+import send_cookie from '../utils/cookie/send-cookie.js'
 
 
 
@@ -44,7 +45,10 @@ const sign_in_required = tryCatchAsync(async (req: any, res: Response, next: Nex
     if (!token) {
 
         // first make sure that browser still doesn't have "user_info" cookie, otherwise frontend route protection will be compromised!
-        res.clearCookie('user_info')
+        clear_cookie({
+            res:res,
+            cookie_name:'user_info'
+        })
 
         // then send json response and return
         return error_response({

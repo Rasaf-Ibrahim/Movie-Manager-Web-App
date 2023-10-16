@@ -22,7 +22,8 @@ import user_model from "../../models/user-model.js"
 
 
 // utils
-import send_cookie from "../../utils/send-cookie/send-cookie.js"
+import send_cookie from "../../utils/cookie/send-cookie.js"
+import clear_cookie from "../../utils/cookie/clear-cookie.js"
 import success_response from "../../utils/success-response/success-response.js"
 import generate_unique_username from "../../utils/username/generate-unique-username.js"
 
@@ -342,7 +343,10 @@ const handle_oauth_sign_in_or_up = tryCatchAsync(async (req: Request, res: Respo
 
 
         // 🍔 Delete 'oauth_user_info' cookie
-        res.clearCookie('oauth_user_info')
+        clear_cookie({
+            res:res,
+            cookie_name:'oauth_user_info'
+        })
 
 
         // 🍔 sending error response
@@ -378,7 +382,10 @@ const handle_oauth_sign_in_or_up = tryCatchAsync(async (req: Request, res: Respo
 
 
         // 🍔 Delete 'oauth_user_info' cookie
-        res.clearCookie('oauth_user_info')
+        clear_cookie({
+            res:res,
+            cookie_name:'oauth_user_info'
+        })
 
 
 
@@ -437,7 +444,10 @@ const handle_oauth_sign_in_or_up = tryCatchAsync(async (req: Request, res: Respo
         })
 
         // 🍔 Delete 'oauth_user_info' cookie
-        res.clearCookie('oauth_user_info')
+        clear_cookie({
+            res:res,
+            cookie_name:'oauth_user_info'
+        })
 
 
         // 🍔 send a success response with the user data and access token

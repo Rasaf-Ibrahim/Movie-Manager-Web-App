@@ -23,7 +23,7 @@ import user_model from '../models/user-model.js'
 
 // utils
 import prepare_mongoose_query_params from '../utils/fetch-helpers/prepare-mongoose-query-params/prepare-mongoose-query-params.js'
-import send_cookie from '../utils/send-cookie/send-cookie.js'
+import send_cookie from '../utils/cookie/send-cookie.js'
 import success_response from '../utils/success-response/success-response.js'
 import { success_response_for_fetch_all_request } from '../utils/fetch-helpers/success-response-for-fetch-all-request.js'
 import is_the_username_unique from '../utils/username/is_the_username_unique.js'
