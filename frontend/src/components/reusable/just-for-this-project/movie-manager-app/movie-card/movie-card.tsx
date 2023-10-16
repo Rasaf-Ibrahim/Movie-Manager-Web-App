@@ -8,6 +8,8 @@ import React from 'react'
 
 // hook
 import { useState } from "react"
+import { useTheme } from '@mui/material/styles'
+
 
 // icons
 import DateRangeIcon from '@mui/icons-material/DateRange'
@@ -241,20 +243,20 @@ function WRAPPER_OF_ALL_CARDS___STYLED({children}) {
 
 function WRAPPER_OF_A_CARD___STYLED({children, ...props}) {
 
+    const theme = useTheme()
+
     return (
 
         <Box 
             sx={{
 
                 width: '17rem',
-             
-                
-                boxShadow: `0 1px 3px rgba(0,0,0,0.10), 0 1px 2px rgba(0,0,0,0.20)`,
-
-    
+            
+                boxShadow: theme.palette.mode === 'dark' ? `0px 1px 5px 1px rgba(255,255,255,0.06)` : `0px 1px 3px 1px rgba(0,0,0,0.10)`,
+            
                 borderRadius: '0.3rem',
 
-                /* here, position is relative because we want the 'card_image_wrapper_css' position to be absolute */
+                /* here, position is relative because we want the "WRAPPER_OF_CARD_IMAGE___STYLED" to be absolute positioned*/
                 position: 'relative',
             }}
 
@@ -349,6 +351,9 @@ function MOVIE_TITLE___STYLED ({children}) {
 
 
 function WRAPPER_OF_MOVIE_INFO___STYLED({ children }) {
+
+    const theme = useTheme()
+
     return (
         <Box sx={{
             display: 'grid',
@@ -358,7 +363,7 @@ function WRAPPER_OF_MOVIE_INFO___STYLED({ children }) {
             textAlign: 'center',
             padding: '0.5rem',
             borderRadius: '0.5rem',
-            boxShadow: `0 0 3px rgba(0,0,0,0.12), 0 0 3px rgba(0,0,0,0.24)`
+            boxShadow: theme.palette.mode === 'dark' ? `0px 1px 2px 1px rgba(255,255,255,0.05)` : `0px 1px 2px 1px rgba(0,0,0,0.08)`
         }}>
             {children}
         </Box>
