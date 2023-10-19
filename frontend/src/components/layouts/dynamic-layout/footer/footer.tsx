@@ -62,10 +62,10 @@ export default function DYNAMIC_FOOTER___COMPONENT(props: type_of_dynamic_footer
         <CONTAINER___STYLED
 
             elevation={{
-                light: { value: 4 },
-                dark: { value: 4 },
+                light: { value: 2 },
+                dark: { value: 2 },
             }}
-            background_color={{ light: 1, dark: 1 }}
+            background_color={{ light: 0, dark: 0 }}
         >
 
             {Object.keys(footer_data).length !== 0 ?

@@ -56,15 +56,15 @@ export default function HEADER_1___COMPONENT() {
         <CONTAINER___STYLED
             elevation={{
                 light: {
-                    value: 2
+                    value: 1
                 },
                 dark: {
-                    value: 2,
+                    value: 1,
                     inset: true
                 },
             }}
 
-            background_color={{ light: 1, dark: 1 }}>
+            background_color={{ light: 0, dark: 0 }}>
 
             <CALL_TO_ACTION_SECTION___STYLED>
 
