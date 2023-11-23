@@ -29,7 +29,7 @@ import responsiveSpacing from '@/styles/css-utils/responsive-spacing';
 // components
 import { Typography, Button } from '@mui/material';
 
-import SVG_ILLUSTRATION_HEADER___COMPONENT from './_svg_illustration-header';
+import SVG_ILLUSTRATION_HEADER___COMPONENT from './_svg_illustration-hero';
 
 
 
@@ -39,7 +39,7 @@ import SVG_ILLUSTRATION_HEADER___COMPONENT from './_svg_illustration-header';
 
  ✅ Functional Component 
 ____________________________________________*/
-export default function HEADER_1___COMPONENT() {
+export default function HERO___COMPONENT() {
 
 
     // 🍪 get the state properties 
@@ -144,7 +144,7 @@ export default function HEADER_1___COMPONENT() {
 /*__________________________________________
 
 ✅ Styled Components for 
-<HEADER_1___COMPONENT/>
+<HERO___COMPONENT/>
 ____________________________________________*/
 
 
