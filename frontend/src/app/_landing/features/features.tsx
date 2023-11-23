@@ -9,18 +9,12 @@ import React from "react"
 import Box from "@mui/material/Box"
 import Typography from "@mui/material/Typography"
 import Grid from "@mui/material/Grid"
-import Card from "@mui/material/Card"
-import Button from "@mui/material/Button"
 import Avatar from "@mui/material/Avatar"
 import { alpha, useTheme } from "@mui/material/styles"
 import SearchIcon from "@mui/icons-material/Search"
 import TrendingUpIcon from "@mui/icons-material/TrendingUp"
 import StarRateIcon from "@mui/icons-material/StarRate"
 import BookmarkBorderIcon from "@mui/icons-material/BookmarkBorder"
-import CategoryIcon from "@mui/icons-material/Category"
-import RateReviewIcon from "@mui/icons-material/RateReview"
-import RecommendIcon from "@mui/icons-material/Recommend"
-import TouchAppIcon from "@mui/icons-material/TouchApp"
 import { colors } from "@mui/material"
 
 /*__________________________________________
@@ -29,7 +23,7 @@ import { colors } from "@mui/material"
 ____________________________________________*/
 const data = [
   {
-    color: colors.blue[500], // You can choose colors that match your app theme
+    color: colors.blue[500],
     title: "Search Functionality",
     subtitle: "Find any movie or series instantly with our powerful search.",
     icon: <SearchIcon />,
@@ -50,9 +44,9 @@ const data = [
     color: colors.deepOrange[500],
     title: "Bookmark Organization",
     subtitle:
-      "Keep your watchlist organized by sorting your bookmarks into categories.",
+      "Categorize your bookmarks with ease into favorites, watchlist, and watched, for streamlined navigation and organization.",
     icon: <BookmarkBorderIcon />,
-  }
+  },
 ]
 
 /*__________________________________________
@@ -60,14 +54,13 @@ const data = [
  ✅ Functional Component 
 ____________________________________________*/
 export default function FEATURES___COMPONENT() {
-    
   const theme = useTheme()
 
   return (
     <Box
       sx={{
         padding: { xs: "1rem", lg: "2rem" },
-        backgroundColor: theme.palette.background.default
+        backgroundColor: theme.palette.background.default,
       }}
     >
       <Grid container spacing={4}>
